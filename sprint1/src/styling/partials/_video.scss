@@ -1,32 +1,30 @@
 .video {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   position: relative;
   &__frame {
-    height: 400px;
+    min-height: 200px;
+    height: 45vw;
     width: 100%;
     object-fit: cover;
   }
+
   &__controls {
     width: 100%;
-    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     position: absolute;
     bottom: 15px;
 
-    $scrubHeight: 10px;
+    //Variables
+    $scrubHeight: 7.5px;
     $buttonHeight: calc(5 *#{$scrubHeight}); //TODO refactor out this
 
     button,
     .scrubBar {
       height: $buttonHeight;
-      margin: 0px 10px;
-      width: 15%;
+      width: calc(#{$buttonHeight} * 1.5);
       background-repeat: no-repeat;
       background-position: center;
-      background-size: contain;
+      // background-size: calc(0.75 * #{$buttonHeight});
       border-radius: 4px;
       border: none;
       background-color: rgba(black, 0.55);
@@ -37,14 +35,18 @@
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
+      margin-right: 8px;
 
+      width: 100%; //Scrub bar grows to fill space was we scale
       &__timeline {
         background-color: black;
         height: $scrubHeight;
-        width: 80%;
+        width: 90%;
         position: relative;
       }
       &__scrub {
+        // not shown on mockups currently - hidden
+        display: none;
         background-image: url("../assets/Icons/SVG/Icon-scrubber-control.svg");
         background-size: contain;
         position: relative;
@@ -57,15 +59,18 @@
     }
     .play {
       background-image: url("../assets/Icons/SVG/Icon-play.svg");
+      margin: 0px 8px 0px 16px;
     }
 
     .fullscreen {
       background-image: url("../assets/Icons/SVG/Icon-fullscreen.svg");
       opacity: 1;
+      margin-left: auto; // Force to be stuck to volume button
     }
 
     .volume {
       background-image: url("../assets/Icons/SVG/Icon-volume.svg");
+      margin-right: 16px;
     }
   }
 }
