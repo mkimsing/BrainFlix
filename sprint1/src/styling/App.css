@@ -105,7 +105,7 @@ header {
   min-width: 48px;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 768px) {
   header {
     margin: 16px 24px 16px 24px;
   }
@@ -151,18 +151,26 @@ header {
 
 .video {
   position: relative;
+  background-color: black;
+  height: 45vw;
+  width: 100%;
+  min-height: 200px;
+}
+
+.video__container {
+  height: inherit;
+  min-height: inherit;
 }
 
 .video__frame {
-  min-height: 200px;
-  height: 45vw;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  height: 100%;
+  min-height: inherit;
 }
 
 .video__controls {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -171,14 +179,16 @@ header {
           justify-content: space-between;
   position: absolute;
   bottom: 15px;
+  width: 100%;
+  height: calc(5 *3%);
 }
 
 .video__controls button,
 .video__controls .scrubBar {
-  height: calc(5 *7.5px);
-  width: calc(calc(5 *7.5px) * 1.5);
+  width: 65px;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 35%;
   border-radius: 4px;
   border: none;
   background-color: rgba(0, 0, 0, 0.55);
@@ -202,7 +212,7 @@ header {
 
 .video__controls .scrubBar__timeline {
   background-color: black;
-  height: 7.5px;
+  height: 12%;
   width: 90%;
   position: relative;
 }
@@ -212,11 +222,15 @@ header {
   background-image: url("../assets/Icons/SVG/Icon-scrubber-control.svg");
   background-size: contain;
   position: relative;
-  height: calc(3 * 7.5px);
-  width: calc(3 * 7.5px);
-  bottom: calc(2 / 3 * 7.5px);
-  left: -6px;
+  height: calc(3 * 3%);
+  width: calc(3 * 3%);
+  bottom: calc(2 / 3 * 3%);
+  left: -2.4%;
   z-index: 2;
+}
+
+.video__controls .scrubBar__time {
+  display: none;
 }
 
 .video__controls .play {
@@ -233,5 +247,62 @@ header {
 .video__controls .volume {
   background-image: url("../assets/Icons/SVG/Icon-volume.svg");
   margin-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .video__container {
+    margin: 0px 24px;
+  }
+  .video__controls {
+    height: 10%;
+    width: calc(100% - 48px);
+  }
+  .video__controls .scrubBar__timeline {
+    width: calc(100% - 100px);
+    margin-left: 16px;
+  }
+  .video__controls .scrubBar__time {
+    margin-left: 16px;
+    margin-right: 16px;
+    font-size: 10px;
+    display: inline-block;
+    color: white;
+  }
+  .video__controls .play {
+    margin-left: 8px;
+    margin-right: 16px;
+  }
+  .video__controls .fullscreen {
+    margin-left: 16px;
+  }
+  .video__controls .volume {
+    margin-right: 8px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .video__container {
+    margin-left: 168px;
+    margin-right: 168px;
+  }
+  .video__controls {
+    height: 6%;
+    width: calc(100% - 336px);
+  }
+  .video__controls .scrubBar__timeline {
+    width: calc( 100% - 100px);
+  }
+  .video__controls .scrubBar__time {
+    margin-left: 16px;
+    font-size: 10px;
+    display: inline-block;
+    color: white;
+  }
+  .video__controls .play {
+    margin-left: 16px;
+  }
+  .video__controls .volume {
+    margin-right: 16px;
+  }
 }
 /*# sourceMappingURL=App.css.map */

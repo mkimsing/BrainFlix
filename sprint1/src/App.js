@@ -33,8 +33,10 @@ function App() {
 function VideoBlock(props) {
   return (
     <div className="video">
-      <video className="video__frame" poster={props.source} />
-      <VideoControls />
+      <div className="video__container">
+        <video className="video__frame" poster={props.source} />
+        <VideoControls />
+      </div>
     </div>
   );
 }
@@ -47,6 +49,7 @@ function VideoControls() {
         <div className="scrubBar__timeline">
           <div className="scrubBar__scrub" />
         </div>
+        <div className="scrubBar__time"> 0:00 / 4:34 </div>
       </div>
       <button className="fullscreen" />
       <button className="volume" />

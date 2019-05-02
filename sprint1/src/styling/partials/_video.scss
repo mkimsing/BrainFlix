@@ -1,30 +1,40 @@
 .video {
   position: relative;
+  background-color: black;
+  height: 45vw;
+  width: 100%;
+  min-height: 200px;
+
+  &__container {
+    height: inherit;
+    min-height: inherit;
+  }
+
   &__frame {
-    min-height: 200px;
-    height: 45vw;
     width: 100%;
     object-fit: cover;
+    height: 100%;
+    min-height: inherit;
   }
 
   &__controls {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     position: absolute;
     bottom: 15px;
+    width: 100%;
 
     //Variables
-    $scrubHeight: 7.5px;
+    $scrubHeight: 3%;
     $buttonHeight: calc(5 *#{$scrubHeight}); //TODO refactor out this
+    height: $buttonHeight;
 
     button,
     .scrubBar {
-      height: $buttonHeight;
-      width: calc(#{$buttonHeight} * 1.5);
+      width: 65px;
       background-repeat: no-repeat;
       background-position: center;
-      // background-size: calc(0.75 * #{$buttonHeight});
+      background-size: 35%;
       border-radius: 4px;
       border: none;
       background-color: rgba(black, 0.55);
@@ -36,17 +46,15 @@
       justify-content: center;
       box-sizing: border-box;
       margin-right: 8px;
-
       width: 100%; //Scrub bar grows to fill space was we scale
       &__timeline {
         background-color: black;
-        height: $scrubHeight;
+        height: $scrubHeight * 4;
         width: 90%;
         position: relative;
       }
       &__scrub {
-        // not shown on mockups currently - hidden
-        display: none;
+        display: none; // not shown on mockups currently - hidden for now
         background-image: url("../assets/Icons/SVG/Icon-scrubber-control.svg");
         background-size: contain;
         position: relative;
@@ -55,6 +63,9 @@
         bottom: calc(2 / 3 * #{$scrubHeight});
         left: -(0.8 * $scrubHeight);
         z-index: 2;
+      }
+      &__time {
+        display: none;
       }
     }
     .play {
@@ -71,6 +82,80 @@
     .volume {
       background-image: url("../assets/Icons/SVG/Icon-volume.svg");
       margin-right: 16px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .video {
+    &__container {
+      margin: 0px 24px;
+    }
+    &__controls {
+      height: 10%;
+      width: calc(100% - 48px);
+      .scrubBar {
+        // justify-content: center;
+        &__timeline {
+          width: calc(100% - 100px);
+          margin-left: 16px;
+        }
+        &__time {
+          margin-left: 16px;
+          margin-right: 16px;
+          font-size: 10px;
+          display: inline-block;
+          color: white;
+        }
+      }
+
+      .play {
+        margin-left: 8px;
+        margin-right: 16px;
+      }
+
+      .fullscreen {
+        margin-left: 16px;
+      }
+      .volume {
+        margin-right: 8px;
+      }
+    }
+  }
+} //Closes tablet media query
+
+@media (min-width: 1280px) {
+  .video {
+    &__container {
+      margin-left: 168px;
+      margin-right: 168px;
+    }
+
+    &__controls {
+      height: 6%;
+      width: calc(100% - 336px);
+
+      .scrubBar {
+        // justify-content: center;
+        &__timeline {
+          width: calc(
+            100% - 100px
+          ); // Will probably need to change when timestamp font-size changes
+        }
+        &__time {
+          margin-left: 16px;
+          font-size: 10px;
+          display: inline-block;
+          color: white;
+        }
+      }
+      .play {
+        margin-left: 16px;
+      }
+
+      .volume {
+        margin-right: 16px;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ $cross-size: 20px;
 $item-heights: 48px;
 $search-img-size: 20px;
 
-header{
+header {
   margin: 0px 16px 16px 16px;
 }
 .flexContainer {
@@ -38,7 +38,7 @@ header{
 
       border: 1px #e1e1e1 solid;
       border-radius: 4px;
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     .uploadContainer {
@@ -71,38 +71,38 @@ header{
   }
 }
 
-@media (min-width: 680px) {
-header{
-  margin: 16px 24px 16px 24px;
-}
-.flexContainer {
-  display: flex;
-  flex-direction: row;
-  height: 48px;
-
-  .logo {
-    height: $item-heights;
-    margin: 0px 180px 0px 0px;
+@media (min-width: 768px) {
+  header {
+    margin: 16px 24px 16px 24px;
   }
+  .flexContainer {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
 
-  #searchForm {
-    align-items: center;
-    flex-wrap: nowrap;
-    width: 100%;
-    &__input {
-      margin-right: 24px;
+    .logo {
+      height: $item-heights;
+      margin: 0px 180px 0px 0px;
     }
 
-    .uploadContainer {
-      margin-top: 0px;
-      max-width: 250px;
+    #searchForm {
+      align-items: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      &__input {
+        margin-right: 24px;
+      }
+
+      .uploadContainer {
+        margin-top: 0px;
+        max-width: 250px;
+      }
     }
   }
-}
-}//Closes tablet media query
+} //Closes tablet media query
 
-@media (min-width: 1280px){
-  header{
+@media (min-width: 1280px) {
+  header {
     margin: 16px 180px;
   }
 
