@@ -1,34 +1,33 @@
 $avatar-dimensions: 60px;
-$mobile-edge-margins: 16px;
 $header-font-size: 16px;
 $cross-size: 20px;
 $item-heights: 48px;
 $search-img-size: 20px;
 
-header {
+header{
+  margin: 0px 16px 16px 16px;
+}
+.flexContainer {
   display: flex;
   flex-direction: column;
-  margin: 0px $mobile-edge-margins $mobile-edge-margins $mobile-edge-margins;
   font-size: $header-font-size;
 
   .logo {
     background: url("../assets/Logo/Logo-brainflix.svg") no-repeat center;
     background-size: contain;
-    height: $item-heights;
+    height: 28px;
     min-width: 120px;
-    width: 30%;
+    width: 200px;
     margin: 10px auto;
     box-sizing: border-box;
   }
 
   #searchForm {
-    margin: 0px 16px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 
     &__input {
-      margin: 0px auto;
       height: $item-heights;
       width: 100%;
       background-color: #fafafa;
@@ -39,6 +38,7 @@ header {
 
       border: 1px #e1e1e1 solid;
       border-radius: 4px;
+      box-sizing: border-box
     }
 
     .uploadContainer {
@@ -49,32 +49,66 @@ header {
       width: 100%;
       #searchForm__uploadButton {
         height: $item-heights;
-        width: calc(100% - #{$mobile-edge-margins} - #{$item-heights});
+        width: 100%;
         margin-right: 16px;
         border: none;
         border-radius: 4px;
         color: white;
         text-indent: ($cross-size / 2);
         //TODO unset this image if cut off on very small mobile
-        background: #0095ff url("../assets/Icons/SVG/Icon-upload.svg") no-repeat;
+        background: $BLUE url("../assets/Icons/SVG/Icon-upload.svg") no-repeat;
         background-size: $cross-size;
         background-position: calc(50% - (#{$cross-size}* 1.5)) 50%;
       }
       .profile-avatar {
-        background-image: url("../assets/Images/Mohan-muruge.jpg");
-        background-repeat: no-repeat;
-        background-position: center;
+        background: url("../assets/Images/Mohan-muruge.jpg") no-repeat center;
         background-size: cover;
         border-radius: 50%;
-        height: $item-heights;
-        width: $item-heights;
+        min-height: $item-heights;
+        min-width: $item-heights;
       }
     }
   }
 }
 
 @media (min-width: 680px) {
-  header {
-    flex-direction: row;
+header{
+  margin: 16px 24px 16px 24px;
+}
+.flexContainer {
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+
+  .logo {
+    height: $item-heights;
+    margin: 0px 180px 0px 0px;
+  }
+
+  #searchForm {
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    &__input {
+      margin-right: 24px;
+    }
+
+    .uploadContainer {
+      margin-top: 0px;
+      max-width: 250px;
+    }
+  }
+}
+}//Closes tablet media query
+
+@media (min-width: 1280px){
+  header{
+    margin: 16px 180px;
+  }
+
+  .flexContainer {
+    .logo {
+      margin: 0px 35% 0px 0px;
+    }
   }
 }

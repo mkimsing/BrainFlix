@@ -20,6 +20,10 @@ body {
 }
 
 header {
+  margin: 0px 16px 16px 16px;
+}
+
+.flexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,23 +31,21 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0px 16px 16px 16px;
   font-size: 16px;
 }
 
-header .logo {
+.flexContainer .logo {
   background: url("../assets/Logo/Logo-brainflix.svg") no-repeat center;
   background-size: contain;
-  height: 48px;
+  height: 28px;
   min-width: 120px;
-  width: 30%;
+  width: 200px;
   margin: 10px auto;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-header #searchForm {
-  margin: 0px 16px;
+.flexContainer #searchForm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,8 +56,7 @@ header #searchForm {
       flex-wrap: wrap;
 }
 
-header #searchForm__input {
-  margin: 0px auto;
+.flexContainer #searchForm__input {
   height: 48px;
   width: 100%;
   background-color: #fafafa;
@@ -65,9 +66,11 @@ header #searchForm__input {
   text-indent: calc(20px + 5px);
   border: 1px #e1e1e1 solid;
   border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-header #searchForm .uploadContainer {
+.flexContainer #searchForm .uploadContainer {
   margin-top: 8px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -81,9 +84,9 @@ header #searchForm .uploadContainer {
   width: 100%;
 }
 
-header #searchForm .uploadContainer #searchForm__uploadButton {
+.flexContainer #searchForm .uploadContainer #searchForm__uploadButton {
   height: 48px;
-  width: calc(100% - 16px - 48px);
+  width: 100%;
   margin-right: 16px;
   border: none;
   border-radius: 4px;
@@ -94,22 +97,55 @@ header #searchForm .uploadContainer #searchForm__uploadButton {
   background-position: calc(50% - (20px* 1.5)) 50%;
 }
 
-header #searchForm .uploadContainer .profile-avatar {
-  background-image: url("../assets/Images/Mohan-muruge.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
+.flexContainer #searchForm .uploadContainer .profile-avatar {
+  background: url("../assets/Images/Mohan-muruge.jpg") no-repeat center;
   background-size: cover;
   border-radius: 50%;
-  height: 48px;
-  width: 48px;
+  min-height: 48px;
+  min-width: 48px;
 }
 
 @media (min-width: 680px) {
   header {
+    margin: 16px 24px 16px 24px;
+  }
+  .flexContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    height: 48px;
+  }
+  .flexContainer .logo {
+    height: 48px;
+    margin: 0px 180px 0px 0px;
+  }
+  .flexContainer #searchForm {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    width: 100%;
+  }
+  .flexContainer #searchForm__input {
+    margin-right: 24px;
+  }
+  .flexContainer #searchForm .uploadContainer {
+    margin-top: 0px;
+    max-width: 250px;
+  }
+}
+
+@media (min-width: 1280px) {
+  header {
+    margin: 16px 180px;
+  }
+  .flexContainer .logo {
+    margin: 0px 35% 0px 0px;
   }
 }
 

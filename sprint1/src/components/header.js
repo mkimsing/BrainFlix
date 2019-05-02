@@ -5,8 +5,11 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <div className="logo" />
-      <UploadForm />
+      <div className='flexContainer'>
+        <div className="logo" />
+        <UploadForm />
+
+      </div>
     </header>
   );
 }
