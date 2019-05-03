@@ -63,7 +63,7 @@ header {
   background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat;
   background-size: 20px;
   background-position: 5px 50%;
-  text-indent: calc(20px + 5px);
+  text-indent: calc(20px + 8px);
   border: 1px #e1e1e1 solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
@@ -180,7 +180,7 @@ header {
   position: absolute;
   bottom: 15px;
   width: 100%;
-  height: calc(5 *3%);
+  height: 15%;
 }
 
 .video__controls button,
@@ -281,13 +281,16 @@ header {
 }
 
 @media (min-width: 1280px) {
+  .video {
+    height: 38vw;
+  }
   .video__container {
-    margin-left: 168px;
-    margin-right: 168px;
+    margin-left: 248px;
+    margin-right: 248px;
   }
   .video__controls {
-    height: 6%;
-    width: calc(100% - 336px);
+    height: 8%;
+    width: calc(100% - calc(2 *248px));
   }
   .video__controls .scrubBar__timeline {
     width: calc( 100% - 100px);

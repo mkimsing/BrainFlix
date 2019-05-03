@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/header";
+import VideoFrame from "./components/videoFrame";
 import "./styling/App.css";
 import videoImg from "./assets/Images/video-list-0.jpg";
 
@@ -21,38 +22,8 @@ function App() {
   return (
     <div>
       <Header />
-      <VideoBlock source={videoImg} />
+      <VideoFrame source={videoImg} />
       <VideoMeta {...videoData} />
-    </div>
-  );
-}
-
-// =============================================================================
-//            Video
-// =============================================================================
-function VideoBlock(props) {
-  return (
-    <div className="video">
-      <div className="video__container">
-        <video className="video__frame" poster={props.source} />
-        <VideoControls />
-      </div>
-    </div>
-  );
-}
-
-function VideoControls() {
-  return (
-    <div className="video__controls">
-      <button className="play" />
-      <div className="scrubBar">
-        <div className="scrubBar__timeline">
-          <div className="scrubBar__scrub" />
-        </div>
-        <div className="scrubBar__time"> 0:00 / 4:34 </div>
-      </div>
-      <button className="fullscreen" />
-      <button className="volume" />
     </div>
   );
 }

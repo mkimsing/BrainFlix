@@ -34,7 +34,7 @@ header {
       background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat;
       background-size: $search-img-size;
       background-position: 5px 50%;
-      text-indent: calc(#{$search-img-size} + 5px);
+      text-indent: calc(#{$search-img-size} + 8px);
 
       border: 1px #e1e1e1 solid;
       border-radius: 4px;
