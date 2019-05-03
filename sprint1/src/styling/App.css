@@ -308,4 +308,72 @@ header {
     margin-right: 16px;
   }
 }
+
+.videoMeta {
+  margin: 28px 16px;
+}
+
+.videoMeta h1 {
+  margin: 0px 0px 16px 0px;
+}
+
+.videoMeta .postedContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.videoMeta .postedContainer h3 {
+  margin-right: 5px;
+}
+
+.videoMeta .reactionMeta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.videoMeta .reactionMeta__views {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.videoMeta .reactionMeta__views .viewsIcon {
+  background: url("../assets/Icons/SVG/Icon-views.svg") no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  margin-bottom: 3px;
+}
+
+.videoMeta .reactionMeta__likes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.videoMeta .reactionMeta__likes .likesIcon {
+  background: url("../assets/Icons/SVG/Icon-likes.svg") no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
 /*# sourceMappingURL=App.css.map */

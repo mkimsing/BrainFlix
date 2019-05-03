@@ -1,0 +1,46 @@
+.videoMeta {
+  margin: 28px 16px;
+  h1 {
+    margin: 0px 0px 16px 0px;
+  }
+  .postedContainer {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      margin-right: 5px;
+    }
+  }
+
+  .reactionMeta {
+    display: flex;
+    align-items: center;
+
+    &__views {
+      display: flex;
+      align-items: center;
+      margin-right: 20px; //Space between views and likes blocks
+      .viewsIcon {
+        background: url("../assets/Icons/SVG/Icon-views.svg") no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        margin-bottom: 3px; //Vertically align icon with the text
+      }
+    }
+    &__likes {
+      display: flex;
+      align-items: center;
+      .likesIcon {
+        background: url("../assets/Icons/SVG/Icon-likes.svg") no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

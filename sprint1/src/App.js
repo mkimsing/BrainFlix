@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/header";
 import VideoFrame from "./components/videoFrame";
+import VideoMeta from "./components/videoMeta";
 import "./styling/App.css";
 import videoImg from "./assets/Images/video-list-0.jpg";
 
@@ -25,45 +26,6 @@ function App() {
       <VideoFrame source={videoImg} />
       <VideoMeta {...videoData} />
     </div>
-  );
-}
-
-function VideoMeta(props) {
-  return (
-    <section>
-      <h1> {props.title} </h1>
-      <h3>
-        Author: {props.author} <Timestamp timestamp={props.timestamp} />
-      </h3>
-      <Likes />
-    </section>
-  );
-}
-
-function Likes(props) {
-  return (
-    <div className="likes">
-      <div className="likesIcon" />
-      <p>LikesCount: {props.likesCount}</p>
-    </div>
-  );
-}
-
-function Views(props) {
-  return (
-    <div className="views">
-      <div className="viewsIcon" />
-      <p>ViewCount: {props.viewCount}</p>
-    </div>
-  );
-}
-
-function Timestamp(props) {
-  let date = new Date(parseInt(props.timestamp));
-  return (
-    <>
-      - {date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}
-    </>
   );
 }
 
