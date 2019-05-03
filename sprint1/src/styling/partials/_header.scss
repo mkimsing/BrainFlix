@@ -1,6 +1,6 @@
 $avatar-dimensions: 60px;
 $header-font-size: 16px;
-$cross-size: 20px;
+$cross-size: 15px;
 $item-heights: 48px;
 $search-img-size: 20px;
 
@@ -54,11 +54,11 @@ header {
         border: none;
         border-radius: 4px;
         color: white;
+        font-family: AvenirNext;
         text-indent: ($cross-size / 2);
-        //TODO unset this image if cut off on very small mobile
         background: $BLUE url("../assets/Icons/SVG/Icon-upload.svg") no-repeat;
         background-size: $cross-size;
-        background-position: calc(50% - (#{$cross-size}* 1.5)) 50%;
+        background-position: calc(50% - (#{$cross-size}* 2.5)) 45%; //Not 50% to force alignment with text
       }
       .profile-avatar {
         background: url("../assets/Images/Mohan-muruge.jpg") no-repeat center;
@@ -95,13 +95,13 @@ header {
 
       .uploadContainer {
         margin-top: 0px;
-        max-width: 250px;
+        max-width: 200px;
       }
     }
   }
 } //Closes tablet media query
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   header {
     margin: 16px 180px;
   }

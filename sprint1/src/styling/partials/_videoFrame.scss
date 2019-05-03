@@ -36,6 +36,10 @@
       background-size: 35%;
       border-radius: 4px;
       border: none;
+    }
+
+    .scrubBar,
+    .play {
       background-color: rgba(black, 0.55);
     }
 
@@ -67,6 +71,18 @@
         display: none;
       }
     }
+    .buttons-right {
+      display: flex;
+      justify-content: space-evenly;
+      width: 95px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 35%;
+      border-radius: 4px;
+      border: none;
+      background-color: rgba(black, 0.55);
+      margin-right: 16px;
+    }
     .play {
       background-image: url("../assets/Icons/SVG/Icon-play.svg");
       margin: 0px 8px 0px 16px;
@@ -75,12 +91,12 @@
     .fullscreen {
       background-image: url("../assets/Icons/SVG/Icon-fullscreen.svg");
       opacity: 1;
-      margin-left: auto; // Force to be stuck to volume button
+      background-color: transparent;
     }
 
     .volume {
       background-image: url("../assets/Icons/SVG/Icon-volume.svg");
-      margin-right: 16px;
+      background-color: transparent;
     }
   }
 }
@@ -91,7 +107,7 @@
       margin: 0px 24px;
     }
     &__controls {
-      height: 10%;
+      height: 8%;
       width: calc(100% - 48px);
       .scrubBar {
         // justify-content: center;
@@ -108,23 +124,20 @@
         }
       }
 
+      .buttons-right {
+        width: 80px;
+      }
+
       .play {
         margin-left: 8px;
         margin-right: 16px;
-      }
-
-      .fullscreen {
-        margin-left: 16px;
-      }
-      .volume {
-        margin-right: 8px;
       }
     }
   }
 } //Closes tablet media query
 
 $desktop-video-margin: 248px;
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .video {
     height: 38vw;
     &__container {
@@ -133,7 +146,7 @@ $desktop-video-margin: 248px;
     }
 
     &__controls {
-      height: 8%;
+      height: 7%;
       width: calc(100% - calc(2 *#{$desktop-video-margin}));
 
       .scrubBar {
@@ -150,12 +163,12 @@ $desktop-video-margin: 248px;
           color: white;
         }
       }
+
+      .buttons-right {
+        width: 70px;
+      }
       .play {
         margin-left: 16px;
-      }
-
-      .volume {
-        margin-right: 16px;
       }
     }
   }

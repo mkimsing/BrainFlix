@@ -5,10 +5,9 @@ import React from "react";
 function Header() {
   return (
     <header>
-      <div className='flexContainer'>
+      <div className="flexContainer">
         <div className="logo" />
         <UploadForm />
-
       </div>
     </header>
   );
@@ -23,7 +22,7 @@ function UploadForm() {
     <form id="searchForm">
       <SearchBar />
       <div className="uploadContainer">
-        <button id="searchForm__uploadButton">Upload</button>
+        <button id="searchForm__uploadButton">UPLOAD</button>
         <div className="profile-avatar" />
       </div>
     </form>

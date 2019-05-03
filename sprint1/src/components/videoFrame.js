@@ -19,12 +19,15 @@ function VideoControls() {
       <button className="play" />
       <div className="scrubBar">
         <div className="scrubBar__timeline">
+          {/*TODO change this to ranger slider?*/}
           <div className="scrubBar__scrub" />
         </div>
         <div className="scrubBar__time"> 0:00 / 4:34 </div>
       </div>
-      <button className="fullscreen" />
-      <button className="volume" />
+      <div className="buttons-right">
+        <button className="fullscreen" />
+        <button className="volume" />
+      </div>
     </div>
   );
 }

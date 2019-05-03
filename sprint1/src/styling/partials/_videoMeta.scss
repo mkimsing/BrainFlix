@@ -1,20 +1,44 @@
 .videoMeta {
-  margin: 28px 16px;
+  margin: 28px 16px 48px 16px;
   h1 {
     margin: 0px 0px 16px 0px;
+  }
+
+  h4 {
+    margin-top: 24px;
+    margin-bottom: 0px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
   }
   .postedContainer {
     display: flex;
     align-items: center;
 
-    h3 {
-      margin-right: 5px;
+    h2,
+    h5 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    h2 {
+      margin-right: 8px;
     }
   }
 
   .reactionMeta {
     display: flex;
     align-items: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+
+    //Remove default margins from two headers
+    h4 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
 
     &__views {
       display: flex;
@@ -41,6 +65,30 @@
         height: 20px;
         margin-right: 5px;
       }
+    }
+  }
+
+  hr {
+    color: $MERCURY;
+  }
+}
+
+@media (min-width: 768px) {
+  .videoMeta {
+    h1 {
+      @include mainHeaderStyle();
+    }
+    h2 {
+      @include subHeaderStyle();
+    }
+
+    &__container {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .reactionMeta {
+      margin-right: 32px; //Move over when the recommended videos flexes
     }
   }
 }

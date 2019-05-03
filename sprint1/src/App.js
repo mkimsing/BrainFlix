@@ -10,8 +10,8 @@ function App() {
     title: "BMX Rampage: 2018 Highlights",
     author: "Red Cow",
     timestamp: "1545120000000", // 12/18/2018
-    viewCount: "1104561",
-    likesCount: "165312",
+    viewCount: "1,104,561",
+    likesCount: "165,312",
     description: `On a gusty day in Southern Utah, a group of 25 daring 
     mountain bikers blew the doors off what is possible on two wheels, unleashing 
     some of the biggest moments the sport has ever seen. While mother nature only 
