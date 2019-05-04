@@ -24,7 +24,10 @@ class Comments extends Component {
     ]
   };
   render() {
-    return <Comment comments={this.state.comments} />;
+    return (
+      //<SubmissionBlock/>
+      <Comment comments={this.state.comments} />
+    );
   }
 }
 

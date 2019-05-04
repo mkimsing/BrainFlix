@@ -27,7 +27,6 @@ function App() {
       <Header />
       <VideoFrame source={videoImg} />
       <VideoMeta {...videoData} />
-      {/* <CommentSubmission /> */}
       <Comments />
     </div>
   );
