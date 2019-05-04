@@ -1,30 +1,34 @@
 import React from "react";
 
+//Receives entire video data object
 function VideoMeta(props) {
+  let { title, channel, timestamp, likes, views, description } = props;
   return (
     <section className="videoMeta">
-      <h1> {props.title} </h1>
+      <h1> {title} </h1>
       <div className="videoMeta__container">
-        <PostedMeta author={props.author} timestamp={props.timestamp} />
+        <PostedMeta channel={channel} timestamp={timestamp} />
         <ReactionMeta
-          likesCount={props.likesCount}
-          viewCount={props.viewCount}
+          likes={likes}
+          views={views}
         />
       </div>
       <hr />
-      <Description description={props.description} />
+      <Description description={description} />
     </section>
   );
 }
 
 function PostedMeta(props) {
+  let { channel, timestamp } = props;
   return (
     <div className="postedContainer">
-      <h2>By {props.author}</h2>
-      <Timestamp timestamp={props.timestamp} />
+      <h2>By {channel}</h2>
+      <Timestamp timestamp={timestamp} />
     </div>
   );
 }
+//TODO add dynamic timestamp here eg. "X time ago"
 function Timestamp(props) {
   let date = new Date(parseInt(props.timestamp));
   return (
@@ -34,15 +38,16 @@ function Timestamp(props) {
   );
 }
 function ReactionMeta(props) {
+  let { likes, views } = props;
   return (
     <div className="reactionMeta">
       <div className="reactionMeta__views">
         <div className="viewsIcon" />
-        <h4>{props.viewCount}</h4>
+        <h4>{views}</h4>
       </div>
       <div className="reactionMeta__likes">
         <div className="likesIcon" />
-        <h4>{props.likesCount}</h4>
+        <h4>{likes}</h4>
       </div>
     </div>
   );

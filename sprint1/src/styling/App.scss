@@ -4,4 +4,24 @@
 @import "./partials/header";
 @import "./partials/videoFrame";
 @import "./partials/videoMeta";
+@import "./partials/submitComment";
 @import "./partials/comment";
+
+.mainFlexContainer{
+  margin: 32px 16px 5px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px){
+  .mainFlexContainer{
+    margin: 48px 24px 16px 24px;
+  }
+}
+
+@media (min-width: 1440px){
+  .mainFlexContainer{
+    margin-right: 180px;
+    margin-left: 180px;
+  }
+}

@@ -28,7 +28,6 @@ const avatars = [
 
 function Comment(props) {
   const commentsContents = props.comments.map(comment => {
-    console.log(new Date(comment.timestamp));
     return (
       <div className="comment">
         <div className="comment__image" />
@@ -50,7 +49,7 @@ function Comment(props) {
 
 /**
  * Generates a string for the supplied date with form mm/dd/yyyy
- * @param {!Date} dateObj represents the date for which to generate a string
+ * @param {int} timestamp timestampe in ms for which to generate a string
  */
 function generateDateString(timestamp) {
   let dateObj = new Date(Number(timestamp));
@@ -63,7 +62,7 @@ function generateDateString(timestamp) {
 
 /**
  * Generates string representing time since the time of supplied date object
- * @param {int} dateObj Date object to base calculation off
+ * @param {int} timestampe Timestampe in ms to base calculation off
  */
 function generateTimeSince(timestamp) {
   let dateObj = new Date(Number(timestamp));

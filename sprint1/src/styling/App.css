@@ -368,7 +368,7 @@ header {
 }
 
 .videoMeta {
-  margin: 28px 16px 48px 16px;
+  margin-bottom: 28px;
 }
 
 .videoMeta h1 {
@@ -492,6 +492,95 @@ header {
   }
 }
 
+.submission__commentCount {
+  margin-top: 0px;
+  margin-bottom: 32px;
+}
+
+.submission__title {
+  margin: 0px 0px 0px calc(calc(45px + 5px) + 16px);
+}
+
+.submission__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.submission__container * {
+  border-radius: 4px;
+}
+
+.submission__container img {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: calc(45px + 5px);
+  width: calc(45px + 5px);
+  margin-right: 16px;
+  text-indent: 5px;
+}
+
+.submission__container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.submission__container textarea {
+  height: calc(45px * 2);
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.submission__container button {
+  background-color: #0095ff;
+  color: white;
+  height: 45px;
+  border: none;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-family: AvenirNext;
+  padding-top: 5px;
+}
+
+@media (min-width: 768px) {
+  .submission {
+    margin-bottom: 24px;
+  }
+  .submission__container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 24px;
+  }
+  .submission__container form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .submission__container textarea {
+    height: 45px;
+    width: 100%;
+  }
+  .submission__container button {
+    margin: 0px;
+    margin-left: 16px;
+    margin-right: 40px;
+    width: 160px;
+  }
+}
+
 .commentsBlock {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -500,7 +589,6 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 0px 16px;
   margin-bottom: 40px;
 }
 
@@ -561,5 +649,29 @@ header {
 .comment__image:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+.mainFlexContainer {
+  margin: 32px 16px 5px 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .mainFlexContainer {
+    margin: 48px 24px 16px 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mainFlexContainer {
+    margin-right: 180px;
+    margin-left: 180px;
+  }
 }
 /*# sourceMappingURL=App.css.map */
