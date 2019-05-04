@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./components/header";
 import VideoFrame from "./components/videoFrame";
 import VideoMeta from "./components/videoMeta";
+import Comments from "./containers/comments";
+
 import "./styling/App.css";
 import videoImg from "./assets/Images/video-list-0.jpg";
 
@@ -25,6 +27,8 @@ function App() {
       <Header />
       <VideoFrame source={videoImg} />
       <VideoMeta {...videoData} />
+      {/* <CommentSubmission /> */}
+      <Comments />
     </div>
   );
 }
