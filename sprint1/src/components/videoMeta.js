@@ -1,5 +1,5 @@
 import React from "react";
-
+import timestampHelpers from "../utils/timestamp"
 //Receives entire video data object
 function VideoMeta(props) {
   let { title, channel, timestamp, likes, views, description } = props;
@@ -14,7 +14,7 @@ function VideoMeta(props) {
         />
       </div>
       <hr />
-      <Description description={description} />
+      <h4 className='description'>{description}</h4>
     </section>
   );
 }
@@ -24,19 +24,14 @@ function PostedMeta(props) {
   return (
     <div className="postedContainer">
       <h2>By {channel}</h2>
-      <Timestamp timestamp={timestamp} />
+      <h5>
+        {timestampHelpers.generateDateString(timestamp)}
+        {timestampHelpers.generateTimeSince(timestamp)}
+      </h5>
     </div>
   );
 }
-//TODO add dynamic timestamp here eg. "X time ago"
-function Timestamp(props) {
-  let date = new Date(parseInt(props.timestamp));
-  return (
-    <h5>
-      {date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}
-    </h5>
-  );
-}
+
 function ReactionMeta(props) {
   let { likes, views } = props;
   return (
@@ -51,10 +46,6 @@ function ReactionMeta(props) {
       </div>
     </div>
   );
-}
-
-function Description(props) {
-  return <h4 className='description'>{props.description}</h4>;
 }
 
 export default VideoMeta;

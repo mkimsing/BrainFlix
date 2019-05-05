@@ -23,7 +23,7 @@ const sampleVideoData = {
   likes: "165,312",
   duration: '3:51',
   video: 'VIDEO URL HERE!',
-  timestamp: 1545120000000,// 12/18/2018
+  timestamp: 1545165812000,// 12/18/2018
   comments: [
     {
       name: "Michael Lyons",

@@ -6,7 +6,7 @@ import Comments from "./containers/comments";
 
 import "./styling/App.css";
 
-import SampleData from "./components/sampleData";
+import SampleData from "./utils/sampleData";
 import RelatedVideos from "./containers/relatedVideos";
 let sampleVideoData = SampleData[0];
 let sampleSideData = SampleData[1];
