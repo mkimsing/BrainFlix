@@ -29,7 +29,6 @@ $line-height: 22px;
 
     //TODO clean up this overflow siutuation, and add ellipses
     height: calc(#{$line-height} * 2);
-    overflow: hidden;
   }
   &__channel{
     margin: 0px;

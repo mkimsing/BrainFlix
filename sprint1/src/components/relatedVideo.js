@@ -1,28 +1,69 @@
 import React from 'react'
 
-export default function relatedVideo(props) {
-  let { title, channel, image } = props.video;
-  return (
-    <div className='videoCard'>
-      <img src={image} className='videoCard__img' />
-      <div className='videoCard__text'>
-        <h2 className='videoCard__title'>{title}</h2>
-        <h4 className='videoCard__channel'>{channel}</h4>
+class relatedVideo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.titleRef = React.createRef();
+    this.origTitle = this.props.video.title;
+    this.state = {
+      titleText: this.props.video.title
+    }
+  }
+
+  componentDidMount() {
+    //Wait for document to be ready (css applied) before checking widths
+    let stateCheck = setInterval(() => {
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        // document ready
+        let charsPerLine = this.titleRef.current.offsetWidth / (16 / 2.2)
+        let maxLength = (charsPerLine * 2) - 5;
+        let newStr = this.updateText(this.origTitle, maxLength)
+        this.setState({
+          titleText: newStr
+        })
+      }
+    }, 100);
+
+    //Add event listener to update text/ellipsis  on window resize
+    window.addEventListener("resize", () => {
+      let charsPerLine = this.titleRef.current.offsetWidth / (16 / 2.2)
+      let maxLength = (charsPerLine * 2) - 5;
+      let newStr = this.updateText(this.origTitle, maxLength)
+      this.setState({
+        titleText: newStr
+      })
+    });
+  }
+
+  /**
+   * @param  text          string       - text to shorten
+   * @param  maxTextLength int          - desired max length of shorten string
+   * @return ret           string       - new shortened string
+   */
+  updateText = (text, maxTextLength) => {
+    let ret = text;
+    if (ret.length > maxTextLength) {
+      ret = ret.substr(0, maxTextLength - 3) + "...";
+    }
+    return ret;
+  }
+
+  render() {
+    let { channel, image } = this.props.video;
+    return (
+      <div className='videoCard'>
+        <img src={image} className='videoCard__img' alt=" Related Video Thumbnail" />
+        <div className='videoCard__text'>
+          <h2 className='videoCard__title' ref={this.titleRef}>{this.state.titleText}</h2>
+          <h4 className='videoCard__channel'>{channel}</h4>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-//TODO add ellipses using JS?
-// /**
-//  * @param  text          string       - text to shorten
-//  * @param  maxTextLength int          - desired max length of shorten string
-//  * @return ret           string       - new shortened string
-//  */
-// function shorten(text, maxTextLength) {
-//   var ret = text;
-//   if (ret.length > maxTextLength) {
-//     ret = ret.substr(0, maxTextLength - 3) + "...";
-//   }
-//   return ret;
-// }
+// Min-width: 329px
+
+
+export default relatedVideo;

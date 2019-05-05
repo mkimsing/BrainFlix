@@ -6,7 +6,6 @@ class RelatedVideos extends Component {
     relatedVideos: this.props.relatedVideos
   }
   render() {
-    console.log(this.state.relatedVideos)
     return (
       <>
         <h5 className='relatedVideos__title'>NEXT VIDEO</h5>

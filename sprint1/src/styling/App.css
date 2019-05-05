@@ -833,7 +833,6 @@ header {
 .videoCard__title {
   margin: 2px 0px;
   height: calc(22px * 2);
-  overflow: hidden;
 }
 
 .videoCard__channel {
