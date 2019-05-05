@@ -16,8 +16,8 @@ class relatedVideo extends React.Component {
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
         // document ready
-        let charsPerLine = this.titleRef.current.offsetWidth / (16 / 2.2)
-        let maxLength = (charsPerLine * 2) - 5;
+        let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
+        let maxLength = (charsPerLine * 2) - 3;
         let newStr = this.updateText(this.origTitle, maxLength)
         this.setState({
           titleText: newStr
@@ -27,8 +27,8 @@ class relatedVideo extends React.Component {
 
     //Add event listener to update text/ellipsis  on window resize
     window.addEventListener("resize", () => {
-      let charsPerLine = this.titleRef.current.offsetWidth / (16 / 2.2)
-      let maxLength = (charsPerLine * 2) - 5;
+      let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
+      let maxLength = (charsPerLine * 2) - 3;
       let newStr = this.updateText(this.origTitle, maxLength)
       this.setState({
         titleText: newStr

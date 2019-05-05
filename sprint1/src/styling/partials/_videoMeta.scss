@@ -75,6 +75,7 @@
 
 @media (min-width: 768px) {
   .videoMeta {
+    margin-bottom: 64px;
     h1 {
       @include mainHeaderStyle();
     }
@@ -84,23 +85,28 @@
 
     .description{
       width: 80%;
+      margin-top: 40px;
     }
 
     &__container {
       flex-direction: row;
       justify-content: space-between;
+      margin: 24px 0px;
     }
 
     .reactionMeta {
-      margin-right: 32px; //Move over when the recommended videos flexes
+      margin: 0px;
     }
   }
 } // Closes tablet media query
 
 @media (min-width: 1440px){
-    .videoMeta {
-      .description{
-        width: 80%;
-      }
+  .videoMeta {
+    .description{
+      width: 80%;
+    }
+      .reactionMeta {
+      margin-right: 32px; //Move over when the recommended videos flexes
+    }
   }
 }

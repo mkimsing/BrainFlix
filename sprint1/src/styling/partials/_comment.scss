@@ -24,6 +24,7 @@
 
   &__text{
     margin: 0px;
+    width: 90%;
   }
   
   &__date {
@@ -35,10 +36,9 @@
       margin: 0px;
     }
   }
-    //Force date onto new row
+  //Small MQ: Force dat in comment onto new row when there isnt enough space
   @media (max-width: 350px) {
     .comment{
-
       &__titleContainer{
         flex-direction: column;
         align-items: flex-start;
@@ -53,6 +53,8 @@
 
 @media (min-width: 768px){
   .comment{
+    margin-top: 24px;
+    margin-bottom: 24px;
     &__titleContainer{
       justify-content: flex-start;
     }

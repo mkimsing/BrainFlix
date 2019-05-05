@@ -74,7 +74,7 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
       }
 
       &:disabled{
-        opacity: 0.8;
+        opacity: 0.4;
         background-color: $DARKBLUE;
       }
     }
@@ -90,7 +90,7 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
       margin-bottom: 24px;
       form{
         flex-direction: row;
-        align-items: baseline;
+        align-items: center;
       }
       textarea{
         height: $item-height;
@@ -101,7 +101,7 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
         margin: 0px; // remove previous margin
         margin-left: 16px;
         margin-right: 40px;
-        width: 160px;
+        width: 230px;
       }
     }
   }
@@ -170,7 +170,7 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
           border-bottom: 7px solid #fcc2c3;
           left: 31px;
         }
-      } // .error-tip
+      }
 
       .submissionMsg--error{
           @extend .error-tip;

@@ -479,6 +479,9 @@ header {
 }
 
 @media (min-width: 768px) {
+  .videoMeta {
+    margin-bottom: 64px;
+  }
   .videoMeta h1 {
     font-size: 36px;
     line-height: 44px;
@@ -491,6 +494,7 @@ header {
   }
   .videoMeta .description {
     width: 80%;
+    margin-top: 40px;
   }
   .videoMeta__container {
     -webkit-box-orient: horizontal;
@@ -500,15 +504,19 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    margin: 24px 0px;
   }
   .videoMeta .reactionMeta {
-    margin-right: 32px;
+    margin: 0px;
   }
 }
 
 @media (min-width: 1440px) {
   .videoMeta .description {
     width: 80%;
+  }
+  .videoMeta .reactionMeta {
+    margin-right: 32px;
   }
 }
 
@@ -601,7 +609,7 @@ header {
 }
 
 .submission__container button:disabled {
-  opacity: 0.8;
+  opacity: 0.4;
   background-color: #0065ad;
 }
 
@@ -617,9 +625,9 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: baseline;
-        -ms-flex-align: baseline;
-            align-items: baseline;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .submission__container textarea {
     height: 45px;
@@ -629,7 +637,7 @@ header {
     margin: 0px;
     margin-left: 16px;
     margin-right: 40px;
-    width: 160px;
+    width: 230px;
   }
 }
 
@@ -751,6 +759,7 @@ header {
 
 .comment__text {
   margin: 0px;
+  width: 90%;
 }
 
 .comment__date {
@@ -781,6 +790,10 @@ header {
 }
 
 @media (min-width: 768px) {
+  .comment {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
   .comment__titleContainer {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -789,6 +802,16 @@ header {
   .comment__name {
     margin-right: 10px;
   }
+}
+
+.relatedVideos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .relatedVideos__title {
@@ -833,6 +856,7 @@ header {
 .videoCard__title {
   margin: 2px 0px;
   height: calc(22px * 2);
+  max-width: 183px;
 }
 
 .videoCard__channel {
@@ -840,9 +864,29 @@ header {
   overflow: hidden;
 }
 
+@media (min-width: 1440px) {
+  .relatedVideos {
+    margin-left: 24px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .relatedVideos__title {
+    margin-top: 0px;
+  }
+  .videoCard {
+    margin-bottom: 0px;
+  }
+  .videoCard__text {
+    min-width: 183px;
+  }
+}
+
 hr {
   color: #e1e1e1;
   width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .mainFlexContainer {
@@ -866,6 +910,10 @@ hr {
   .mainFlexContainer {
     margin-right: 180px;
     margin-left: 180px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
 /*# sourceMappingURL=App.css.map */

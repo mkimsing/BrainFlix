@@ -8,10 +8,12 @@ class RelatedVideos extends Component {
   render() {
     return (
       <>
-        <h5 className='relatedVideos__title'>NEXT VIDEO</h5>
-        {this.state.relatedVideos.map(video => {
-          return <RelatedVideo video={video} />;
-        })}
+        <div className=' relatedVideos'>
+          <h5 className='relatedVideos__title'>NEXT VIDEO</h5>
+          {this.state.relatedVideos.map(video => {
+            return <RelatedVideo video={video} />;
+          })}
+        </div>
       </>
     )
   }

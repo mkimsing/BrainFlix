@@ -22,8 +22,10 @@ function App() {
         image={sampleVideoData.image}
       />
       <div className='mainFlexContainer'>
-        <VideoMeta {...sampleVideoData} />
-        <Comments comments={sampleVideoData.comments} />
+        <div>
+          <VideoMeta {...sampleVideoData} />
+          <Comments comments={sampleVideoData.comments} />
+        </div>
         <RelatedVideos relatedVideos={sampleSideData} />
       </div>
     </div>

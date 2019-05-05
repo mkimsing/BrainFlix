@@ -10,6 +10,8 @@
   hr{
     color: $MERCURY;
     width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
 .mainFlexContainer{
@@ -28,5 +30,6 @@
   .mainFlexContainer{
     margin-right: 180px;
     margin-left: 180px;
+    flex-direction: row;
   }
 }

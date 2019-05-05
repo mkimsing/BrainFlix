@@ -1,6 +1,11 @@
 
 $line-height: 22px;
 
+.relatedVideos{
+  display:flex;
+  flex-direction: column;
+}
+
 .relatedVideos__title{
   margin: 40px 0px;
 }
@@ -26,12 +31,29 @@ $line-height: 22px;
   
   &__title{
     margin: 2px 0px;
-
-    //TODO clean up this overflow siutuation, and add ellipses
     height: calc(#{$line-height} * 2);
+    max-width: 183px; // Force on two lines
   }
   &__channel{
     margin: 0px;
     overflow: hidden;
+  }
+}
+
+@media(min-width: 1440px){
+  .relatedVideos{
+    margin-left: 24px;
+    justify-content: space-between;
+  }
+
+  .relatedVideos__title{
+    margin-top: 0px;
+  }
+
+  .videoCard{
+    margin-bottom:0px;
+    &__text{
+      min-width: 183px;
+    }
   }
 }
