@@ -7,7 +7,6 @@ import Comments from "./containers/comments";
 import "./styling/App.css";
 
 import videoPoster from "./assets/Images/video-list-0.jpg";
-import SubmitComment from "./components/submitComment";
 
 function App() {
 
@@ -59,7 +58,6 @@ function App() {
       />
       <div className='mainFlexContainer'>
         <VideoMeta {...sampleVideoData} />
-        <SubmitComment />
         <Comments comments={sampleVideoData.comments} />
       </div>
     </div>
