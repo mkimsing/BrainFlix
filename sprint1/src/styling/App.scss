@@ -7,6 +7,11 @@
 @import "./partials/submitComment";
 @import "./partials/comment";
 
+  hr{
+    color: $MERCURY;
+    width: 100%;
+  }
+
 .mainFlexContainer{
   margin: 32px 16px 5px 16px;
   display: flex;

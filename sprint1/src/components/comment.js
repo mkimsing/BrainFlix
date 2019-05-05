@@ -1,50 +1,30 @@
 import React from "react";
-
-//Populate Image/Avatar array
-const avatar_prefix = "../assets/Images/avatar_svgs/";
-const avatars = [
-  "assistant.svg",
-  "avocado.svg",
-  "batman.svg",
-  "bear.svg",
-  "chef.svg",
-  "einstein.svg",
-  "generic_man.svg",
-  "generic_woman.svg",
-  "jason.svg",
-  "king.svg",
-  "luchador.svg",
-  "policeman.svg",
-  "policewoman.svg",
-  "queen.svg",
-  "santa.svg",
-  "sloth.svg",
-  "superman.svg",
-  "spy.svg",
-  "superman.svg",
-  "trump.svg",
-  "wonderwoman.svg"
-];
+import avatars from "./avatars";
 
 function Comment(props) {
+  let avatarSrc = `${avatars[2]}`; //TODO randomize avatars so they are different per comment
   const commentsContents = props.comments.map(comment => {
     return (
-      <div className="comment">
-        <div className="comment__image" />
-        <div className="comment__container">
-          <div className="comment__name">{comment.name}</div>
-          <div className="comment__date">
-            <h5>{generateDateString(comment.timestamp)}</h5>
-            <h5>{generateTimeSince(comment.timestamp)}</h5>
+      <>
+        <div className="comment">
+          <img className="avatar comment__avatar" src={avatarSrc} />
+          <div className="comment__container">
+            <div className="comment__titleContainer">
+              <h2 className="comment__name">{comment.name}</h2>
+              <div className="comment__date">
+                <h5>{generateDateString(comment.timestamp)}</h5>
+                <h5>{generateTimeSince(comment.timestamp)}</h5>
+              </div>
+            </div>
+            <h4 className="comment__text">{comment.comment}</h4>
           </div>
-          <div className="comment__text">{comment.comment}</div>
         </div>
         <hr />
-      </div>
+      </>
     );
   });
 
-  return <div className="commentsBlock">{commentsContents}</div>;
+  return <section className="commentsBlock">{commentsContents}</section>;
 }
 
 /**

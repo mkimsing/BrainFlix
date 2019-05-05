@@ -30,15 +30,20 @@ header {
     &__input {
       height: $item-heights;
       width: 100%;
-      background-color: #fafafa;
-      background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat;
+      background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat $ALABASTER;
       background-size: $search-img-size;
       background-position: calc(3% + 5px) 50%;
       text-indent: calc(#{$search-img-size} + 8px + 3%);
 
-      border: 1px #e1e1e1 solid;
+      border: 1px $MERCURY solid;
       border-radius: 4px;
       box-sizing: border-box;
+      font-family: AvenirNext;
+      font-size: 14px;
+      line-height: 18px;
+      &:active{
+        border-color: $BLUE;
+      }
     }
 
     .uploadContainer {
@@ -55,10 +60,14 @@ header {
         border-radius: 4px;
         color: white;
         font-family: AvenirNext;
-        text-indent: ($cross-size / 2);
+        text-indent: $cross-size;
         background: $BLUE url("../assets/Icons/SVG/Icon-upload.svg") no-repeat;
         background-size: $cross-size;
-        background-position: calc(50% - (#{$cross-size}* 2.5)) 45%; //Not 50% to force alignment with text
+        background-position: calc(50% - (#{$cross-size}* 2)) 50%;
+        padding-top: 5px; //Center text;
+        &:hover{
+          background-color: $DARKBLUE;
+        }
       }
       .profile-avatar {
         background: url("../assets/Images/Mohan-muruge.jpg") no-repeat center;
