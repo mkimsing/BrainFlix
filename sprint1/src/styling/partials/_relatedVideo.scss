@@ -1,0 +1,38 @@
+
+$line-height: 22px;
+
+.relatedVideos__title{
+  margin: 40px 0px;
+}
+.videoCard{
+  margin-bottom: 24px;
+  display:flex;
+  align-items: center;
+  &__img{
+    border-radius: 4px;
+    height: 70px;
+    width: 120px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  &__text{
+    margin-left: 16px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  &__title{
+    margin: 2px 0px;
+
+    //TODO clean up this overflow siutuation, and add ellipses
+    height: calc(#{$line-height} * 2);
+    overflow: hidden;
+  }
+  &__channel{
+    margin: 0px;
+    overflow: hidden;
+  }
+}

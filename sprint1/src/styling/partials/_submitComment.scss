@@ -1,0 +1,185 @@
+$item-height: 45px;
+$avatar-margin-right: 16px;
+$avatar-size: calc(#{$item-height} + 5px);
+$avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
+
+//TODO move this somwhere more global since it is used by avatars in commentlist and submission
+.avatar{
+  border-radius: 50%;
+  object-fit: cover;
+  height: $avatar-size;
+  width: $avatar-size;
+}
+
+.submission{
+  &__commentCount{
+    margin-top:0px;
+    margin-bottom: 32px;
+  }
+  &__title{
+    margin: 0px 0px 0px $avatar-column-width;
+  }
+  &__container{
+    display:flex;
+
+    .submission__avatar{
+      margin-right: 16px;
+    }
+
+    form{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+    }
+
+    .inputGroup{
+      width: 100%;
+      // height: calc(#{$item-height} * 2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    textarea{
+      box-sizing: border-box;
+      // height: inherit; //calc(#{$item-height} * 2); 
+      padding: 10px;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 18px;
+      border: 1px $MERCURY solid;
+      background-color: $ALABASTER;
+      font-family: AvenirNext;
+      font-size: 14px;
+      line-height: 22px;
+      width: 100%;
+      &:active{
+        border-color: $BLUE;
+      }
+    }
+
+    button{
+      background-color: $BLUE;
+      color: white;
+      height: $item-height;
+      border: none;
+      margin-top: 16px;
+      margin-bottom: 24px;
+      font-family: AvenirNext;
+      padding-top: 5px;
+      border-radius: 4px;
+      &:hover:enabled{
+        background-color: $DARKBLUE;
+      }
+
+      &:disabled{
+        opacity: 0.8;
+        background-color: $DARKBLUE;
+      }
+    }
+
+  }
+}
+
+@media(min-width: 768px){
+
+  .submission{
+    margin-top: 20px;
+    &__container{
+      margin-bottom: 24px;
+      form{
+        flex-direction: row;
+        align-items: baseline;
+      }
+      textarea{
+        height: $item-height;
+        width: 100%;
+      }
+
+      button{
+        margin: 0px; // remove previous margin
+        margin-left: 16px;
+        margin-right: 40px;
+        width: 160px;
+      }
+    }
+  }
+}//Closes tablet media query
+
+      .success-tip{
+        display:block;
+        background-color: #dff2bf;
+        border: 1px solid #b8d980;
+        border-radius: 7px;
+        color: #4BB543;
+        float: left;
+        font-weight: bold;
+        line-height: 24px;
+        position: relative;
+        padding: 7px 11px 4px;
+        margin-left: 25px;
+        // Left Arrow Styling
+        &:after, &:before {
+          content: '';
+          border: 7px solid transparent;
+          position: absolute;
+          top: -14px;
+        }
+        &:after {
+          border-bottom: 7px solid #b8d980;
+          left: 30px;
+        }
+        &:before {
+          border-bottom: 7px solid #b8d980;
+          left: 31px;
+        }
+      }
+
+      .submissionMsg--success{
+          @extend .success-tip;
+          margin-top: 15px;
+          margin-bottom: 5px;
+          width: 80%;
+      }
+
+      .error-tip {
+        display:block;
+        background-color: #fce4e4;
+        border: 1px solid #fcc2c3;
+        border-radius: 7px;
+        color: #cc0033;
+        float: left;
+        font-weight: bold;
+        line-height: 24px;
+        position: relative;
+        padding: 7px 11px 4px;
+        margin-left: 25px;
+        // Left Arrow Styling
+        &:after, &:before {
+          content: '';
+          border: 7px solid transparent;
+          position: absolute;
+          top: -14px;
+        }
+        &:after {
+          border-bottom: 7px solid #fce4e4;
+          left: 30px;
+        }
+        &:before {
+          border-bottom: 7px solid #fcc2c3;
+          left: 31px;
+        }
+      } // .error-tip
+
+      .submissionMsg--error{
+          @extend .error-tip;
+          margin-top: 15px;
+          margin-bottom: 5px;
+          width: 80%;
+
+      }
+
+      .submissionMsg--hidden{
+        display:none;
+      }
