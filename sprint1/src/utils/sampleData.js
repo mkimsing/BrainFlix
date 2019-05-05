@@ -8,6 +8,18 @@ import videoPoster6 from "../assets/Images/video-list-6.jpg";
 import videoPoster7 from "../assets/Images/video-list-7.jpg";
 import videoPoster8 from "../assets/Images/video-list-8.jpg";
 
+import avatars from "../components/avatars";
+
+//Shuffle avatar array to generate order of avatars using Fisher-Yates
+const randomizeArray = (arr) => {
+  for (var j, x, i = arr.length;
+    i; j = parseInt(Math.random() * i),
+    x = arr[--i], arr[i] = arr[j], arr[j] = x);
+  return arr;
+}
+
+let randomAvatars = randomizeArray(avatars);
+
 const sampleVideoData = {
   id: 'abc-123-def-456',
   title: "BMX Rampage: 2018 Highlights",
@@ -27,24 +39,29 @@ const sampleVideoData = {
   comments: [
     {
       name: "Michael Lyons",
+      avatar: randomAvatars[0],
       timestamp: 1556934071867,
       comment: `They BLEW the ROOF off at their last show, once everyone started ﬁguring
              out they were going. This is still simply the greatest opening of a concert I have EVER witnessed`
     },
     {
       name: "Gary Wong",
+      avatar: randomAvatars[1],
       timestamp: 1547046189000,
       comment: `Every time I see him shred I feel so motivated to get off my couch and hop 
           on my board. He’s so talented! I wish I can ride like him one day so I can really enjoy myself!`
     },
     {
       name: "Theodore Duncan",
+      avatar: randomAvatars[2],
       timestamp: 1543871776000,
       comment: `How can someone be so good!!! You can tell he lives for this and loves to do it
          every day. Everytime I see him I feel instantly happy! He’s definitely my favorite ever!`
     }
   ]
 };
+
+
 
 const sideVideos = [
   {

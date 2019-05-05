@@ -33,6 +33,7 @@ $line-height: 22px;
     margin: 2px 0px;
     height: calc(#{$line-height} * 2);
     max-width: 183px; // Force on two lines
+    overflow: hidden;
   }
   &__channel{
     margin: 0px;

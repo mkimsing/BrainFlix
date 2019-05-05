@@ -4,13 +4,17 @@ import Comment from "../components/comment";
 import avatar_mohan from "../assets/Images/Mohan-muruge.jpg"; // Ensure we have avatar image
 
 class Comments extends Component {
-  state = {
-    comments: this.props.comments
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: this.props.comments
+    };
+  }
 
   submitComment = (commentText) => {
     const newComment = {
       name: 'Mohan Muruge',
+      avatar: avatar_mohan,
       timestamp: Date.now(),
       comment: commentText
     }
@@ -20,23 +24,27 @@ class Comments extends Component {
     })
   }
 
+
+
   render() {
     return (
-      <>
+      <section>
         <CommentSubmissionBlock
           numComments={this.state.comments.length}
           avatar={avatar_mohan}
           submitComment={this.submitComment} />
-        <Comment comments={this.state.comments} />
-      </>
+        {this.state.comments.map(comment => {
+          return <Comment comment={comment} />
+        })}
+      </section>
     );
   }
 }
 
 
-/**
+/**************************************
  * Submission Block
- */
+ **************************************/
 class CommentSubmissionBlock extends Component {
 
   state = {
@@ -55,7 +63,7 @@ class CommentSubmissionBlock extends Component {
       setTimeout(() => {
         this.handleSuccessMessage(false)
         btn.disabled = false;
-      }, 2500);
+      }, 1500);
     }
     else {
       this.handleErrorMessage(true);

@@ -90,7 +90,6 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
       margin-bottom: 24px;
       form{
         flex-direction: row;
-        align-items: center;
       }
       textarea{
         height: $item-height;

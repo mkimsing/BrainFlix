@@ -513,7 +513,7 @@ header {
 
 @media (min-width: 1440px) {
   .videoMeta .description {
-    width: 80%;
+    width: 85%;
   }
   .videoMeta .reactionMeta {
     margin-right: 32px;
@@ -625,9 +625,6 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .submission__container textarea {
     height: 45px;
@@ -759,7 +756,7 @@ header {
 
 .comment__text {
   margin: 0px;
-  width: 90%;
+  margin-right: 40px;
 }
 
 .comment__date {
@@ -857,6 +854,7 @@ header {
   margin: 2px 0px;
   height: calc(22px * 2);
   max-width: 183px;
+  overflow: hidden;
 }
 
 .videoCard__channel {
