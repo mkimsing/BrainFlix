@@ -489,6 +489,9 @@ header {
     line-height: 24px;
     font-weight: 550;
   }
+  .videoMeta .description {
+    width: 80%;
+  }
   .videoMeta__container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -500,6 +503,12 @@ header {
   }
   .videoMeta .reactionMeta {
     margin-right: 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .videoMeta .description {
+    width: 80%;
   }
 }
 
@@ -587,7 +596,12 @@ header {
   border-radius: 4px;
 }
 
-.submission__container button:hover {
+.submission__container button:hover:enabled {
+  background-color: #0065ad;
+}
+
+.submission__container button:disabled {
+  opacity: 0.8;
   background-color: #0065ad;
 }
 
@@ -619,7 +633,44 @@ header {
   }
 }
 
-.error-tip, .submissionMsg--errorGroup {
+.success-tip, .submissionMsg--success {
+  display: block;
+  background-color: #dff2bf;
+  border: 1px solid #b8d980;
+  border-radius: 7px;
+  color: #4BB543;
+  float: left;
+  font-weight: bold;
+  line-height: 24px;
+  position: relative;
+  padding: 7px 11px 4px;
+  margin-left: 25px;
+}
+
+.success-tip:after, .submissionMsg--success:after, .success-tip:before, .submissionMsg--success:before {
+  content: '';
+  border: 7px solid transparent;
+  position: absolute;
+  top: -14px;
+}
+
+.success-tip:after, .submissionMsg--success:after {
+  border-bottom: 7px solid #b8d980;
+  left: 30px;
+}
+
+.success-tip:before, .submissionMsg--success:before {
+  border-bottom: 7px solid #b8d980;
+  left: 31px;
+}
+
+.submissionMsg--success {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+.error-tip, .submissionMsg--error {
   display: block;
   background-color: #fce4e4;
   border: 1px solid #fcc2c3;
@@ -633,24 +684,24 @@ header {
   margin-left: 25px;
 }
 
-.error-tip:after, .submissionMsg--errorGroup:after, .error-tip:before, .submissionMsg--errorGroup:before {
+.error-tip:after, .submissionMsg--error:after, .error-tip:before, .submissionMsg--error:before {
   content: '';
   border: 7px solid transparent;
   position: absolute;
   top: -14px;
 }
 
-.error-tip:after, .submissionMsg--errorGroup:after {
+.error-tip:after, .submissionMsg--error:after {
   border-bottom: 7px solid #fce4e4;
   left: 30px;
 }
 
-.error-tip:before, .submissionMsg--errorGroup:before {
+.error-tip:before, .submissionMsg--error:before {
   border-bottom: 7px solid #fcc2c3;
   left: 31px;
 }
 
-.submissionMsg--errorGroup {
+.submissionMsg--error {
   margin-top: 15px;
   margin-bottom: 5px;
   width: 80%;

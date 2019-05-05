@@ -34,6 +34,9 @@ class Comments extends Component {
 }
 
 
+/**
+ * Submission Block
+ */
 class CommentSubmissionBlock extends Component {
 
   state = {
@@ -46,10 +49,16 @@ class CommentSubmissionBlock extends Component {
     if (!this.isEmptySubmission(commentField)) {
       this.props.submitComment(commentField.value);
       commentField.value = "";
-      this.handleErrorStyling(false);
+      this.handleSuccessMessage(true);
+      let btn = event.target.commentButton;
+      btn.disabled = true;
+      setTimeout(() => {
+        this.handleSuccessMessage(false)
+        btn.disabled = false;
+      }, 2500);
     }
     else {
-      this.handleErrorStyling(true);
+      this.handleErrorMessage(true);
     }
 
   }
@@ -66,10 +75,30 @@ class CommentSubmissionBlock extends Component {
     }
   }
 
-  handleErrorStyling = (applyStyling) => {
+  handleSuccessMessage = (applyStyling) => {
     let newClasses;
     if (applyStyling) {
-      newClasses = ['submissionMsg--errorGroup'];
+      newClasses = ['submissionMsg--success'];
+      this.setState({
+        submissionMsg: "Thanks for commenting!"
+      })
+    }
+    else {
+      newClasses = ['submissionMsg--hidden'];
+    }
+
+    this.setState({
+      submissionMsgClasses: newClasses
+    })
+  }
+
+  handleErrorMessage = (applyStyling) => {
+    let newClasses;
+    if (applyStyling) {
+      newClasses = ['submissionMsg--error'];
+      this.setState({
+        submissionMsg: "Comment text is required!"
+      })
     }
     else {
       newClasses = ['submissionMsg--hidden'];
@@ -92,7 +121,7 @@ class CommentSubmissionBlock extends Component {
               <textarea name='commentText' placeholder='Add a comment' />
               <h3 className={String(...this.state.submissionMsgClasses)}> {this.state.submissionMsg}</h3>
             </div>
-            <button type='submit'> COMMENT </button>
+            <button type='submit' name='commentButton'> COMMENT </button>
           </form>
         </div>
         <hr />

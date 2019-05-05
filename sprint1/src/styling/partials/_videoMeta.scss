@@ -82,6 +82,10 @@
       @include subHeaderStyle();
     }
 
+    .description{
+      width: 80%;
+    }
+
     &__container {
       flex-direction: row;
       justify-content: space-between;
@@ -90,5 +94,13 @@
     .reactionMeta {
       margin-right: 32px; //Move over when the recommended videos flexes
     }
+  }
+} // Closes tablet media query
+
+@media (min-width: 1440px){
+    .videoMeta {
+      .description{
+        width: 80%;
+      }
   }
 }

@@ -54,7 +54,7 @@ function ReactionMeta(props) {
 }
 
 function Description(props) {
-  return <h4>{props.description}</h4>;
+  return <h4 className='description'>{props.description}</h4>;
 }
 
 export default VideoMeta;
