@@ -538,19 +538,37 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
+  position: relative;
+}
+
+.submission__container .inputGroup {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .submission__container textarea {
-  height: calc(45px * 2);
-  padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  padding: 10px;
   border-radius: 4px;
   font-size: 13px;
   line-height: 18px;
   border: 1px #e1e1e1 solid;
   background-color: #FAFAFA;
+  font-family: AvenirNext;
+  font-size: 14px;
+  line-height: 22px;
+  width: 100%;
 }
 
 .submission__container textarea:active {
@@ -578,9 +596,6 @@ header {
     margin-top: 20px;
   }
   .submission__container {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     margin-bottom: 24px;
   }
   .submission__container form {
@@ -588,16 +603,13 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
   }
   .submission__container textarea {
     height: 45px;
     width: 100%;
-    font-family: AvenirNext;
-    font-size: 14px;
-    line-height: 22px;
   }
   .submission__container button {
     margin: 0px;
@@ -605,6 +617,47 @@ header {
     margin-right: 40px;
     width: 160px;
   }
+}
+
+.error-tip, .submissionMsg--errorGroup {
+  display: block;
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  border-radius: 7px;
+  color: #cc0033;
+  float: left;
+  font-weight: bold;
+  line-height: 24px;
+  position: relative;
+  padding: 7px 11px 4px;
+  margin-left: 25px;
+}
+
+.error-tip:after, .submissionMsg--errorGroup:after, .error-tip:before, .submissionMsg--errorGroup:before {
+  content: '';
+  border: 7px solid transparent;
+  position: absolute;
+  top: -14px;
+}
+
+.error-tip:after, .submissionMsg--errorGroup:after {
+  border-bottom: 7px solid #fce4e4;
+  left: 30px;
+}
+
+.error-tip:before, .submissionMsg--errorGroup:before {
+  border-bottom: 7px solid #fcc2c3;
+  left: 31px;
+}
+
+.submissionMsg--errorGroup {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  width: 80%;
+}
+
+.submissionMsg--hidden {
+  display: none;
 }
 
 .comment {
