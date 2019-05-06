@@ -43,13 +43,13 @@ class Comments extends Component {
 
 
 /**************************************
- * Submission Block
+ * Submission Section
  **************************************/
 class CommentSubmissionBlock extends Component {
 
   state = {
     submissionMsg: "Comment text is required!",
-    submissionMsgClasses: ['submissionMsg--hidden']
+    submissionMsgClass: 'submissionMsg--hidden'
   }
   submitHandler = (event) => {
     const commentField = event.target.commentText;
@@ -84,36 +84,36 @@ class CommentSubmissionBlock extends Component {
   }
 
   handleSuccessMessage = (applyStyling) => {
-    let newClasses;
+    let newClass;
     if (applyStyling) {
-      newClasses = ['submissionMsg--success'];
+      newClass = ['submissionMsg--success'];
       this.setState({
         submissionMsg: "Thanks for commenting!"
       })
     }
     else {
-      newClasses = ['submissionMsg--hidden'];
+      newClass = ['submissionMsg--hidden'];
     }
 
     this.setState({
-      submissionMsgClasses: newClasses
+      submissionMsgClass: newClass
     })
   }
 
   handleErrorMessage = (applyStyling) => {
-    let newClasses;
+    let newClass;
     if (applyStyling) {
-      newClasses = ['submissionMsg--error'];
+      newClass = ['submissionMsg--error'];
       this.setState({
         submissionMsg: "Comment text is required!"
       })
     }
     else {
-      newClasses = ['submissionMsg--hidden'];
+      newClass = ['submissionMsg--hidden'];
     }
 
     this.setState({
-      submissionMsgClasses: newClasses
+      submissionMsgClass: newClass
     })
   }
   render() {
@@ -127,7 +127,7 @@ class CommentSubmissionBlock extends Component {
           <form onSubmit={this.submitHandler}>
             <div className='inputGroup'>
               <textarea name='commentText' placeholder='Add a comment' />
-              <h3 className={String(...this.state.submissionMsgClasses)}> {this.state.submissionMsg}</h3>
+              <h3 className={this.state.submissionMsgClass}> {this.state.submissionMsg}</h3>
             </div>
             <button type='submit' name='commentButton'> COMMENT </button>
           </form>

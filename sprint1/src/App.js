@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/header";
-import VideoFrame from "./components/videoFrame";
+import Video from "./components/video";
 import VideoMeta from "./components/videoMeta";
 import Comments from "./containers/comments";
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <Header />
-      <VideoFrame
+      <Video
         video={sampleVideoData.video}
         duration={sampleVideoData.duration}
         image={sampleVideoData.image}

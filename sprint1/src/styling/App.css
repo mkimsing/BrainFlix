@@ -206,18 +206,20 @@ header {
   height: 45vw;
   width: 100%;
   min-height: 200px;
+  max-height: 45vw;
 }
 
 .video__container {
   height: inherit;
   min-height: inherit;
+  overflow: hidden;
 }
 
 .video__frame {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 100%;
+  height: inherit;
   min-height: inherit;
 }
 
@@ -236,7 +238,7 @@ header {
 
 .video__controls button,
 .video__controls .scrubBar {
-  width: 65px;
+  width: 55px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 35%;
@@ -306,8 +308,16 @@ header {
 }
 
 .video__controls .play {
-  background-image: url("../assets/Icons/SVG/Icon-play.svg");
   margin: 0px 8px 0px 16px;
+  background-size: 25%;
+}
+
+.video__controls .play--play {
+  background-image: url("../assets/Icons/SVG/Icon-play.svg");
+}
+
+.video__controls .play--pause {
+  background-image: url("../assets/Icons/SVG/Icon-pause.svg");
 }
 
 .video__controls .fullscreen {

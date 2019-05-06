@@ -1,19 +1,23 @@
+
+
 .video {
   position: relative;
   background-color: black;
   height: 45vw;
   width: 100%;
   min-height: 200px;
+  max-height: 45vw;
 
   &__container {
     height: inherit;
     min-height: inherit;
+    overflow: hidden;
   }
 
   &__frame {
     width: 100%;
     object-fit: cover;
-    height: 100%;
+    height: inherit;
     min-height: inherit;
   }
 
@@ -30,7 +34,7 @@
 
     button,
     .scrubBar {
-      width: 65px;
+      width: 55px;
       background-repeat: no-repeat;
       background-position: center;
       background-size: 35%;
@@ -84,8 +88,15 @@
       margin-right: 16px;
     }
     .play {
-      background-image: url("../assets/Icons/SVG/Icon-play.svg");
       margin: 0px 8px 0px 16px;
+      background-size: 25%;
+    }
+    
+    .play--play{
+      background-image: url("../assets/Icons/SVG/Icon-play.svg");
+    }
+    .play--pause{
+      background-image: url("../assets/Icons/SVG/Icon-pause.svg");
     }
 
     .fullscreen {

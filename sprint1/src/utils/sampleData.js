@@ -7,7 +7,7 @@ import videoPoster5 from "../assets/Images/video-list-5.jpg";
 import videoPoster6 from "../assets/Images/video-list-6.jpg";
 import videoPoster7 from "../assets/Images/video-list-7.jpg";
 import videoPoster8 from "../assets/Images/video-list-8.jpg";
-
+import video from "../assets/Video/BrainStation Sample Video.mp4"
 import avatars from "../components/avatars";
 
 //Shuffle avatar array to generate order of avatars using Fisher-Yates
@@ -33,8 +33,8 @@ const sampleVideoData = {
   image: videoPoster,
   views: "1,104,561",
   likes: "165,312",
-  duration: '3:51',
-  video: 'VIDEO URL HERE!',
+  duration: '0:20',
+  video: video,
   timestamp: 1545165812000,// 12/18/2018
   comments: [
     {
