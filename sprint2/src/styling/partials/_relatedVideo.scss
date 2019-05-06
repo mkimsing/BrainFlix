@@ -1,0 +1,67 @@
+  /*=============================================
+  =    Styling for related videos list           =
+  =============================================*/
+$line-height: 22px;
+
+.relatedVideos{
+  display:flex;
+  flex-direction: column;
+}
+
+.relatedVideos__title{
+  margin: 40px 0px;
+}
+.videoCard{
+  margin-bottom: 24px;
+  display:flex;
+  align-items: center;
+  &__img{
+    border-radius: 4px;
+    height: 70px;
+    width: 120px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  &__text{
+    margin-left: 16px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  &__title{
+    margin: 2px 0px;
+    height: calc(#{$line-height} * 2);
+    max-width: 183px; // Force on two lines
+    overflow: hidden;
+  }
+  &__channel{
+    margin: 0px;
+    overflow: hidden;
+  }
+}
+
+  /*=============================================
+  =           Desktop MQ                      =
+  =============================================*/
+@media(min-width: 1440px){
+  .relatedVideos{
+    margin-left: 24px;
+    justify-content: space-between;
+    max-height: 860px; // prevent crazy stretching when comment list grows
+  }
+
+  .relatedVideos__title{
+    margin-top: 0px;
+  }
+
+  .videoCard{
+    margin-bottom: 0px;
+    &__text{
+      min-width: 183px;
+    }
+
+  }
+}
