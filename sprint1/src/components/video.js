@@ -27,7 +27,7 @@ class Video extends React.Component {
     }, 500)
   }
 
-  //TODO have this work when clicking the frame as well?
+  //TODO have this work when clicking the frame as well as button
   togglePlay = () => {
     let video = this.videoElement.current;
     if (video.paused) {
@@ -44,6 +44,10 @@ class Video extends React.Component {
     }
   }
 
+  /**
+   * Takes a number in seconds and formats in mm:ss
+   * Note: will not work for times greater than 59:59
+   */
   formatDuration = (seconds) => {
     let str = new Date(1000 * seconds).toISOString().substr(15, 4);
     return str;

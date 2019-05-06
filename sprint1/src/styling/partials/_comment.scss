@@ -24,8 +24,6 @@
 
   &__text{
     margin: 0px;
-    // width: 90%;
-    margin-right: 40px;
   }
   
   &__date {
@@ -35,6 +33,10 @@
     
     h5{
       margin: 0px;
+
+      &:first-child{
+        margin-right: 3px;
+      }
     }
   }
   //Small MQ: Force dat in comment onto new row when there isnt enough space
@@ -58,6 +60,10 @@
     margin-bottom: 24px;
     &__titleContainer{
       justify-content: flex-start;
+    }
+
+    &__text{
+      margin-right: 40px;
     }
 
     &__name{ 

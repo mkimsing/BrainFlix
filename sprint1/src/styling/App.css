@@ -586,6 +586,7 @@ header {
 .submission__container textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  resize: none;
   padding: 10px;
   border-radius: 4px;
   font-size: 13px;
@@ -766,7 +767,6 @@ header {
 
 .comment__text {
   margin: 0px;
-  margin-right: 40px;
 }
 
 .comment__date {
@@ -779,6 +779,10 @@ header {
 
 .comment__date h5 {
   margin: 0px;
+}
+
+.comment__date h5:first-child {
+  margin-right: 3px;
 }
 
 @media (max-width: 350px) {
@@ -805,6 +809,9 @@ header {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
+  }
+  .comment__text {
+    margin-right: 40px;
   }
   .comment__name {
     margin-right: 10px;
@@ -878,6 +885,7 @@ header {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    max-height: 860px;
   }
   .relatedVideos__title {
     margin-top: 0px;

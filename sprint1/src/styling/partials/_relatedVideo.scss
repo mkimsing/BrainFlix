@@ -45,6 +45,7 @@ $line-height: 22px;
   .relatedVideos{
     margin-left: 24px;
     justify-content: space-between;
+    max-height: 860px; // prevent crazy stretching when comment list grows
   }
 
   .relatedVideos__title{
@@ -52,9 +53,10 @@ $line-height: 22px;
   }
 
   .videoCard{
-    margin-bottom:0px;
+    margin-bottom: 0px;
     &__text{
       min-width: 183px;
     }
+
   }
 }

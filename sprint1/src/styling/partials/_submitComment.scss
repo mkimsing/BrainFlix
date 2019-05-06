@@ -44,6 +44,7 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
     textarea{
       box-sizing: border-box;
       // height: inherit; //calc(#{$item-height} * 2); 
+      resize:none;
       padding: 10px;
       border-radius: 4px;
       font-size: 13px;
