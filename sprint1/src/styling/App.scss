@@ -7,6 +7,8 @@
 @import "./partials/submitComment";
 @import "./partials/comment";
 @import "./partials/relatedVideo";
+
+//Set dividing line styling
   hr{
     color: $MERCURY;
     width: 100%;
@@ -14,6 +16,7 @@
     margin-bottom: 0px;
   }
 
+//Set body edge margins and page level flex containers
 .mainFlexContainer{
   margin: 32px 16px 5px 16px;
   display: flex;

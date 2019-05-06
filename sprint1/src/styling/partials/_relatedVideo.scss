@@ -1,4 +1,6 @@
-
+  /*=============================================
+  =    Styling for related videos list           =
+  =============================================*/
 $line-height: 22px;
 
 .relatedVideos{
@@ -41,6 +43,9 @@ $line-height: 22px;
   }
 }
 
+  /*=============================================
+  =           Desktop MQ                      =
+  =============================================*/
 @media(min-width: 1440px){
   .relatedVideos{
     margin-left: 24px;

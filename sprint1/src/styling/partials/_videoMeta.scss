@@ -1,3 +1,7 @@
+/*============================================
+=            Styling for Video Description   =
+=            and Meta Data                   =
+==============================================*/
 .videoMeta {
   margin-bottom: 28px;
   h1 {
@@ -72,7 +76,9 @@
     color: $MERCURY;
   }
 }
-
+/*=============================================
+=            Tablet MQ                      =
+=============================================*/
 @media (min-width: 768px) {
   .videoMeta {
     margin-bottom: 64px;
@@ -100,13 +106,16 @@
   }
 } // Closes tablet media query
 
+/*=============================================
+=            Desktop MQ                     =
+=============================================*/
 @media (min-width: 1440px){
   .videoMeta {
     .description{
       width: 85%;
     }
       .reactionMeta {
-      margin-right: 32px; //Move over when the recommended videos flexes
+      margin-right: 32px; //Move over when the recommended videos flexes to side
     }
   }
-}
+}//Closes desktop mq

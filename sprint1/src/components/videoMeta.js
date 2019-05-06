@@ -1,6 +1,7 @@
 import React from "react";
 import timestampHelpers from "../utils/timestamp"
-//Receives entire video data object
+
+//Note: receives entire video data object as props
 function VideoMeta(props) {
   let { title, channel, timestamp, likes, views, description } = props;
   return (

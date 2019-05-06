@@ -3,7 +3,7 @@ import React from "react";
 //            Video Frame/Player
 // =============================================================================
 
-
+//TODO move to container folder?
 class Video extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +20,8 @@ class Video extends React.Component {
       videoDuration: this.formatDuration(this.videoElement.current.currentTime)
     })
 
+    //Have interval tick every half second to update duration
+    //TODO change this to only tick if video is playing, and stop when paused
     setInterval(() => {
       this.setState({
         videoDuration: this.formatDuration(this.videoElement.current.currentTime)

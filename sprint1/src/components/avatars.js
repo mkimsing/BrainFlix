@@ -29,8 +29,8 @@ export default [
   avatar21
 ];
 
+// /*Avatars List*/
 //Populate Image/Avatar array
-// const avatar_prefix = "../assets/Images/avatar_svgs/";
 // const avatars = [
 //   "assistant.svg",
 //   "avocado.svg",

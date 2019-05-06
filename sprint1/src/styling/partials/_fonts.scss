@@ -1,3 +1,6 @@
+/*=============================================
+=            Import font family            =
+=============================================*/
 @font-face {
   font-family: AvenirNext;
   src: url("../assets/fonts/Avenir-Regular.otf");
@@ -15,6 +18,12 @@
   font-weight: bold;
 }
 
+
+/*=============================================
+=    Baseline Comment Sizing/Styles           =
+=============================================*/
+
+//Mixins for fonts that do not map between mobile/full directly
 @mixin heroHeaderStyle() {
   font-size: 60px;
   line-height: 68px;
@@ -38,7 +47,8 @@
   line-height: 24px;
   font-weight: 550;
 }
-//Set default font stylings and sizes
+
+//Set base default font stylings and sizes
 body {
   font-family: AvenirNext;
   h1 {

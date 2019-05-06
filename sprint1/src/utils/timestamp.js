@@ -1,6 +1,11 @@
+/*=======================================================================
+=            Helper functions for transforming timestamps (ms) into     =
+=            more readable strings                                      =
+=========================================================================*/
+
 /**
  * Generates a string for the supplied date with form mm/dd/yyyy
- * @param {int} timestamp timestampe in ms for which to generate a string
+ * @param {int} timestamp timestamp in ms for which to generate a string
  */
 const generateDateString = (timestamp) => {
   let dateObj = new Date(Number(timestamp));
@@ -12,8 +17,8 @@ const generateDateString = (timestamp) => {
 }
 
 /**
- * Generates string representing time since the time of supplied date object
- * @param {int} timestampe Timestampe in ms to base calculation off
+ * Generates string representing time since the time of supplied timestamp
+ * @param {int} timestamp Timestamp in ms to base calculation off
  */
 const generateTimeSince = (timestamp) => {
   let dateObj = new Date(Number(timestamp));

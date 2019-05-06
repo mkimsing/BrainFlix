@@ -1,4 +1,10 @@
 
+/*=============================================
+=            Styling for Video Section        =
+=============================================*/
+
+//Variables
+$scrubHeight: 3%;
 
 .video {
   position: relative;
@@ -29,9 +35,6 @@
     width: 100%;
     height: 15%;
 
-    //Variables
-    $scrubHeight: 3%;
-
     button,
     .scrubBar {
       width: 55px;
@@ -53,7 +56,7 @@
       justify-content: center;
       box-sizing: border-box;
       margin-right: 8px;
-      width: 100%; //Scrub bar grows to fill space was we scale
+      width: 100%; //Scrub bar grows to fill space as we scale
       &__timeline {
         background-color: black;
         height: $scrubHeight * 4;
@@ -92,13 +95,14 @@
       background-size: 25%;
     }
     
+    // Change the play button image to play or pause
     .play--play{
       background-image: url("../assets/Icons/SVG/Icon-play.svg");
     }
     .play--pause{
       background-image: url("../assets/Icons/SVG/Icon-pause.svg");
     }
-
+    
     .fullscreen {
       background-image: url("../assets/Icons/SVG/Icon-fullscreen.svg");
       opacity: 1;
@@ -111,7 +115,9 @@
     }
   }
 }
-
+/*=============================================
+=            Tablet MQ                     =
+=============================================*/
 @media (min-width: 768px) {
   .video {
     &__container {
@@ -147,7 +153,10 @@
   }
 } //Closes tablet media query
 
-$desktop-video-margin: 248px;
+/*=============================================
+=            Desktop MQ                     =
+=============================================*/
+$desktop-video-margin: 248px; //rough edge margin (black bars) calculation for video frame
 @media (min-width: 1440px) {
   .video {
     height: 38vw;
@@ -183,4 +192,4 @@ $desktop-video-margin: 248px;
       }
     }
   }
-}
+}// Closes desktop MQ

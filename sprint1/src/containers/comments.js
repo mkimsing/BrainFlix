@@ -83,6 +83,7 @@ class CommentSubmissionBlock extends Component {
     }
   }
 
+  //Change msg text and apply success message styling
   handleSuccessMessage = (applyStyling) => {
     let newClass;
     if (applyStyling) {
@@ -100,6 +101,7 @@ class CommentSubmissionBlock extends Component {
     })
   }
 
+  //Change msg text and apply error msg styling
   handleErrorMessage = (applyStyling) => {
     let newClass;
     if (applyStyling) {

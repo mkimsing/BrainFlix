@@ -1,3 +1,6 @@
+  /*=============================================
+  =     Styling for displayed comments          =
+  =============================================*/
 .comment{
   margin: 16px 0px;
   display:flex;
@@ -16,7 +19,6 @@
     justify-content: space-between;
     margin-bottom: 10px;
   }
-
 
   &__name{ 
     margin:0px;
@@ -39,7 +41,8 @@
       }
     }
   }
-  //Small MQ: Force dat in comment onto new row when there isnt enough space
+  
+  // Force date in comment onto new row when there isnt enough space (very small width)
   @media (max-width: 350px) {
     .comment{
       &__titleContainer{
@@ -54,6 +57,9 @@
   }
 }
 
+/*=============================================
+=            Tablet MQ          =
+=============================================*/
 @media (min-width: 768px){
   .comment{
     margin-top: 24px;

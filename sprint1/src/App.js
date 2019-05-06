@@ -3,16 +3,15 @@ import Header from "./components/header";
 import Video from "./components/video";
 import VideoMeta from "./components/videoMeta";
 import Comments from "./containers/comments";
+import RelatedVideos from "./containers/relatedVideos";
 
 import "./styling/App.css";
 
 import SampleData from "./utils/sampleData";
-import RelatedVideos from "./containers/relatedVideos";
 let sampleVideoData = SampleData[0];
 let sampleSideData = SampleData[1];
 
 function App() {
-
   return (
     <div>
       <Header />

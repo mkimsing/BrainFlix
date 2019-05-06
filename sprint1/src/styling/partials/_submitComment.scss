@@ -1,3 +1,8 @@
+/*=============================================
+=    Styling for comment submission block     =
+=============================================*/
+
+//Variables
 $item-height: 45px;
 $avatar-margin-right: 16px;
 $avatar-size: calc(#{$item-height} + 5px);
@@ -82,7 +87,89 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
 
   }
 }
+.success-tip{
+  display:block;
+  background-color: #dff2bf;
+  border: 1px solid #b8d980;
+  border-radius: 7px;
+  color: #4BB543;
+  float: left;
+  font-weight: bold;
+  line-height: 24px;
+  position: relative;
+  padding: 7px 11px 4px;
+  margin-left: 25px;
+  // Left Arrow Styling
+  &:after, &:before {
+    content: '';
+    border: 7px solid transparent;
+    position: absolute;
+    top: -14px;
+  }
+  &:after {
+    border-bottom: 7px solid #b8d980;
+    left: 30px;
+  }
+  &:before {
+    border-bottom: 7px solid #b8d980;
+    left: 31px;
+  }
+}
 
+/*
+ *  Styling for comment submission msgs/tips (error and success)
+ */
+.submissionMsg--success{
+    @extend .success-tip;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 80%;
+}
+
+.error-tip {
+  display:block;
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  border-radius: 7px;
+  color: #cc0033;
+  float: left;
+  font-weight: bold;
+  line-height: 24px;
+  position: relative;
+  padding: 7px 11px 4px;
+  margin-left: 25px;
+  // Left Arrow Styling
+  &:after, &:before {
+    content: '';
+    border: 7px solid transparent;
+    position: absolute;
+    top: -14px;
+  }
+  &:after {
+    border-bottom: 7px solid #fce4e4;
+    left: 30px;
+  }
+  &:before {
+    border-bottom: 7px solid #fcc2c3;
+    left: 31px;
+  }
+}
+
+.submissionMsg--error{
+    @extend .error-tip;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 80%;
+
+}
+
+.submissionMsg--hidden{
+  display:none;
+}
+
+/*=============================================
+=            Tablet MQ            =
+=============================================*/
 @media(min-width: 768px){
 
   .submission{
@@ -106,80 +193,3 @@ $avatar-column-width: calc(#{$avatar-size} + #{$avatar-margin-right});
     }
   }
 }//Closes tablet media query
-
-      .success-tip{
-        display:block;
-        background-color: #dff2bf;
-        border: 1px solid #b8d980;
-        border-radius: 7px;
-        color: #4BB543;
-        float: left;
-        font-weight: bold;
-        line-height: 24px;
-        position: relative;
-        padding: 7px 11px 4px;
-        margin-left: 25px;
-        // Left Arrow Styling
-        &:after, &:before {
-          content: '';
-          border: 7px solid transparent;
-          position: absolute;
-          top: -14px;
-        }
-        &:after {
-          border-bottom: 7px solid #b8d980;
-          left: 30px;
-        }
-        &:before {
-          border-bottom: 7px solid #b8d980;
-          left: 31px;
-        }
-      }
-
-      .submissionMsg--success{
-          @extend .success-tip;
-          margin-top: 15px;
-          margin-bottom: 5px;
-          width: 80%;
-      }
-
-      .error-tip {
-        display:block;
-        background-color: #fce4e4;
-        border: 1px solid #fcc2c3;
-        border-radius: 7px;
-        color: #cc0033;
-        float: left;
-        font-weight: bold;
-        line-height: 24px;
-        position: relative;
-        padding: 7px 11px 4px;
-        margin-left: 25px;
-        // Left Arrow Styling
-        &:after, &:before {
-          content: '';
-          border: 7px solid transparent;
-          position: absolute;
-          top: -14px;
-        }
-        &:after {
-          border-bottom: 7px solid #fce4e4;
-          left: 30px;
-        }
-        &:before {
-          border-bottom: 7px solid #fcc2c3;
-          left: 31px;
-        }
-      }
-
-      .submissionMsg--error{
-          @extend .error-tip;
-          margin-top: 15px;
-          margin-bottom: 5px;
-          width: 80%;
-
-      }
-
-      .submissionMsg--hidden{
-        display:none;
-      }

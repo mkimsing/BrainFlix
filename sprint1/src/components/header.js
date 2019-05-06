@@ -13,14 +13,10 @@ function Header() {
   );
 }
 
-function SearchBar() {
-  return <input type="text" placeholder="Search" id="searchForm__input" />;
-}
-
 function UploadForm() {
   return (
     <form id="searchForm">
-      <SearchBar />
+      <input type="text" placeholder="Search" id="searchForm__input" />
       <div className="uploadContainer">
         <button id="searchForm__uploadButton">UPLOAD</button>
         <div className="profile-avatar" />

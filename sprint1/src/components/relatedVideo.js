@@ -3,7 +3,7 @@ import React from 'react'
 class relatedVideo extends React.Component {
   constructor(props) {
     super(props);
-    this.titleRef = React.createRef();
+    this.titleRef = React.createRef(); //Ref to the related video card's title
     this.origTitle = this.props.video.title;
     this.state = {
       titleText: this.props.video.title
@@ -15,7 +15,7 @@ class relatedVideo extends React.Component {
     let stateCheck = setInterval(() => {
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
-        // document ready
+        // Doc ready
         let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
         let maxLength = (charsPerLine * 2) - 3;
         let newStr = this.updateText(this.origTitle, maxLength)
@@ -25,7 +25,7 @@ class relatedVideo extends React.Component {
       }
     }, 100);
 
-    //Add event listener to update text/ellipsis  on window resize
+    //Add event listener to update text/ellipsis on window resize
     window.addEventListener("resize", () => {
       let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
       let maxLength = (charsPerLine * 2) - 3;
@@ -37,9 +37,8 @@ class relatedVideo extends React.Component {
   }
 
   /**
-   * @param  text          string       - text to shorten
-   * @param  maxTextLength int          - desired max length of shorten string
-   * @return ret           string       - new shortened string
+   * Update text if it is greater than maxTextLength to truncate and replace
+   * ending with elipsis (...)
    */
   updateText = (text, maxTextLength) => {
     let ret = text;
@@ -62,8 +61,5 @@ class relatedVideo extends React.Component {
     )
   }
 }
-
-// Min-width: 329px
-
 
 export default relatedVideo;

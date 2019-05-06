@@ -1,3 +1,7 @@
+/*=============================================
+=           Assemble/create sample data       =
+=============================================*/
+//Import video thumbnails
 import videoPoster from "../assets/Images/video-list-0.jpg";
 import videoPoster1 from "../assets/Images/video-list-1.jpg";
 import videoPoster2 from "../assets/Images/video-list-2.jpg";
@@ -7,7 +11,11 @@ import videoPoster5 from "../assets/Images/video-list-5.jpg";
 import videoPoster6 from "../assets/Images/video-list-6.jpg";
 import videoPoster7 from "../assets/Images/video-list-7.jpg";
 import videoPoster8 from "../assets/Images/video-list-8.jpg";
-import video from "../assets/Video/BrainStation Sample Video.mp4"
+
+//Import video file
+import video from "../assets/Video/BrainStation Sample Video.mp4";
+
+//Import avatar array
 import avatars from "../components/avatars";
 
 //Shuffle avatar array to generate order of avatars using Fisher-Yates
@@ -20,6 +28,7 @@ const randomizeArray = (arr) => {
 
 let randomAvatars = randomizeArray(avatars);
 
+//Create sample video data based on requirements
 const sampleVideoData = {
   id: 'abc-123-def-456',
   title: "BMX Rampage: 2018 Highlights",
@@ -35,7 +44,7 @@ const sampleVideoData = {
   likes: "165,312",
   duration: '0:20',
   video: video,
-  timestamp: 1545165812000,// 12/18/2018
+  timestamp: 1545165812000, // 12/18/2018
   comments: [
     {
       name: "Michael Lyons",
@@ -62,7 +71,7 @@ const sampleVideoData = {
 };
 
 
-
+// Create sample array of 'side/related' videos
 const sideVideos = [
   {
     id: '1',
@@ -111,9 +120,7 @@ const sideVideos = [
     title: 'Train Travel On Track For Safety',
     channel: 'Scotty Cranmer',
     image: videoPoster8
-  },
-
-
+  }
 ]
 
 export default [sampleVideoData, sideVideos];
