@@ -13,6 +13,7 @@ class Video extends React.Component {
       videoDuration: this.formatDuration(0),
       playBtnModifier: 'play--play'
     }
+    this.intervalRef = '';
   }
 
   componentDidMount() {
@@ -22,11 +23,15 @@ class Video extends React.Component {
 
     //Have interval tick every half second to update duration
     //TODO change this to only tick if video is playing, and stop when paused
-    setInterval(() => {
+    this.intervalRef = setInterval(() => {
       this.setState({
         videoDuration: this.formatDuration(this.videoElement.current.currentTime)
       })
     }, 500)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalRef)
   }
 
   //TODO have this work when clicking the frame as well as button

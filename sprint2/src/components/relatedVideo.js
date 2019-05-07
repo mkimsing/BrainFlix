@@ -10,6 +10,15 @@ class relatedVideo extends React.Component {
     }
   }
 
+  modifyText = () => {
+    let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
+    let maxLength = (charsPerLine * 2) - 3;
+    let newStr = this.updateText(this.origTitle, maxLength)
+    this.setState({
+      titleText: newStr
+    })
+  }
+
   componentDidMount() {
     //Wait for document to be ready (css applied) before checking widths
     let stateCheck = setInterval(() => {
@@ -26,14 +35,11 @@ class relatedVideo extends React.Component {
     }, 100);
 
     //Add event listener to update text/ellipsis on window resize
-    window.addEventListener("resize", () => {
-      let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
-      let maxLength = (charsPerLine * 2) - 3;
-      let newStr = this.updateText(this.origTitle, maxLength)
-      this.setState({
-        titleText: newStr
-      })
-    });
+    window.addEventListener("resize", this.modifyText);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.modifyText)
   }
 
   /**

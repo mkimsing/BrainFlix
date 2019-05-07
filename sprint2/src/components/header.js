@@ -8,7 +8,7 @@ function Header() {
   return (
     <header>
       <div className="flexContainer">
-        <div className="logo" />
+        <Link to="/" className="logo"></Link>
         <UploadForm />
       </div>
     </header>
@@ -20,7 +20,9 @@ function UploadForm() {
     <form id="searchForm">
       <input type="text" placeholder="Search" id="searchForm__input" />
       <div className="uploadContainer">
-        <button id="searchForm__uploadButton">UPLOAD</button>
+        <Link to="/upload">
+          <button id="searchForm__uploadButton">UPLOAD</button>
+        </Link>
         <div className="profile-avatar" />
       </div>
     </form>

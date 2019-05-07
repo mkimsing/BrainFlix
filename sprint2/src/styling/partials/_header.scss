@@ -57,10 +57,14 @@ header {
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      
+      a{
+        width: 100%;
+        margin-right: 16px;
+      }
       #searchForm__uploadButton {
         height: $item-heights;
         width: 100%;
-        margin-right: 16px;
         border: none;
         border-radius: 4px;
         color: white;

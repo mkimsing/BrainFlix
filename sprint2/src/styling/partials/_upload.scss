@@ -1,0 +1,87 @@
+
+main{
+  margin: 0px 16px;
+}
+.lowerDivider{
+  display:none;
+}//TODO add hr below title in other sizes
+h1{
+  margin-top:24px;
+  margin-bottom: 32px;
+}
+.upload-container{
+  display:flex;
+  flex-direction: column;
+
+  h5{
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  .thumbnail__image{
+    width: 100%;
+    min-height: 153px;
+    height: 35vw; //TODO probably lower this on tab/mobile
+    border-radius: 4px;
+    margin-bottom: 32px;
+  }
+
+  form{
+    display: flex;
+    flex-direction: column;
+
+    input{
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px $MERCURY solid;
+      background-color: $ALABASTER;
+      font-family: AvenirNext;
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 24px;
+    }
+
+    textarea{
+      box-sizing: border-box;
+      resize:none;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px $MERCURY solid;
+      background-color: $ALABASTER;
+      font-family: AvenirNext;
+      font-size: 14px;
+      line-height: 22px;
+      width: 100%;
+      height: 143px;
+      &:active{
+        border-color: $BLUE;
+      }
+    }
+  }
+
+  $btnHeights: 48px;
+  .publishBtn{
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: AvenirNext;
+    background: $BLUE;
+    height: $btnHeights;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    &:hover{
+      background-color: $DARKBLUE;
+    }
+  }
+
+  .cancelContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    a{
+      text-decoration: none;
+      color: $BLUE;
+    }
+  }
+}
