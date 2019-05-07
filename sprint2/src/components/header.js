@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 // =============================================================================
 //                Header Section
 // =============================================================================
+//TODO use link around logo
 function Header() {
   return (
     <header>
