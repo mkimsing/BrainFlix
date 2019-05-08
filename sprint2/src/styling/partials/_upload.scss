@@ -1,24 +1,27 @@
-
-main{
+main {
   margin: 0px 16px;
 }
-.lowerDivider{
-  display:none;
-}//TODO add hr below title in other sizes
-h1{
-  margin-top:24px;
+.upperDivider {
+  border: 1px solid $ALABASTER;
+  color: $ALABASTER;
+}
+.lowerDivider {
+  display: none;
+}
+h1 {
+  margin-top: 24px;
   margin-bottom: 32px;
 }
-.upload-container{
-  display:flex;
+.upload-container {
+  display: flex;
   flex-direction: column;
 
-  h5{
+  h5 {
     margin-top: 0px;
     margin-bottom: 5px;
   }
 
-  .thumbnail__image{
+  .thumbnail__image {
     width: 100%;
     min-height: 153px;
     height: 35vw; //TODO probably lower this on tab/mobile
@@ -26,11 +29,11 @@ h1{
     margin-bottom: 32px;
   }
 
-  form{
+  form {
     display: flex;
     flex-direction: column;
 
-    input{
+    input {
       padding: 10px;
       border-radius: 4px;
       border: 1px $MERCURY solid;
@@ -41,9 +44,9 @@ h1{
       margin-bottom: 24px;
     }
 
-    textarea{
+    textarea {
       box-sizing: border-box;
-      resize:none;
+      resize: none;
       padding: 10px;
       border-radius: 4px;
       border: 1px $MERCURY solid;
@@ -53,35 +56,90 @@ h1{
       line-height: 22px;
       width: 100%;
       height: 143px;
-      &:active{
+      &:active {
         border-color: $BLUE;
       }
     }
   }
 
+  .buttonsDivider {
+    display: hidden;
+  }
+
+  .buttonsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
   $btnHeights: 48px;
-  .publishBtn{
+  .publishBtn {
     border: none;
     border-radius: 4px;
     color: white;
     font-family: AvenirNext;
     background: $BLUE;
     height: $btnHeights;
-    margin-top: 32px;
-    margin-bottom: 24px;
-    &:hover{
+    &:hover {
       background-color: $DARKBLUE;
     }
   }
 
-  .cancelContainer{
-    display:flex;
+  .cancelContainer {
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 24px;
-    a{
+    margin-top: 24px;
+    a {
       text-decoration: none;
       color: $BLUE;
+    }
+  }
+
+  .buttonsDivider {
+    display: none;
+  }
+}
+
+@media (min-width: 767px) {
+  main {
+    margin: 0px 24px 120px 24px;
+    h1 {
+      //Nested to make more specific than the default body h1 style
+      margin-top: 48px;
+      @include mainHeaderStyle();
+    }
+  }
+
+  .lowerDivider {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .upload-container {
+    .thumbnail__image {
+      min-width: 344px;
+      min-height: 183px;
+      width: 43%;
+      height: 20vw;
+    }
+
+    .buttonsDivider {
+      display: block;
+      margin-top: 40px;
+    }
+
+    .buttonsContainer {
+      margin-top: 40px;
+      flex-direction: row-reverse;
+    }
+    .publishBtn {
+      width: 160px;
+    }
+
+    .cancelContainer {
+      margin: 0px 48px 0px 0px;
     }
   }
 }
