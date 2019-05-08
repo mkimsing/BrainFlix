@@ -1130,6 +1130,45 @@ h1 {
   }
 }
 
+@media (min-width: 1440px) {
+  main {
+    margin: 0px 180px 400px 180px;
+  }
+  .main-content__flexContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .upload-container .thumbnail {
+    margin-right: 24px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-preferred-size: 45%;
+        flex-basis: 45%;
+  }
+  .upload-container .thumbnail__image {
+    height: 11vw;
+    margin-bottom: 0px;
+    width: 100%;
+    min-width: 0px;
+  }
+  .upload-container form {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .upload-container form textarea {
+    height: 100%;
+  }
+}
+
 hr {
   border: 1px solid #e1e1e1;
   width: 100%;

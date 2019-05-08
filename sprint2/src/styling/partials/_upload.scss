@@ -142,4 +142,36 @@ h1 {
       margin: 0px 48px 0px 0px;
     }
   }
+} // Closes tablet media query
+
+@media (min-width: 1440px) {
+  main {
+    margin: 0px 180px 400px 180px;
+  }
+  .main-content__flexContainer {
+    display: flex;
+  }
+
+  .upload-container {
+    .thumbnail {
+      margin-right: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-basis: 45%;
+    }
+    .thumbnail__image {
+      height: 11vw;
+      margin-bottom: 0px;
+      width: 100%;
+      min-width: 0px;
+    }
+    form {
+      flex-basis: 100%;
+
+      textarea {
+        height: 100%;
+      }
+    }
+  }
 }
