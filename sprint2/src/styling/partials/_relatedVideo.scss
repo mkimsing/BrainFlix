@@ -1,21 +1,27 @@
-  /*=============================================
+/*=============================================
   =    Styling for related videos list           =
   =============================================*/
 $line-height: 22px;
-
-.relatedVideos{
-  display:flex;
+//Remove all of the default anchor stylings
+a,
+a * {
+  text-decoration: none;
+  color: black;
+  box-shadow: none;
+}
+.relatedVideos {
+  display: flex;
   flex-direction: column;
 }
 
-.relatedVideos__title{
+.relatedVideos__title {
   margin: 40px 0px;
 }
-.videoCard{
+.videoCard {
   margin-bottom: 24px;
-  display:flex;
+  display: flex;
   align-items: center;
-  &__img{
+  &__img {
     border-radius: 4px;
     height: 70px;
     width: 120px;
@@ -23,7 +29,7 @@ $line-height: 22px;
     object-position: 50% 50%;
   }
 
-  &__text{
+  &__text {
     margin-left: 16px;
     height: 70px;
     display: flex;
@@ -32,46 +38,43 @@ $line-height: 22px;
   }
   @mixin add-ellipsis() {
     overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 2; /* number of lines to show */
-   line-height: 22px;        /* fallback */
-   max-height: 22px * 2;       /* fallback */
-}
-  &__title{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-height: 22px; /* fallback */
+    max-height: 22px * 2; /* fallback */
+  }
+  &__title {
     @include add-ellipsis();
     margin: 2px 0px;
     max-width: 183px; // Force on two lines
   }
 
-
-
-  &__channel{
+  &__channel {
     margin: 0px;
     overflow: hidden;
   }
 }
 
-  /*=============================================
+/*=============================================
   =           Desktop MQ                      =
   =============================================*/
-@media(min-width: 1440px){
-  .relatedVideos{
+@media (min-width: 1440px) {
+  .relatedVideos {
     margin-left: 24px;
     justify-content: space-between;
     max-height: 860px; // prevent crazy stretching when comment list grows
   }
 
-  .relatedVideos__title{
+  .relatedVideos__title {
     margin-top: 0px;
   }
 
-  .videoCard{
+  .videoCard {
     margin-bottom: 0px;
-    &__text{
+    &__text {
       min-width: 183px;
     }
-
   }
 }

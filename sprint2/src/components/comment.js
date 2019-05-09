@@ -1,5 +1,5 @@
 import React from "react";
-import timestampHelpers from "../utils/timestamp"
+import timestampHelpers from "../utils/timestamp";
 
 function Comment(props) {
   let { name, timestamp, comment, avatar } = props.comment;
@@ -16,7 +16,7 @@ function Comment(props) {
             </div>
           </div>
           <h4 className="comment__text">{comment}</h4>
-          <button className='deleteComment'>Delete</button>
+          <button className="deleteComment">Delete</button>
         </div>
       </div>
       <hr />

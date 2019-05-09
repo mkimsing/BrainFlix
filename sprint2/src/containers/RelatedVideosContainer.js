@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import RelatedVideo from "../components/RelatedVideo";
-import axios from 'axios'
-
-import apiInfo from "../utils/apiInfo"
+import axios from "axios";
+import { Link } from "react-router-dom";
+import apiInfo from "../utils/apiInfo";
 
 class RelatedVideosContainer extends Component {
   state = {
@@ -11,15 +11,13 @@ class RelatedVideosContainer extends Component {
 
   //TODO query API for sideVideos here
   componentDidMount() {
-    axios.get(apiInfo.API_URL + '/videos' + apiInfo.API_KEY)
-      .then(response => {
-        this.setState({
-          relatedVideos: response.data
-        })
-      })
+    axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY).then(response => {
+      this.setState({
+        relatedVideos: response.data
+      });
+    });
   }
   render() {
-
     return (
       <>
         <aside className=" relatedVideos">
@@ -27,9 +25,12 @@ class RelatedVideosContainer extends Component {
           {this.state.relatedVideos.map(video => {
             //Do not include the video being played
             if (!(video.id === this.props.id)) {
-              return <RelatedVideo video={video} />;
-            }
-            else return <></>
+              return (
+                <Link to={`/videos/${video.id}`}>
+                  <RelatedVideo video={video} />
+                </Link>
+              );
+            } else return <></>;
           })}
         </aside>
       </>

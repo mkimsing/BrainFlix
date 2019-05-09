@@ -893,6 +893,14 @@ header {
 /*=============================================
   =    Styling for related videos list           =
   =============================================*/
+a,
+a * {
+  text-decoration: none;
+  color: black;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .relatedVideos {
   display: -webkit-box;
   display: -ms-flexbox;

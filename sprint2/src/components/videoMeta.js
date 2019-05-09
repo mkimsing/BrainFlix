@@ -1,5 +1,5 @@
 import React from "react";
-import timestampHelpers from "../utils/timestamp"
+import timestampHelpers from "../utils/timestamp";
 
 //Note: receives entire video data object as props
 function VideoMeta(props) {
@@ -9,13 +9,10 @@ function VideoMeta(props) {
       <h1> {title} </h1>
       <div className="videoMeta__container">
         <PostedMeta channel={channel} timestamp={timestamp} />
-        <ReactionMeta
-          likes={likes}
-          views={views}
-        />
+        <ReactionMeta likes={likes} views={views} />
       </div>
       <hr />
-      <h4 className='description'>{description}</h4>
+      <h4 className="description">{description}</h4>
     </section>
   );
 }
