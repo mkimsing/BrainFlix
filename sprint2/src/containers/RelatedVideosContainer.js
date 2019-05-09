@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import RelatedVideo from "../components/RelatedVideo";
 import axios from 'axios'
 
-let API_KEY = '?api_key=28aa92a7-4c80-4cc0-b6b7-ca60b6b07dd3';
-let API_URL = 'https://project-2-api.herokuapp.com';
+import apiInfo from "../utils/apiInfo"
 
 class RelatedVideosContainer extends Component {
   state = {
@@ -12,7 +11,7 @@ class RelatedVideosContainer extends Component {
 
   //TODO query API for sideVideos here
   componentDidMount() {
-    axios.get(API_URL + '/videos' + API_KEY)
+    axios.get(apiInfo.API_URL + '/videos' + apiInfo.API_KEY)
       .then(response => {
         this.setState({
           relatedVideos: response.data

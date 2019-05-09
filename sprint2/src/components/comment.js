@@ -16,6 +16,7 @@ function Comment(props) {
             </div>
           </div>
           <h4 className="comment__text">{comment}</h4>
+          <button className='deleteComment'>Delete</button>
         </div>
       </div>
       <hr />

@@ -49,24 +49,13 @@ class Comments_Container extends Component {
     })
   }
 
-
-  submitComment = (commentText) => {
-    // const newComment = {
-    //   name: 'Mohan Muruge',
-    //   avatar: avatar_mohan,
-    //   timestamp: Date.now(),
-    //   comment: commentText
-    // }
-    //TODO FIX BROKEN COMMENT SUBMISSION FUNCTIONALITY Make sure we post comment here..
-  }
-
   render() {
     return (
       <section>
         <CommentSubmission
           numComments={this.props.comments.length}
           avatar={avatar_mohan}
-          submitComment={this.submitComment}
+          submitComment={this.props.submitComment}
           submissionMsg={this.state.submissionMsg}
           submissionMsgClass={this.state.submissionMsgClass}
           handleErrorMessage={this.handleErrorMessage}

@@ -43,6 +43,18 @@
     }
   }
 
+  .deleteComment{
+    border:none;
+    border-radius: 4px;
+    color: white;
+    background-color: $BLUE;
+    width: 50px;
+    margin-left:auto;
+    margin-top: 10px;
+    &:hover{
+      background-color: $DARKBLUE;
+    }
+  }
   // Force date in comment onto new row when there isnt enough space (very small width)
   @media (max-width: 350px) {
     .comment {
@@ -70,6 +82,10 @@
     }
 
     &__text {
+      margin-right: 40px;
+    }
+
+    .deleteComment{
       margin-right: 40px;
     }
 

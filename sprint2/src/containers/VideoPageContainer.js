@@ -4,14 +4,13 @@ import VideoMeta from "../components/VideoMeta";
 import CommentsContainer from "./CommentsContainer";
 import RelatedVideosContainer from "./RelatedVideosContainer";
 
-import avatars from "../components/avatars"; //Import avatar array
+import avatar_mohan from "../assets/Images/Mohan-muruge.jpg"; // Ensure we have avatar image
+import avatars from "../utils/avatars"; //Import avatar array
+import apiInfo from "../utils/apiInfo"
 import axios from 'axios'
 
 //Import video file
 // import video from "../assets/Video/BrainStation Sample Video.mp4";
-
-let API_KEY = '?api_key=28aa92a7-4c80-4cc0-b6b7-ca60b6b07dd3';
-let API_URL = 'https://project-2-api.herokuapp.com';
 
 //TODO rename this if needed (is different from file name)
 class MainVideoContainer extends Component {
@@ -21,7 +20,7 @@ class MainVideoContainer extends Component {
       duration: 0,
       image: '',
       comments: []
-    }
+    } //Need blank data to avoid undefined errors
   }
 
   //Shuffle avatar array to generate order of avatars using Fisher-Yates
@@ -33,18 +32,60 @@ class MainVideoContainer extends Component {
   }
 
   componentDidMount() {
-    axios.get(API_URL + '/videos/1af0jruup5gu' + API_KEY)
+    console.log(apiInfo)
+    axios.get(apiInfo.API_URL + '/videos/1af0jruup5gu' + apiInfo.API_KEY)
       .then(response => {
         let randomAvatars = this.randomizeArray(avatars); //TODO check if Issue with re-randomizing
+
+        //Add in avatar images to the loaded comments
         response.data.comments = response.data.comments.map((comment, index) => {
+          //Pseudo checking on name to keep 'Mohan' avatar image on reload
+          let newAvatar = (comment.name === 'Mohan Muruge') ? avatar_mohan : randomAvatars[index];
           return ({
             ...comment,
-            avatar: randomAvatars[index]
+            avatar: newAvatar
           });
         })
 
         this.setState({
           mainVideoData: response.data
+        })
+        console.log(this.state.mainVideoData)
+      })
+
+  }
+
+  submitComment = (commentText) => {
+    axios.post(
+      `${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments${apiInfo.API_KEY}`,
+      { name: 'Mohan Muruge', comment: commentText }
+    ).then(response => {
+
+      let newComment = {
+        ...response.data,
+        avatar: avatar_mohan
+      }
+
+      this.setState({
+        mainVideoData: {
+          ...this.state.mainVideoData,
+          comments: this.state.mainVideoData.comments.concat(newComment)
+        }
+      })
+    })
+
+    //TODO catch errors from axios
+  }
+
+  deleteComment = (commentId) => {
+    axios.delete(`${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments/${commentId}${apiInfo.API_KEY}`)
+      .then(response => {
+        let newArr = this.state.mainVideoData.comments.filter(comment => comment.id !== commentId);
+        this.setState({
+          mainVideoData: {
+            ...this.state.mainVideoData,
+            comments: newArr
+          }
         })
       })
   }
@@ -54,14 +95,14 @@ class MainVideoContainer extends Component {
     return (
       <>
         <VideoFrame
-          video={video + API_KEY}
+          video={video + apiInfo.API_KEY}
           duration={duration}
           image={image}
         />
         <div className="mainFlexContainer">
           <div>
             <VideoMeta {...this.state.mainVideoData} />
-            <CommentsContainer comments={comments} />
+            <CommentsContainer comments={comments.slice().reverse()} submitComment={this.submitComment} />
           </div>
           <RelatedVideosContainer id={id} />
         </div>
