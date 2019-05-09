@@ -926,10 +926,18 @@ header {
 }
 
 .videoCard__title {
-  margin: 2px 0px;
-  height: calc(22px * 2);
-  max-width: 183px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  line-height: 22px;
+  /* fallback */
+  max-height: 44px;
+  /* fallback */
+  margin: 2px 0px;
+  max-width: 183px;
 }
 
 .videoCard__channel {

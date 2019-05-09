@@ -30,13 +30,23 @@ $line-height: 22px;
     flex-direction: column;
     justify-content: center;
   }
-  
-  &__title{
-    margin: 2px 0px;
-    height: calc(#{$line-height} * 2);
-    max-width: 183px; // Force on two lines
+  @mixin add-ellipsis() {
     overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2; /* number of lines to show */
+   line-height: 22px;        /* fallback */
+   max-height: 22px * 2;       /* fallback */
+}
+  &__title{
+    @include add-ellipsis();
+    margin: 2px 0px;
+    max-width: 183px; // Force on two lines
   }
+
+
+
   &__channel{
     margin: 0px;
     overflow: hidden;

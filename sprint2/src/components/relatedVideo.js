@@ -1,6 +1,6 @@
 import React from 'react'
 
-class relatedVideo extends React.Component {
+class RelatedVideo extends React.Component {
   constructor(props) {
     super(props);
     this.titleRef = React.createRef(); //Ref to the related video card's title
@@ -10,49 +10,49 @@ class relatedVideo extends React.Component {
     }
   }
 
-  modifyText = () => {
-    let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
-    let maxLength = (charsPerLine * 2) - 3;
-    let newStr = this.updateText(this.origTitle, maxLength)
-    this.setState({
-      titleText: newStr
-    })
-  }
+  // modifyText = () => {
+  //   let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
+  //   let maxLength = (charsPerLine * 2) - 3;
+  //   let newStr = this.updateText(this.origTitle, maxLength)
+  //   this.setState({
+  //     titleText: newStr
+  //   })
+  // }
 
-  componentDidMount() {
-    //Wait for document to be ready (css applied) before checking widths
-    let stateCheck = setInterval(() => {
-      if (document.readyState === 'complete') {
-        clearInterval(stateCheck);
-        // Doc ready
-        let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
-        let maxLength = (charsPerLine * 2) - 3;
-        let newStr = this.updateText(this.origTitle, maxLength)
-        this.setState({
-          titleText: newStr
-        })
-      }
-    }, 100);
+  // componentDidMount() {
+  //   //Wait for document to be ready (css applied) before checking widths
+  //   let stateCheck = setInterval(() => {
+  //     if (document.readyState === 'complete') {
+  //       clearInterval(stateCheck);
+  //       // Doc ready
+  //       let charsPerLine = this.titleRef.current.offsetWidth / (14 / 1.8)
+  //       let maxLength = (charsPerLine * 2) - 3;
+  //       let newStr = this.updateText(this.origTitle, maxLength)
+  //       this.setState({
+  //         titleText: newStr
+  //       })
+  //     }
+  //   }, 100);
 
-    //Add event listener to update text/ellipsis on window resize
-    window.addEventListener("resize", this.modifyText);
-  }
+  //   //Add event listener to update text/ellipsis on window resize
+  //   window.addEventListener("resize", this.modifyText);
+  // }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.modifyText)
-  }
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', this.modifyText)
+  // }
 
-  /**
-   * Update text if it is greater than maxTextLength to truncate and replace
-   * ending with elipsis (...)
-   */
-  updateText = (text, maxTextLength) => {
-    let ret = text;
-    if (ret.length > maxTextLength) {
-      ret = ret.substr(0, maxTextLength - 3) + "...";
-    }
-    return ret;
-  }
+  // /**
+  //  * Update text if it is greater than maxTextLength to truncate and replace
+  //  * ending with elipsis (...)
+  //  */
+  // updateText = (text, maxTextLength) => {
+  //   let ret = text;
+  //   if (ret.length > maxTextLength) {
+  //     ret = ret.substr(0, maxTextLength - 3) + "...";
+  //   }
+  //   return ret;
+  // }
 
   render() {
     let { channel, image } = this.props.video;
@@ -68,4 +68,4 @@ class relatedVideo extends React.Component {
   }
 }
 
-export default relatedVideo;
+export default RelatedVideo;

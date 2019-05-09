@@ -4,7 +4,7 @@ import React from "react";
 // =============================================================================
 
 //TODO move to container folder?
-class Video extends React.Component {
+class VideoFrame extends React.Component {
   constructor(props) {
     super(props);
     this.videoElement = React.createRef();
@@ -87,4 +87,4 @@ class Video extends React.Component {
   }
 }
 
-export default Video;
+export default VideoFrame;
