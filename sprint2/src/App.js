@@ -2,8 +2,8 @@ import React from "react";
 import Header from "./components/header";
 import Video from "./components/video";
 import VideoMeta from "./components/videoMeta";
-import Comments from "./containers/comments";
-import RelatedVideos from "./containers/relatedVideos";
+import Comments from "./containers/Comments_Container";
+import RelatedVideos from "./containers/RelatedVideos_Container";
 
 import Upload from "./components/Upload";
 

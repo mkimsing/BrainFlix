@@ -1,56 +1,57 @@
-  /*=============================================
+/*=============================================
   =     Styling for displayed comments          =
   =============================================*/
-.comment{
+.comment {
   margin: 16px 0px;
-  display:flex;
-  &__avatar{
+  display: flex;
+  &__avatar {
     margin-right: 16px;
   }
 
-  &__container{
-    display:flex;
+  &__container {
+    display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
-  &__titleContainer{
-    display:flex;
+  &__titleContainer {
+    display: flex;
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 10px;
   }
 
-  &__name{ 
-    margin:0px;
-  }
-
-  &__text{
+  &__name {
     margin: 0px;
   }
-  
+
+  &__text {
+    margin: 0px;
+  }
+
   &__date {
     color: $SILVER;
     margin: 0px; // Override 400px media query
     display: flex;
-    
-    h5{
+
+    h5 {
       margin: 0px;
 
-      &:first-child{
+      &:first-child {
         margin-right: 3px;
       }
     }
   }
-  
+
   // Force date in comment onto new row when there isnt enough space (very small width)
   @media (max-width: 350px) {
-    .comment{
-      &__titleContainer{
+    .comment {
+      &__titleContainer {
         flex-direction: column;
         align-items: flex-start;
       }
-  
-      &__date{
+
+      &__date {
         margin-top: 5px;
       }
     }
@@ -60,19 +61,19 @@
 /*=============================================
 =            Tablet MQ          =
 =============================================*/
-@media (min-width: 768px){
-  .comment{
+@media (min-width: 768px) {
+  .comment {
     margin-top: 24px;
     margin-bottom: 24px;
-    &__titleContainer{
+    &__titleContainer {
       justify-content: flex-start;
     }
 
-    &__text{
+    &__text {
       margin-right: 40px;
     }
 
-    &__name{ 
+    &__name {
       margin-right: 10px;
     }
   }

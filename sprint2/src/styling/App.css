@@ -797,6 +797,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
 }
 
 .comment__titleContainer {
@@ -988,7 +989,7 @@ h1 {
 
 .upload-container h5 {
   margin-top: 0px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .upload-container .thumbnail__image {
