@@ -32,7 +32,6 @@ class VideoFrame extends React.Component {
       });
       //Have interval tick every half second to update duration
       this.intervalRef = setInterval(() => {
-        console.log("inInterval");
         this.setState({
           videoDuration: this.formatDuration(
             this.videoElement.current.currentTime

@@ -22,7 +22,7 @@ class MainVideoContainer extends Component {
         duration: 0,
         image: "",
         comments: []
-      } //Need blank data to avoid undefined errors
+      } //Need blank data to avoid undefined errors for now
     };
     this.randomAvatars = this.randomizeArray(avatars); //TODO check if Issue with re-randomizing
   }
@@ -37,7 +37,7 @@ class MainVideoContainer extends Component {
     return arr;
   };
 
-  componentDidMount() {
+  fetchVideoData = () => {
     let queryId = "";
     if (this.props.match.params.id) {
       queryId = this.props.match.params.id;
@@ -56,7 +56,7 @@ class MainVideoContainer extends Component {
             let newAvatar =
               comment.name === "Mohan Muruge"
                 ? avatar_mohan
-                : randomAvatars[index];
+                : randomAvatars[index % randomAvatars.length];
             return {
               ...comment,
               avatar: newAvatar
@@ -68,41 +68,18 @@ class MainVideoContainer extends Component {
           mainVideoData: response.data
         });
       });
+  };
+
+  componentDidMount() {
+    this.fetchVideoData();
   }
 
-  componentDidUpdate(prevProps) {
-    let queryId = "";
-    if (this.props.match.params.id) {
-      queryId = this.props.match.params.id;
-    } else {
-      queryId = "1af0jruup5gu";
-    }
-    if (queryId === prevProps.match.params.id) {
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.match.params.id === prevProps.match.params.id) {
       return; // Prevent repeat calls as per documentation
+    } else {
+      this.fetchVideoData();
     }
-    axios
-      .get(apiInfo.API_URL + "/videos/" + queryId + apiInfo.API_KEY)
-      .then(response => {
-        //Add in avatar images to the loaded comments
-        response.data.comments = response.data.comments.map(
-          (comment, index) => {
-            //Pseudo checking on name to keep 'Mohan' avatar image on reload
-            let newAvatar =
-              comment.name === "Mohan Muruge"
-                ? avatar_mohan
-                : this.randomAvatars[index];
-            return {
-              ...comment,
-              avatar: newAvatar
-            };
-          }
-        );
-
-        this.setState({
-          mainVideoData: response.data
-        });
-        // console.log("In VideoPageContainer update: ", this.state.mainVideoData);
-      });
   }
 
   submitComment = commentText => {
@@ -165,6 +142,7 @@ class MainVideoContainer extends Component {
             <CommentsContainer
               comments={comments.slice().reverse()}
               submitComment={this.submitComment}
+              deleteComment={this.deleteComment}
             />
           </div>
           <RelatedVideosContainer id={id} />
