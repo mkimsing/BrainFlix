@@ -86,7 +86,7 @@ class MainVideoContainer extends Component {
     axios
       .post(
         `${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments${
-        apiInfo.API_KEY
+          apiInfo.API_KEY
         }`,
         { name: "Mohan Muruge", comment: commentText }
       )
@@ -109,17 +109,17 @@ class MainVideoContainer extends Component {
 
   deleteComment = commentId => {
     //TODO add better confirmation before deleting
-    if (!window.confirm('Are you sure you want to delete the comment?')) {
-      return
+    if (!window.confirm("Are you sure you want to delete the comment?")) {
+      return;
     }
     axios
       .delete(
         `${apiInfo.API_URL}/videos/${
-        this.state.mainVideoData.id
+          this.state.mainVideoData.id
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {
-        console.log('Deleted: ', response.data)
+        console.log("Deleted: ", response.data);
         //As per requirements, requery for new mainVideoData object
         this.fetchVideoData();
       });

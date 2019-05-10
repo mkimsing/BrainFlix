@@ -5,8 +5,8 @@ function Comment(props) {
   let { name, timestamp, comment, avatar, id } = props.comment;
 
   let deleteHandler = () => {
-    props.deleteComment(id)
-  }
+    props.deleteComment(id);
+  };
   return (
     <>
       <div className="comment">
@@ -20,14 +20,14 @@ function Comment(props) {
             </div>
           </div>
           <h4 className="comment__text">{comment}</h4>
-          <button className="deleteComment" onClick={deleteHandler}>Delete</button>
+          <button className="deleteComment" onClick={deleteHandler}>
+            Delete
+          </button>
         </div>
       </div>
       <hr />
     </>
   );
 }
-
-
 
 export default Comment;
