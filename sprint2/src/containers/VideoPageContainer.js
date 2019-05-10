@@ -74,7 +74,7 @@ class MainVideoContainer extends Component {
     this.fetchVideoData();
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (this.props.match.params.id === prevProps.match.params.id) {
       return; // Prevent repeat calls as per documentation
     } else {
@@ -86,7 +86,7 @@ class MainVideoContainer extends Component {
     axios
       .post(
         `${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments${
-          apiInfo.API_KEY
+        apiInfo.API_KEY
         }`,
         { name: "Mohan Muruge", comment: commentText }
       )
@@ -108,22 +108,17 @@ class MainVideoContainer extends Component {
   };
 
   deleteComment = commentId => {
+    //TODO add confirmation before deleting
     axios
       .delete(
         `${apiInfo.API_URL}/videos/${
-          this.state.mainVideoData.id
+        this.state.mainVideoData.id
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {
-        let newArr = this.state.mainVideoData.comments.filter(
-          comment => comment.id !== commentId
-        );
-        this.setState({
-          mainVideoData: {
-            ...this.state.mainVideoData,
-            comments: newArr
-          }
-        });
+        console.log('Deleted: ', response.data)
+        //As per requirements, requery for new mainVideoData object
+        this.fetchVideoData();
       });
   };
 

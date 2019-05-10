@@ -2,7 +2,11 @@ import React from "react";
 import timestampHelpers from "../utils/timestamp";
 
 function Comment(props) {
-  let { name, timestamp, comment, avatar } = props.comment;
+  let { name, timestamp, comment, avatar, id } = props.comment;
+
+  let deleteHandler = () => {
+    props.deleteComment(id)
+  }
   return (
     <>
       <div className="comment">
@@ -16,12 +20,14 @@ function Comment(props) {
             </div>
           </div>
           <h4 className="comment__text">{comment}</h4>
-          <button className="deleteComment">Delete</button>
+          <button className="deleteComment" onClick={deleteHandler}>Delete</button>
         </div>
       </div>
       <hr />
     </>
   );
 }
+
+
 
 export default Comment;

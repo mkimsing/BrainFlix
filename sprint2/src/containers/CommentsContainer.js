@@ -61,7 +61,7 @@ class Comments_Container extends Component {
           handleErrorMessage={this.handleErrorMessage}
           handleSuccessMessage={this.handleSuccessMessage} />
         {this.props.comments.map(comment => {
-          return <Comment comment={comment} />
+          return <Comment comment={comment} deleteComment={this.props.deleteComment} id={comment.id} />
         })}
       </section>
     );
