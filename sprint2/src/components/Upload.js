@@ -18,7 +18,7 @@ function Upload() {
             />
           </div>
           <form>
-            <label for="videoTitle">
+            <label htmlFor="videoTitle">
               <h5> TITLE YOUR VIDEO</h5>
             </label>
             <input
@@ -27,7 +27,7 @@ function Upload() {
               placeholder="Add a title to your video"
             />
 
-            <label for="videoDescription">
+            <label htmlFor="videoDescription">
               <h5> ADD A VIDEO DESCRIPTION</h5>
             </label>
             <textarea

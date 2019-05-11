@@ -9,6 +9,8 @@ import avatars from "../utils/avatars"; //Import avatar array
 import apiInfo from "../utils/apiInfo";
 import axios from "axios";
 
+import AxiosError from "../components/Errors/AxiosError";
+
 //TODO rename this if needed (is different from file name)
 class MainVideoContainer extends Component {
   constructor(props) {
@@ -20,7 +22,11 @@ class MainVideoContainer extends Component {
         image: "",
         comments: []
       }, //Need blank data to avoid undefined errors for now
-      videoPaths: []
+      videoPaths: [], //TODO move the related videos container's state into this state here?
+      error: {
+        caught: false,
+        type: ''
+      }
     };
     this.randomAvatars = this.randomizeArray(avatars); //TODO check if Issue with re-randomizing
   }
@@ -42,6 +48,7 @@ class MainVideoContainer extends Component {
     } else {
       queryId = "1af0jruup5gu";
     }
+
     axios
       .get(apiInfo.API_URL + "/videos/" + queryId + apiInfo.API_KEY)
       .then(response => {
@@ -65,7 +72,15 @@ class MainVideoContainer extends Component {
         this.setState({
           mainVideoData: response.data
         });
-      });
+      })
+      .catch(error => {
+        this.setState({
+          error: {
+            caught: true,
+            response: error.response
+          }
+        })
+      })
   };
 
   componentDidMount() {
@@ -77,6 +92,7 @@ class MainVideoContainer extends Component {
         })
       });
     });
+    //TODO Catch errors from this request for all videos/video list
   }
 
   componentDidUpdate(prevProps) {
@@ -91,7 +107,7 @@ class MainVideoContainer extends Component {
     axios
       .post(
         `${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments${
-          apiInfo.API_KEY
+        apiInfo.API_KEY
         }`,
         { name: "Mohan Muruge", comment: commentText }
       )
@@ -109,7 +125,7 @@ class MainVideoContainer extends Component {
         });
       });
 
-    //TODO catch errors from axios
+    //TODO catch errors from axios if post fails
   };
 
   deleteComment = commentId => {
@@ -120,7 +136,7 @@ class MainVideoContainer extends Component {
     axios
       .delete(
         `${apiInfo.API_URL}/videos/${
-          this.state.mainVideoData.id
+        this.state.mainVideoData.id
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {
@@ -133,24 +149,15 @@ class MainVideoContainer extends Component {
     return Object.keys(obj).length === 0;
   };
 
-  setVideoPaths = videoPaths => {
-    this.setState({
-      videoPaths: videoPaths
-    });
-  };
-
   render() {
-    if (this.isEmptyObj(this.state.mainVideoData)) {
+    if (this.isEmptyObj(this.state.mainVideoData) || this.state.videoPaths.length === 0) {
       return <h3> Loading Content...</h3>;
-      // } else if (
-      //   this.state.videoPaths.find(path => {
-      //     path === this.props.match.params.id;
-      //     console.log(path, this.props.match.params.id);
-      //   })
-      // ) {
-      // return <h4> 404 A video with that ID does not exist! </h4>;
+    }
+    if (this.state.error.caught) {
+      return <AxiosError error={this.state.error.response} />
     }
     let { video, duration, image, comments, id } = this.state.mainVideoData;
+
     return (
       <>
         <VideoFrame
@@ -167,7 +174,7 @@ class MainVideoContainer extends Component {
               deleteComment={this.deleteComment}
             />
           </div>
-          <RelatedVideosContainer id={id} setVideoPaths={this.setVideoPaths} />
+          <RelatedVideosContainer id={id} />
         </div>
       </>
     );

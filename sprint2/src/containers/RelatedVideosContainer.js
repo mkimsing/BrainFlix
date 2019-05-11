@@ -6,17 +6,19 @@ import apiInfo from "../utils/apiInfo";
 
 class RelatedVideosContainer extends Component {
   state = {
-    relatedVideos: []
+    relatedVideos: [],
+    error: false
   };
 
-  //TODO query API for sideVideos here
   componentDidMount() {
     axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY).then(response => {
       this.setState({
         relatedVideos: response.data
       });
-    });
+    })
+    //TODO add error catching
   }
+
   render() {
     return (
       <>
