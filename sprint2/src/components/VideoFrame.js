@@ -32,6 +32,7 @@ class VideoFrame extends React.Component {
       });
       //Have interval tick every half second to update duration
       this.intervalRef = setInterval(() => {
+        //TODO check for video ending, change pause button back to play button
         this.setState({
           videoDuration: this.formatDuration(
             this.videoElement.current.currentTime

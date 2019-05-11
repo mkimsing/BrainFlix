@@ -9,9 +9,6 @@ import avatars from "../utils/avatars"; //Import avatar array
 import apiInfo from "../utils/apiInfo";
 import axios from "axios";
 
-//Import video file
-// import video from "../assets/Video/BrainStation Sample Video.mp4";
-
 //TODO rename this if needed (is different from file name)
 class MainVideoContainer extends Component {
   constructor(props) {
@@ -22,7 +19,8 @@ class MainVideoContainer extends Component {
         duration: 0,
         image: "",
         comments: []
-      } //Need blank data to avoid undefined errors for now
+      }, //Need blank data to avoid undefined errors for now
+      videoPaths: []
     };
     this.randomAvatars = this.randomizeArray(avatars); //TODO check if Issue with re-randomizing
   }
@@ -72,6 +70,13 @@ class MainVideoContainer extends Component {
 
   componentDidMount() {
     this.fetchVideoData();
+    axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY).then(response => {
+      this.setState({
+        videoPaths: response.data.map(video => {
+          return video.id;
+        })
+      });
+    });
   }
 
   componentDidUpdate(prevProps) {
@@ -119,13 +124,32 @@ class MainVideoContainer extends Component {
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {
-        console.log("Deleted: ", response.data);
-        //As per requirements, requery for new mainVideoData object
+        //As per requirements, re-query for new mainVideoData object
         this.fetchVideoData();
       });
   };
 
+  isEmptyObj = obj => {
+    return Object.keys(obj).length === 0;
+  };
+
+  setVideoPaths = videoPaths => {
+    this.setState({
+      videoPaths: videoPaths
+    });
+  };
+
   render() {
+    if (this.isEmptyObj(this.state.mainVideoData)) {
+      return <h3> Loading Content...</h3>;
+      // } else if (
+      //   this.state.videoPaths.find(path => {
+      //     path === this.props.match.params.id;
+      //     console.log(path, this.props.match.params.id);
+      //   })
+      // ) {
+      // return <h4> 404 A video with that ID does not exist! </h4>;
+    }
     let { video, duration, image, comments, id } = this.state.mainVideoData;
     return (
       <>
@@ -143,7 +167,7 @@ class MainVideoContainer extends Component {
               deleteComment={this.deleteComment}
             />
           </div>
-          <RelatedVideosContainer id={id} />
+          <RelatedVideosContainer id={id} setVideoPaths={this.setVideoPaths} />
         </div>
       </>
     );
