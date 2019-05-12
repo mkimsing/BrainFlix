@@ -124,6 +124,7 @@ $scrubHeight: 3%;
       margin: 0px 24px;
     }
     &__controls {
+      bottom: 15px;
       height: 8%;
       width: calc(100% - 48px);
       .scrubBar {

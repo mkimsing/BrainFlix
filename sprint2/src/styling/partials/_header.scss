@@ -50,6 +50,19 @@ header {
         border-color: $BLUE;
       }
     }
+  #searchForm__searchButton{
+    margin-bottom: 16px;
+    padding-top: 5px; //Center text;
+    width: 100%;
+    font-family: AvenirNext;
+    border-radius: 4px;
+    color: white;
+    height: $item-heights;
+    background-color: $BLUE;
+      &:hover{
+      background-color: $DARKBLUE;
+    }
+  }
 
     .uploadContainer {
       margin-top: 8px;
@@ -62,6 +75,8 @@ header {
         width: 100%;
         margin-right: 16px;
       }
+
+
       #searchForm__uploadButton {
         height: $item-heights;
         width: 100%;
@@ -104,7 +119,6 @@ header {
       height: $item-heights;
       margin: 0px 180px 0px 0px;
     }
-
     #searchForm {
       align-items: center;
       flex-wrap: nowrap;
@@ -113,6 +127,10 @@ header {
         margin-right: 24px;
       }
 
+      #searchForm__searchButton{
+        margin: 0px 16px 0px 0px;
+        max-width: 160px;
+      }
       .uploadContainer {
         margin-top: 0px;
         max-width: 200px;

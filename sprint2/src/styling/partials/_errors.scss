@@ -2,7 +2,7 @@
 .errorBG{
   background-color: black;
 }
-.error{
+.errorImgContainer{
   margin: 0px 16px;
   .errorDiv{
     border-radius: 4px;
@@ -12,33 +12,34 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    position: relative;
 
-    max-height: 850px;
-    height: calc(100vh - 152px);
+    // max-height: 850px;
+    height: 65vw;
     width: 100%;
 
     color: white;
     .genericTitle{
-      font-size: 40px;
+      font-size: 30px;
       text-align: center;
       margin: 20px 0px 0px 0px;
     }
 
     .errorTitle{
-      color: #cc0000; //#C91F37;
+      color: #cc0000;
       background-color: rgba(255,255,255,0.6);
       border-radius: 4px;
       padding: 5px;
       margin: 20px 0px 0px 0px;
-    }
-
-    .msgBottom{
-      position: absolute;
-      bottom: 20px;
+      font-size: 16px;
       text-align: center;
     }
-    .errorCTA{
+  }
+}
+    .msgBottom{
+      margin-top: calc(10vw + 50px);
+      text-align: center;
+      margin: 10vw 16px 0px 16px;
+      .errorCTA{
       margin: 10px 0px 10px 0px;
       font-size: 30px;
       padding: 6px;
@@ -60,20 +61,37 @@
         background-color: $DARKBLUE;
       }
     }
-  }
-}
+    
+    }
+
 
 @media (min-width: 768px){
-  .error{
+  .errorImgContainer{
     margin: 0px 24px;
     .errorDiv{
-      height: calc(100vh - 48px);
+      height: 45vw;
+
+      .genericTitle{
+        font-size: 38px;
+      }
+
+      .errorTitle{
+        font-size: 24px;
+      }
     }
+  }
+  .msgBottom{
+      text-align: center;
+      margin: 20px 24px 0px 24px;
   }
 }
 
 @media (min-width: 1440px){
-  .error{
+  .errorImgContainer{
     margin: 0px 180px;
+  }
+    .msgBottom{
+      text-align: center;
+      margin: 20px 180px 0px 180px;
   }
 }

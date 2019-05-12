@@ -110,6 +110,12 @@ class MainVideoContainer extends Component {
       return; // Prevent repeat calls as per documentation
     } else {
       this.fetchVideoData();
+      this.setState({
+        error: {
+          caught: false,
+          response: ''
+        }
+      })
     }
   }
 

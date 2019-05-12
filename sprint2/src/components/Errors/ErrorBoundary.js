@@ -16,18 +16,20 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.errorInfo) {
       return (
-        <section className='errorBG'>
-          <div className='error'>
-            <div className='errorDiv' style={{ backgroundImage: `url(${bgImage})` }} >
-              <h1 className='genericTitle'> Something went wrong... </h1>
-              <h1 className='errorTitle'> Uh Oh! </h1>
-              <div className='msgBottom'>
-                <h3 className='errorCTA'> Try reloading the page or wait a few minutes then try again </h3>
-                <Link to='/'><button> Back to Home </button> </Link>
-              </div>
-            </div >
+        <>
+          <section className='errorBG'>
+            <div className='errorImgContainer'>
+              <div className='errorDiv' style={{ backgroundImage: `url(${bgImage})` }} >
+                <h1 className='genericTitle'> Something went wrong... </h1>
+                <h1 className='errorTitle'> {` Uh Oh! ${this.state.error}`}</h1>
+              </div >
+            </div>
+          </section>
+          <div className='msgBottom'>
+            <h3 className='errorCTA'> Try reloading the page or wait a few minutes then try again</h3>
+            <Link to='/' onClick={this.props.unsetError}><button> Back to Home </button> </Link>
           </div>
-        </section>
+        </>
       )
     }
     return this.props.children

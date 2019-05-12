@@ -71,11 +71,11 @@ body h5 {
   background-color: black;
 }
 
-.error {
+.errorImgContainer {
   margin: 0px 16px;
 }
 
-.error .errorDiv {
+.errorImgContainer .errorDiv {
   border-radius: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,34 +90,34 @@ body h5 {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: relative;
-  max-height: 850px;
-  height: calc(100vh - 152px);
+  height: 65vw;
   width: 100%;
   color: white;
 }
 
-.error .errorDiv .genericTitle {
-  font-size: 40px;
+.errorImgContainer .errorDiv .genericTitle {
+  font-size: 30px;
   text-align: center;
   margin: 20px 0px 0px 0px;
 }
 
-.error .errorDiv .errorTitle {
+.errorImgContainer .errorDiv .errorTitle {
   color: #cc0000;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 4px;
   padding: 5px;
   margin: 20px 0px 0px 0px;
-}
-
-.error .errorDiv .msgBottom {
-  position: absolute;
-  bottom: 20px;
+  font-size: 16px;
   text-align: center;
 }
 
-.error .errorDiv .errorCTA {
+.msgBottom {
+  margin-top: calc(10vw + 50px);
+  text-align: center;
+  margin: 10vw 16px 0px 16px;
+}
+
+.msgBottom .errorCTA {
   margin: 10px 0px 10px 0px;
   font-size: 30px;
   padding: 6px;
@@ -127,7 +127,7 @@ body h5 {
   border: #0065ad solid 1px;
 }
 
-.error .errorDiv button {
+.msgBottom button {
   width: 150px;
   height: 48px;
   color: white;
@@ -136,22 +136,36 @@ body h5 {
   border-radius: 4px;
 }
 
-.error .errorDiv button:hover {
+.msgBottom button:hover {
   background-color: #0065ad;
 }
 
 @media (min-width: 768px) {
-  .error {
+  .errorImgContainer {
     margin: 0px 24px;
   }
-  .error .errorDiv {
-    height: calc(100vh - 48px);
+  .errorImgContainer .errorDiv {
+    height: 45vw;
+  }
+  .errorImgContainer .errorDiv .genericTitle {
+    font-size: 38px;
+  }
+  .errorImgContainer .errorDiv .errorTitle {
+    font-size: 24px;
+  }
+  .msgBottom {
+    text-align: center;
+    margin: 20px 24px 0px 24px;
   }
 }
 
 @media (min-width: 1440px) {
-  .error {
+  .errorImgContainer {
     margin: 0px 180px;
+  }
+  .msgBottom {
+    text-align: center;
+    margin: 20px 180px 0px 180px;
   }
 }
 
@@ -213,6 +227,21 @@ header {
 
 .flexContainer #searchForm__input:active {
   border-color: #0095ff;
+}
+
+.flexContainer #searchForm #searchForm__searchButton {
+  margin-bottom: 16px;
+  padding-top: 5px;
+  width: 100%;
+  font-family: AvenirNext;
+  border-radius: 4px;
+  color: white;
+  height: 48px;
+  background-color: #0095ff;
+}
+
+.flexContainer #searchForm #searchForm__searchButton:hover {
+  background-color: #0065ad;
 }
 
 .flexContainer #searchForm .uploadContainer {
@@ -291,6 +320,10 @@ header {
   }
   .flexContainer #searchForm__input {
     margin-right: 24px;
+  }
+  .flexContainer #searchForm #searchForm__searchButton {
+    margin: 0px 16px 0px 0px;
+    max-width: 160px;
   }
   .flexContainer #searchForm .uploadContainer {
     margin-top: 0px;
@@ -452,6 +485,7 @@ header {
     margin: 0px 24px;
   }
   .video__controls {
+    bottom: 15px;
     height: 8%;
     width: calc(100% - 48px);
   }

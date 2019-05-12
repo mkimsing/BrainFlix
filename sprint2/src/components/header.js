@@ -18,6 +18,7 @@ function Header() {
 function UploadForm() {
   return (
     <form id="searchForm">
+      <button id='searchForm__searchButton'> Search </button>
       <input type="text" placeholder="Search" id="searchForm__input" />
       <div className="uploadContainer">
         <Link to="/upload">
