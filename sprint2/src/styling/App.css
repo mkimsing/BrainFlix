@@ -67,6 +67,94 @@ body h5 {
   }
 }
 
+.errorBG {
+  background-color: black;
+}
+
+.error {
+  margin: 0px 16px;
+}
+
+.error .errorDiv {
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  max-height: 850px;
+  height: calc(100vh - 152px);
+  width: 100%;
+  color: white;
+}
+
+.error .errorDiv .genericTitle {
+  font-size: 40px;
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+}
+
+.error .errorDiv .errorTitle {
+  color: #cc0000;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  padding: 5px;
+  margin: 20px 0px 0px 0px;
+}
+
+.error .errorDiv .msgBottom {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+}
+
+.error .errorDiv .errorCTA {
+  margin: 10px 0px 10px 0px;
+  font-size: 30px;
+  padding: 6px;
+  border-radius: 4px;
+  color: #0095ff;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: #0065ad solid 1px;
+}
+
+.error .errorDiv button {
+  width: 150px;
+  height: 48px;
+  color: white;
+  background-color: #0095ff;
+  border: none;
+  border-radius: 4px;
+}
+
+.error .errorDiv button:hover {
+  background-color: #0065ad;
+}
+
+@media (min-width: 768px) {
+  .error {
+    margin: 0px 24px;
+  }
+  .error .errorDiv {
+    height: calc(100vh - 48px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .error {
+    margin: 0px 180px;
+  }
+}
+
 /*=============================================
 =        Styling for Header Block            =
 =============================================*/

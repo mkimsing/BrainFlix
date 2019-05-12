@@ -25,7 +25,7 @@ class MainVideoContainer extends Component {
       videoPaths: [], //TODO move the related videos container's state into this state here?
       error: {
         caught: false,
-        type: ''
+        response: ''
       }
     };
     this.randomAvatars = this.randomizeArray(avatars); //TODO check if Issue with re-randomizing
@@ -74,6 +74,7 @@ class MainVideoContainer extends Component {
         });
       })
       .catch(error => {
+        console.log(error)
         this.setState({
           error: {
             caught: true,
@@ -85,14 +86,23 @@ class MainVideoContainer extends Component {
 
   componentDidMount() {
     this.fetchVideoData();
-    axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY).then(response => {
-      this.setState({
-        videoPaths: response.data.map(video => {
-          return video.id;
+    axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY)
+      .then(response => {
+        this.setState({
+          videoPaths: response.data.map(video => {
+            return video.id;
+          })
+        });
+      })
+      .catch(error => {
+        console.log(error)
+        this.setState({
+          error: {
+            caught: true,
+            response: error.response
+          }
         })
-      });
-    });
-    //TODO Catch errors from this request for all videos/video list
+      })
   }
 
   componentDidUpdate(prevProps) {
@@ -123,9 +133,16 @@ class MainVideoContainer extends Component {
             comments: this.state.mainVideoData.comments.concat(newComment)
           }
         });
-      });
-
-    //TODO catch errors from axios if post fails
+      })
+      .catch(error => {
+        console.log(error)
+        this.setState({
+          error: {
+            caught: true,
+            response: error.response
+          }
+        })
+      })
   };
 
   deleteComment = commentId => {
@@ -149,12 +166,21 @@ class MainVideoContainer extends Component {
     return Object.keys(obj).length === 0;
   };
 
+  unsetError = () => {
+    this.setState({
+      error: {
+        caught: false,
+        response: ''
+      }
+    })
+  }
+
   render() {
     if (this.isEmptyObj(this.state.mainVideoData) || this.state.videoPaths.length === 0) {
       return <h3> Loading Content...</h3>;
     }
     if (this.state.error.caught) {
-      return <AxiosError error={this.state.error.response} />
+      return <AxiosError error={this.state.error.response} unsetError={this.unsetError} />
     }
     let { video, duration, image, comments, id } = this.state.mainVideoData;
 

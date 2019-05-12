@@ -1,0 +1,79 @@
+
+.errorBG{
+  background-color: black;
+}
+.error{
+  margin: 0px 16px;
+  .errorDiv{
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+    max-height: 850px;
+    height: calc(100vh - 152px);
+    width: 100%;
+
+    color: white;
+    .genericTitle{
+      font-size: 40px;
+      text-align: center;
+      margin: 20px 0px 0px 0px;
+    }
+
+    .errorTitle{
+      color: #cc0000; //#C91F37;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 4px;
+      padding: 5px;
+      margin: 20px 0px 0px 0px;
+    }
+
+    .msgBottom{
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+    }
+    .errorCTA{
+      margin: 10px 0px 10px 0px;
+      font-size: 30px;
+      padding: 6px;
+      border-radius: 4px;
+      color: rgba(0, 149, 255, 1);
+      background-color: rgba(255,255,255,0.8);
+      border: $DARKBLUE solid 1px;
+    }
+    
+    button{
+      width: 150px;
+      height: 48px;
+      color: white;
+      background-color: $BLUE;
+      border: none;
+      border-radius: 4px;
+
+      &:hover{
+        background-color: $DARKBLUE;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .error{
+    margin: 0px 24px;
+    .errorDiv{
+      height: calc(100vh - 48px);
+    }
+  }
+}
+
+@media (min-width: 1440px){
+  .error{
+    margin: 0px 180px;
+  }
+}
