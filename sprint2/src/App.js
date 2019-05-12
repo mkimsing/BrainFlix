@@ -5,6 +5,7 @@ import VideoPageContainer from "./containers/VideoPageContainer";
 import Upload from "./components/Upload";
 import ErrorBoundary from "./components/Errors/ErrorBoundary"
 import UnspecifiedRoute from "./components/Errors/UnspecifiedRoute"
+import Search from "./components/Search"
 
 import { Switch, Route } from "react-router-dom";
 import "./styling/App.css";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" exact component={VideoPageContainer} />
           <Route path="/videos/:id" component={VideoPageContainer} />
           <Route path="/upload" component={Upload} />
+          <Route path="/search" component={Search} />
           <Route component={UnspecifiedRoute} />
         </Switch>
       </ErrorBoundary>

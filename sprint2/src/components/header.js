@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 // =============================================================================
 //                Header Section
 // =============================================================================
@@ -15,19 +15,58 @@ function Header() {
   );
 }
 
-function UploadForm() {
-  return (
-    <form id="searchForm">
-      <button id='searchForm__searchButton'> Search </button>
-      <input type="text" placeholder="Search" id="searchForm__input" />
-      <div className="uploadContainer">
-        <Link to="/upload">
-          <button id="searchForm__uploadButton">UPLOAD</button>
-        </Link>
-        <div className="profile-avatar" />
-      </div>
-    </form>
-  );
+class UploadForm extends React.Component {
+  state = {
+    query: '',
+    toSearch: false
+  }
+
+  updateQuery = (event) => {
+    this.setState({
+      query: event.target.value
+    })
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      query: event.target.searchField.value,
+      toSearch: true //TODO reset this in did update?
+    })
+    event.target.searchField.value = '';
+  }
+
+  componentDidUpdate() {
+    if (this.state.toSearch === true)
+      this.setState({
+        toSearch: false
+      })
+  }
+
+  render() {
+    if (this.state.toSearch === true) {
+      let location = {
+        pathname: '/search',
+        query: {
+          search: this.state.query
+        }
+      }
+      return <Redirect to={location} />
+    }
+    return (
+      <form id="searchForm" onSubmit={this.submitHandler}>
+        <button id='searchForm__searchButton'> Search </button>
+        <input type="text" placeholder="Search" id="searchForm__input" name="searchField" />
+        <div className="uploadContainer">
+          <Link to="/upload">
+            <button id="searchForm__uploadButton">UPLOAD</button>
+          </Link>
+          <div className="profile-avatar" />
+        </div>
+      </form>
+    );
+  }
 }
 
 export default Header;
