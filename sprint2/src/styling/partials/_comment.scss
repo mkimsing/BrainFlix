@@ -57,7 +57,7 @@
     }
   }
   // Force date in comment onto new row when there isnt enough space (very small width)
-  @media (max-width: 350px) {
+  @media (max-width: 370px) {
     .comment {
       &__titleContainer {
         flex-direction: column;

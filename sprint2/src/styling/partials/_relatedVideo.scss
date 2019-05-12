@@ -12,10 +12,11 @@ a * {
 .relatedVideos {
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
 }
 
 .relatedVideos__title {
-  margin: 40px 0px;
+  margin:0px 0px 40px 0px;
 }
 .videoCard {
   margin-bottom: 24px;
@@ -68,7 +69,7 @@ a * {
   }
 
   .relatedVideos__title {
-    margin-top: 0px;
+    margin-bottom: 15px;
   }
 
   .videoCard {

@@ -1,15 +1,19 @@
 main {
-  margin: 0px 16px;
+  margin: 40px 16px 0px 16px;
+  position: relative;
 }
 .upperDivider {
-  border: 1px solid $ALABASTER;
-  color: $ALABASTER;
+  border: 1px solid $MERCURY;
+  width: 100vw;
+  position: absolute;
+  top: -24px;
+  left: -16px;
 }
 .lowerDivider {
   display: none;
 }
 h1 {
-  margin-top: 24px;
+  // margin-top: 30px;
   margin-bottom: 32px;
 }
 .upload-container {
@@ -104,7 +108,7 @@ h1 {
 
 @media (min-width: 767px) {
   main {
-    margin: 0px 24px 120px 24px;
+    margin: 64px 24px 120px 24px;
     h1 {
       //Nested to make more specific than the default body h1 style
       margin-top: 48px;
@@ -112,6 +116,10 @@ h1 {
     }
   }
 
+  .upperDivider{
+    top: -48px;
+    left: -24px;
+  }
   .lowerDivider {
     display: block;
     margin-bottom: 40px;
@@ -146,7 +154,10 @@ h1 {
 
 @media (min-width: 1440px) {
   main {
-    margin: 0px 180px 400px 180px;
+    margin: 64px 180px 400px 180px;
+  }
+  .upperDivider{
+    left: -180px;
   }
   .main-content__flexContainer {
     display: flex;

@@ -192,7 +192,7 @@ class MainVideoContainer extends Component {
           image={image}
         />
         <div className="mainFlexContainer">
-          <div>
+          <div className='mainContent'>
             <VideoMeta {...this.state.mainVideoData} />
             <CommentsContainer
               comments={comments.slice().reverse()}
