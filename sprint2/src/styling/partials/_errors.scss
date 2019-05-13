@@ -35,12 +35,11 @@
   }
 }
 .msgBottom{
-  margin-top: calc(10vw + 50px);
   text-align: center;
-  margin: 10vw 16px 0px 16px;
+  margin: 20px 16px 10px 16px;
   .errorCTA{
     margin: 10px 0px 10px 0px;
-    font-size: 30px;
+    font-size: 24px;
     padding: 6px;
     border-radius: 4px;
     color: rgba(0, 149, 255, 1);
@@ -62,6 +61,12 @@
   }
 }
 
+@media(max-width: 300px){
+  .msgBottom{
+    margin-top: 50px;
+  }
+}
+
 
 @media (min-width: 768px){
   .errorImgContainer{
@@ -80,7 +85,8 @@
   }
   .msgBottom{
       text-align: center;
-      margin: 20px 24px 0px 24px;
+      margin: 20px 24px 10px 24px;
+      font-size: 30px;
   }
 }
 
@@ -90,6 +96,6 @@
   }
     .msgBottom{
       text-align: center;
-      margin: 20px 180px 0px 180px;
+      margin: 20px 180px 10px 180px;
   }
 }
