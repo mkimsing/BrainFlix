@@ -52,15 +52,16 @@ header {
     }
 
   #searchForm__searchButton{
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     padding-top: 5px; //Center text;
     width: 100%;
     font-family: AvenirNext;
+    border:none;
     border-radius: 4px;
     color: white;
-    height: $item-heights;
+    height: 43px;
     background-color: $BLUE;
-      &:hover{
+    &:hover{
       background-color: $DARKBLUE;
     }
   }
@@ -130,6 +131,8 @@ header {
       #searchForm__searchButton{
         margin: 0px 16px 0px 0px;
         max-width: 120px;
+        width: 50%;
+        height: $item-heights;
       }
       .uploadContainer {
         margin-top: 0px;

@@ -6,7 +6,6 @@ import SearchForm from './SearchForm'
 // =============================================================================
 //TODO use link around logo
 function Header(props) {
-  console.log(props)
   return (
     <header>
       <div className="flexContainer">

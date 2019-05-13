@@ -22,7 +22,6 @@ class MainVideoContainer extends Component {
         image: "",
         comments: []
       }, //Need blank data to avoid undefined errors for now
-      videoPaths: [], //TODO move the related videos container's state into this state here?
       error: {
         caught: false,
         response: ''
@@ -46,6 +45,7 @@ class MainVideoContainer extends Component {
     if (this.props.match.params.id) {
       queryId = this.props.match.params.id;
     } else {
+      //Default to BMX video
       queryId = "1af0jruup5gu";
     }
 
@@ -68,7 +68,6 @@ class MainVideoContainer extends Component {
             };
           }
         );
-
         this.setState({
           mainVideoData: response.data
         });
@@ -86,36 +85,23 @@ class MainVideoContainer extends Component {
 
   componentDidMount() {
     this.fetchVideoData();
-    axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY)
-      .then(response => {
-        this.setState({
-          videoPaths: response.data.map(video => {
-            return video.id;
-          })
-        });
-      })
-      .catch(error => {
-        console.log(error)
-        this.setState({
-          error: {
-            caught: true,
-            response: error.response
-          }
-        })
-      })
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id === prevProps.match.params.id) {
-      return; // Prevent repeat calls as per documentation
-    } else {
+      return; // Prevent repeat calls
+    }
+    else {
+      //TODO cancel these async calls when component unmounts (happens if error)
       this.fetchVideoData();
       this.setState({
         error: {
           caught: false,
           response: ''
         }
-      })
+      },
+        window.scrollTo(0, 0) //Scroll to top after we update which video is showing
+      )
     }
   }
 
@@ -163,8 +149,7 @@ class MainVideoContainer extends Component {
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {
-        //As per requirements, re-query for new mainVideoData object
-        this.fetchVideoData();
+        this.fetchVideoData();//As per requirements, re-query for new mainVideoData object
       });
   };
 
@@ -182,14 +167,17 @@ class MainVideoContainer extends Component {
   }
 
   render() {
-    if (this.isEmptyObj(this.state.mainVideoData) || this.state.videoPaths.length === 0) {
+    //Wait for content to be fetched
+    if (this.isEmptyObj(this.state.mainVideoData)) {
       return <h3> Loading Content...</h3>;
     }
+
+    // Error handling
     if (this.state.error.caught) {
       return <AxiosError error={this.state.error.response} unsetError={this.unsetError} />
     }
-    let { video, duration, image, comments, id } = this.state.mainVideoData;
 
+    let { video, duration, image, comments, id } = this.state.mainVideoData;
     return (
       <>
         <VideoFrame
@@ -206,7 +194,7 @@ class MainVideoContainer extends Component {
               deleteComment={this.deleteComment}
             />
           </div>
-          <RelatedVideosContainer id={id} />
+          <RelatedVideosContainer mainId={id} />
         </div>
       </>
     );

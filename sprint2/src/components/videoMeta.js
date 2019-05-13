@@ -17,6 +17,7 @@ function VideoMeta(props) {
   );
 }
 
+//Meta data about when video was posted
 function PostedMeta(props) {
   let { channel, timestamp } = props;
   return (
@@ -30,6 +31,7 @@ function PostedMeta(props) {
   );
 }
 
+//Meta data about reaction to the video
 function ReactionMeta(props) {
   let { likes, views } = props;
   return (

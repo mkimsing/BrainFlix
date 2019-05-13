@@ -97,13 +97,15 @@ export default class Search extends Component {
     return (
       <div className='searchResults'>
         <h1> Search Results for: {query}</h1>
-        {this.state.filteredVideos.map(video => {
-          return (
-            <Link to={`/videos/${video.id}`}>
-              <RelatedVideo video={video} />
-            </Link>
-          );
-        })}
+        <div className='searchResults__videos'>
+          {this.state.filteredVideos.map(video => {
+            return (
+              <Link to={`/videos/${video.id}`} key={video.id}>
+                <RelatedVideo video={video} />
+              </Link>
+            );
+          })}
+        </div>
       </div>
     )
   }

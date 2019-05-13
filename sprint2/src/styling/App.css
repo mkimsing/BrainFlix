@@ -230,13 +230,14 @@ header {
 }
 
 .flexContainer #searchForm #searchForm__searchButton {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   padding-top: 5px;
   width: 100%;
   font-family: AvenirNext;
+  border: none;
   border-radius: 4px;
   color: white;
-  height: 48px;
+  height: 43px;
   background-color: #0095ff;
 }
 
@@ -324,6 +325,8 @@ header {
   .flexContainer #searchForm #searchForm__searchButton {
     margin: 0px 16px 0px 0px;
     max-width: 120px;
+    width: 50%;
+    height: 48px;
   }
   .flexContainer #searchForm .uploadContainer {
     margin-top: 0px;
@@ -385,10 +388,10 @@ header {
 
 .video__controls button,
 .video__controls .scrubBar {
-  width: 55px;
+  width: 60px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35%;
+  background-size: 38%;
   border-radius: 4px;
   border: none;
 }
@@ -447,7 +450,7 @@ header {
   width: 95px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 35%;
+  background-size: 45%;
   border-radius: 4px;
   border: none;
   background-color: rgba(0, 0, 0, 0.55);
@@ -456,7 +459,7 @@ header {
 
 .video__controls .play {
   margin: 0px 8px 0px 16px;
-  background-size: 25%;
+  background-size: 35%;
 }
 
 .video__controls .play--play {
@@ -500,6 +503,7 @@ header {
     font-size: 10px;
     display: inline-block;
     color: white;
+    min-width: 60px;
   }
   .video__controls .buttons-right {
     width: 80px;
@@ -507,6 +511,9 @@ header {
   .video__controls .play {
     margin-left: 8px;
     margin-right: 16px;
+  }
+  .video__controls .scrubBar, .video__controls .fullscreen, .video__controls .volume {
+    background-size: 50%;
   }
 }
 
@@ -1017,14 +1024,6 @@ header {
 /*=============================================
   =    Styling for related videos list           =
   =============================================*/
-a,
-a * {
-  text-decoration: none;
-  color: black;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 .relatedVideos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1036,12 +1035,22 @@ a * {
   margin-top: 40px;
 }
 
+.relatedVideos a, .relatedVideos a * {
+  text-decoration: none;
+  color: black;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.relatedVideos a {
+  margin-bottom: 24px;
+}
+
 .relatedVideos__title {
   margin: 0px 0px 40px 0px;
 }
 
 .videoCard {
-  margin-bottom: 24px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1101,15 +1110,12 @@ a * {
 @media (min-width: 1440px) {
   .relatedVideos {
     margin-left: 24px;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     max-height: 860px;
   }
-  .relatedVideos__title {
-    margin-bottom: 15px;
+  .relatedVideos a {
+    margin-bottom: 44px;
   }
-  .videoCard {
+  .relatedVideos a:last-child {
     margin-bottom: 0px;
   }
   .videoCard__text {
@@ -1342,10 +1348,45 @@ h1 {
   margin: 10px 16px;
 }
 
+.searchResults__videos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.searchResults__videos a, .searchResults__videos a * {
+  text-decoration: none;
+  color: black;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.searchResults__videos a {
+  margin-bottom: 24px;
+}
+
+.searchResults__videos a:last-child {
+  margin-bottom: 0px;
+}
+
 @media (min-width: 768px) {
   .searchResults {
     margin-left: 24px;
     margin-right: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .searchResults {
+    margin-left: 180px;
+    margin-right: 180px;
+  }
+  .searchResults__videos a {
+    margin-bottom: 44px;
   }
 }
 

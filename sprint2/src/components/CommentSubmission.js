@@ -21,8 +21,9 @@ function CommentSubmission(props) {
   let submitHandler = (event) => {
     const commentField = event.target.commentText;
     event.preventDefault();
+
     if (!isEmptySubmission(commentField)) {
-      submitComment(commentField.value); //
+      submitComment(commentField.value);
       commentField.value = "";
       handleSuccessMessage(true);
       let btn = event.target.commentButton;

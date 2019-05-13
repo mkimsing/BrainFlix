@@ -3,23 +3,27 @@
   =============================================*/
 $line-height: 22px;
 //Remove all of the default anchor stylings
-a,
-a * {
-  text-decoration: none;
-  color: black;
-  box-shadow: none;
-}
+
 .relatedVideos {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+
+  a, a * {
+    text-decoration: none;
+    color: black;
+    box-shadow: none;
+  }
+
+  a {
+    margin-bottom: 24px;
+  }
 }
 
 .relatedVideos__title {
   margin:0px 0px 40px 0px;
 }
 .videoCard {
-  margin-bottom: 24px;
   display: flex;
   align-items: center;
   &__img {
@@ -64,16 +68,18 @@ a * {
 @media (min-width: 1440px) {
   .relatedVideos {
     margin-left: 24px;
-    justify-content: space-between;
+    // justify-content: space-between;
     max-height: 860px; // prevent crazy stretching when comment list grows
-  }
-
-  .relatedVideos__title {
-    margin-bottom: 15px;
+  
+    a{
+      margin-bottom: 44px;
+      &:last-child{
+        margin-bottom: 0px;
+      }
+    }
   }
 
   .videoCard {
-    margin-bottom: 0px;
     &__text {
       min-width: 183px;
     }

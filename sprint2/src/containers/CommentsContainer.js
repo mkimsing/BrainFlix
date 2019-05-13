@@ -65,6 +65,7 @@ class Comments_Container extends Component {
               comment={comment}
               deleteComment={this.props.deleteComment}
               id={comment.id}
+              key={comment.id}
             />
           );
         })}

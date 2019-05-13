@@ -29,7 +29,7 @@ class RelatedVideosContainer extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.id === prevProps.id) {
+    if (this.props.mainId === prevProps.mainId) {
       return; // Prevent repeat calls as per documentation
     }
     this.setState({
@@ -58,14 +58,14 @@ class RelatedVideosContainer extends Component {
         <aside className=" relatedVideos">
           <h5 className="relatedVideos__title">NEXT VIDEO</h5>
           {this.state.relatedVideos.map(video => {
-            //Do not include the video being played
-            if (!(video.id === this.props.id)) {
+            //Do not include the video being played/displayed
+            if (!(video.id === this.props.mainId)) {
               return (
-                <Link to={`/videos/${video.id}`}>
+                <Link to={`/videos/${video.id}`} key={video.id}>
                   <RelatedVideo video={video} />
                 </Link>
               );
-            } else return <></>;
+            } else return null;
           })}
         </aside>
       </>
