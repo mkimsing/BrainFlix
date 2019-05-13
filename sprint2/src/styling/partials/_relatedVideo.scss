@@ -9,7 +9,8 @@ $line-height: 22px;
   flex-direction: column;
   margin-top: 40px;
 
-  a, a * {
+  a,
+  a * {
     text-decoration: none;
     color: black;
     box-shadow: none;
@@ -21,7 +22,7 @@ $line-height: 22px;
 }
 
 .relatedVideos__title {
-  margin:0px 0px 40px 0px;
+  margin: 0px 0px 40px 0px;
 }
 .videoCard {
   display: flex;
@@ -68,13 +69,11 @@ $line-height: 22px;
 @media (min-width: 1440px) {
   .relatedVideos {
     margin-left: 24px;
-    // justify-content: space-between;
-    max-height: 860px; // prevent crazy stretching when comment list grows
-  
-    a{
-      margin-bottom: 40px;
-      &:last-child{
-        margin-bottom: 0px;
+
+    a {
+      margin-bottom: 38px;
+      &:last-child {
+        margin-bottom: 20px;
       }
     }
   }
