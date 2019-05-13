@@ -77,19 +77,19 @@ export default class Search extends Component {
     // Empty query
     if (!this.props.location.search || query.trim() === '') {
       return (
-        <>
+        <div className='searchResults'>
           <h1> Search Page </h1>
           <h4> Please enter a query to search</h4>
-        </>
+        </div>
       )
     }
     // No results found
     if (this.state.filteredVideos.length === 0) {
       return (
-        <>
+        <div className='searchResults'>
           <h1> No results found for: {query} </h1>
           <h4> Please try searching for something more general</h4>
-        </>
+        </div>
       )
     }
 
@@ -99,7 +99,7 @@ export default class Search extends Component {
         <h1> Search Results for: {query}</h1>
         {this.state.filteredVideos.map(video => {
           return (
-            <Link to={`/ videos / ${video.id}`}>
+            <Link to={`/videos/${video.id}`}>
               <RelatedVideo video={video} />
             </Link>
           );
