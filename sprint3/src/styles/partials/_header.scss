@@ -1,0 +1,159 @@
+/*=============================================
+=        Styling for Header Block            =
+=============================================*/
+
+//Variables
+$avatar-dimensions: 60px;
+$header-font-size: 16px;
+$cross-size: 15px;
+$item-heights: 48px;
+$search-img-size: 20px;
+
+header {
+  margin: 0px 16px 16px 16px;
+}
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: $header-font-size;
+
+  .logo {
+    background: url("../assets/Logo/Logo-brainflix.svg") no-repeat center;
+    background-size: contain;
+    height: 28px;
+    min-width: 120px;
+    width: 200px;
+    margin: 10px auto;
+    box-sizing: border-box;
+  }
+
+  #searchForm {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__input {
+      height: $item-heights;
+      width: 100%;
+      background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat $ALABASTER;
+      background-size: $search-img-size;
+      background-position: calc(3% + 5px) 50%;
+      text-indent: calc(#{$search-img-size} + 8px + 3%);
+
+      border: 1px $MERCURY solid;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: AvenirNext;
+      font-size: 14px;
+      line-height: 18px;
+      &:active{
+        border-color: $BLUE;
+      }
+    }
+
+  #searchForm__searchButton{
+    margin-bottom: 8px;
+    padding-top: 5px; //Center text;
+    width: 100%;
+    font-family: AvenirNext;
+    border:none;
+    border-radius: 4px;
+    color: white;
+    height: 43px;
+    background-color: $BLUE;
+    &:hover{
+      background-color: $DARKBLUE;
+    }
+  }
+
+    .uploadContainer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      
+      a{
+        width: 100%;
+        margin-right: 16px;
+      }
+
+      #searchForm__uploadButton {
+        height: $item-heights;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-family: AvenirNext;
+        text-indent: $cross-size;
+        background: $BLUE url("../assets/Icons/SVG/Icon-upload.svg") no-repeat;
+        background-size: $cross-size;
+        background-position: calc(50% - (#{$cross-size}* 2)) 50%;
+        padding-top: 5px; //Center text;
+        &:hover{
+          background-color: $DARKBLUE;
+        }
+      }
+      .profile-avatar {
+        background: url("../assets/Images/Mohan-muruge.jpg") no-repeat center;
+        background-size: cover;
+        border-radius: 50%;
+        min-height: $item-heights;
+        min-width: $item-heights;
+      }
+    }
+  }
+}
+/*=============================================
+=            Tablet MQ            =
+=============================================*/
+@media (min-width: 768px) {
+  header {
+    margin: 16px 24px 16px 24px;
+  }
+  .flexContainer {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+
+    .logo {
+      height: $item-heights;
+      margin: 0px 180px 0px 0px;
+    }
+    #searchForm {
+      align-items: center;
+      flex-wrap: nowrap;
+      width: 100%;
+      &__input {
+        margin-right: 24px;
+      }
+
+      #searchForm__searchButton{
+        margin: 0px 16px 0px 0px;
+        max-width: 120px;
+        width: 50%;
+        height: $item-heights;
+      }
+      .uploadContainer {
+        margin-top: 0px;
+        min-width: 180px;
+        max-width: 200px;
+      }
+    }
+  }
+} //Closes tablet media query
+
+/*=============================================
+=            Desktop MQ           =
+=============================================*/
+@media (min-width: 1440px) {
+  header {
+    margin: 16px 180px;
+  }
+
+  .flexContainer {
+    .logo {
+      margin: 0px 35% 0px 0px;
+    }
+  }
+}

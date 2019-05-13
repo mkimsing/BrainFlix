@@ -1,0 +1,97 @@
+/*=============================================
+  =     Styling for displayed comments          =
+  =============================================*/
+.comment {
+  margin: 16px 0px;
+  display: flex;
+  &__avatar {
+    margin-right: 16px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__titleContainer {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    margin: 0px;
+  }
+
+  &__text {
+    margin: 0px;
+  }
+
+  &__date {
+    color: $SILVER;
+    margin: 0px; // Override 400px media query
+    display: flex;
+
+    h5 {
+      margin: 0px;
+
+      &:first-child {
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .deleteComment{
+    border:none;
+    border-radius: 4px;
+    background-color: white;
+    color: $BLUE;
+    width: 50px;
+    margin-left:auto;
+    margin-top: 10px;
+    &:hover{
+      background-color: $DARKBLUE;
+      color: white;
+    }
+  }
+  // Force date in comment onto new row when there isnt enough space (very small width)
+  @media (max-width: 370px) {
+    .comment {
+      &__titleContainer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &__date {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+/*=============================================
+=            Tablet MQ          =
+=============================================*/
+@media (min-width: 768px) {
+  .comment {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    &__titleContainer {
+      justify-content: flex-start;
+    }
+
+    &__text {
+      margin-right: 40px;
+    }
+
+    .deleteComment{
+      margin-right: 40px;
+    }
+
+    &__name {
+      margin-right: 10px;
+    }
+  }
+}

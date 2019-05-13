@@ -1,0 +1,45 @@
+@import "./partials/colors";
+@import "./partials/fonts";
+@import "./partials/errors";
+
+@import "./partials/header";
+@import "./partials/video";
+@import "./partials/videoMeta";
+@import "./partials/submitComment";
+@import "./partials/comment";
+@import "./partials/relatedVideo";
+
+@import "./partials/upload";
+@import './partials/search';
+
+//Set dividing line styling
+hr {
+  border: 1px solid $MERCURY;
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+//Set body edge margins and page level flex containers
+.mainFlexContainer {
+  margin: 0px 16px 5px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .mainFlexContainer {
+    margin: 0px 24px 16px 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mainContent{
+    border-right: solid 2px $MERCURY;
+      padding-bottom: 20px;
+  }
+  .mainFlexContainer {
+    margin: 0px 180px;
+    flex-direction: row;
+  }
+}

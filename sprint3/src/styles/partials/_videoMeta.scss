@@ -1,0 +1,121 @@
+/*============================================
+=            Styling for Video Description   =
+=            and Meta Data                   =
+==============================================*/
+.videoMeta {
+  margin-bottom: 28px;
+  h1 {
+    margin: 32px 0px 16px 0px;
+  }
+
+  h4 {
+    margin-top: 24px;
+    margin-bottom: 0px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  .postedContainer {
+    display: flex;
+    align-items: center;
+
+    h2,
+    h5 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    h2 {
+      margin-right: 8px;
+    }
+  }
+
+  .reactionMeta {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+
+    //Remove default margins from two headers
+    h4 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    &__views {
+      display: flex;
+      align-items: center;
+      margin-right: 20px; //Space between views and likes blocks
+      .viewsIcon {
+        background: url("../assets/Icons/SVG/Icon-views.svg") no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        margin-bottom: 3px; //Vertically align icon with the text
+      }
+    }
+    &__likes {
+      display: flex;
+      align-items: center;
+      .likesIcon {
+        background: url("../assets/Icons/SVG/Icon-likes.svg") no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  hr {
+    color: $MERCURY;
+  }
+}
+/*=============================================
+=            Tablet MQ                      =
+=============================================*/
+@media (min-width: 768px) {
+  .videoMeta {
+    margin-bottom: 64px;
+    h1 {
+      @include mainHeaderStyle();
+    }
+    h2 {
+      @include subHeaderStyle();
+    }
+
+    .description{
+      width: 80%;
+      margin-top: 40px;
+    }
+
+    &__container {
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 20px 0px;
+    }
+
+    .reactionMeta {
+      margin: 0px;
+    }
+  }
+} // Closes tablet media query
+
+/*=============================================
+=            Desktop MQ                     =
+=============================================*/
+@media (min-width: 1440px){
+  .videoMeta {
+    .description{
+      width: 85%;
+    }
+      .reactionMeta {
+      margin-right: 32px; //Move over when the recommended videos flexes to side
+    }
+  }
+}//Closes desktop mq

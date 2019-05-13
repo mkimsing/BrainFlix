@@ -1,0 +1,40 @@
+.searchResults{
+  margin: 10px 16px;
+
+  &__videos{
+    display: flex;
+    flex-direction: column;
+    a, a * {
+      text-decoration: none;
+      color: black;
+      box-shadow: none;
+    }
+
+    a {
+      margin-bottom: 24px;
+      &:last-child{
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .searchResults{
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
+
+@media (min-width: 1440px){
+  .searchResults{
+    margin-left: 180px;
+    margin-right: 180px;
+  
+    &__videos{
+      a {
+        margin-bottom: 44px;
+      }
+    }
+  }
+}

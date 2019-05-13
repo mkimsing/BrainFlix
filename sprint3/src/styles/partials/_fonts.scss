@@ -1,0 +1,94 @@
+/*=============================================
+=            Import font family            =
+=============================================*/
+@font-face {
+  font-family: AvenirNext;
+  src: url("../assets/fonts/Avenir-Regular.otf");
+}
+
+@font-face {
+  font-family: AvenirNext;
+  src: url("../assets/fonts/Avenir-Demi.otf");
+  font-weight: 550;
+}
+
+@font-face {
+  font-family: AvenirNext;
+  src: url("../assets/fonts/Avenir-Bold.otf");
+  font-weight: bold;
+}
+
+
+/*=============================================
+=    Baseline Comment Sizing/Styles           =
+=============================================*/
+
+//Mixins for fonts that do not map between mobile/full directly
+@mixin heroHeaderStyle() {
+  font-size: 60px;
+  line-height: 68px;
+  font-weight: bold;
+}
+
+@mixin mainHeaderStyle() {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: bold;
+}
+
+@mixin normalHeaderStyle() {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 550;
+}
+
+@mixin subHeaderStyle() {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 550;
+}
+
+//Set base default font stylings and sizes
+body {
+  font-family: AvenirNext;
+  h1 {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 550;
+  }
+
+  h4 {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: normal;
+  }
+
+  h5 {
+    font-size: 12px;
+    line-height: 20px;
+    color: $SILVER;
+    font-weight: normal;
+  }
+
+  //Some fonts map directly between the fullsize and mobile fonts
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: normal;
+    }
+
+    h5 {
+      font-size: 12px;
+      line-height: 20px;
+      color: $SILVER;
+      font-weight: normal;
+    }
+  }
+}

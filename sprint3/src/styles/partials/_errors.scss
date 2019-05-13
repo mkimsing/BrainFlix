@@ -1,0 +1,101 @@
+
+.errorBG{
+  background-color: black;
+}
+.errorImgContainer{
+  margin: 0px 16px;
+  .errorDiv{
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    height: 65vw;
+    width: 100%;
+
+    color: white;
+    .genericTitle{
+      font-size: 30px;
+      text-align: center;
+      margin: 20px 0px 0px 0px;
+    }
+
+    .errorTitle{
+      color: #cc0000;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 4px;
+      padding: 5px;
+      margin: 20px 0px 0px 0px;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+.msgBottom{
+  text-align: center;
+  margin: 20px 16px 10px 16px;
+  .errorCTA{
+    margin: 10px 0px 10px 0px;
+    font-size: 24px;
+    padding: 6px;
+    border-radius: 4px;
+    color: rgba(0, 149, 255, 1);
+    background-color: rgba(255,255,255,0.8);
+    border: $DARKBLUE solid 1px;
+  }
+
+  button{
+    width: 150px;
+    height: 48px;
+    color: white;
+    background-color: $BLUE;
+    border: none;
+    border-radius: 4px;
+
+    &:hover{
+      background-color: $DARKBLUE;
+    }
+  }
+}
+
+@media(max-width: 300px){
+  .msgBottom{
+    margin-top: 50px;
+  }
+}
+
+
+@media (min-width: 768px){
+  .errorImgContainer{
+    margin: 0px 24px;
+    .errorDiv{
+      height: 45vw;
+
+      .genericTitle{
+        font-size: 38px;
+      }
+
+      .errorTitle{
+        font-size: 24px;
+      }
+    }
+  }
+  .msgBottom{
+      text-align: center;
+      margin: 20px 24px 10px 24px;
+      font-size: 30px;
+  }
+}
+
+@media (min-width: 1440px){
+  .errorImgContainer{
+    margin: 0px 180px;
+  }
+    .msgBottom{
+      text-align: center;
+      margin: 20px 180px 10px 180px;
+  }
+}

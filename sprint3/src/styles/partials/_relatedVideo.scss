@@ -1,0 +1,86 @@
+/*=============================================
+  =    Styling for related videos list           =
+  =============================================*/
+$line-height: 22px;
+//Remove all of the default anchor stylings
+
+.relatedVideos {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+
+  a,
+  a * {
+    text-decoration: none;
+    color: black;
+    box-shadow: none;
+  }
+
+  a {
+    margin-bottom: 24px;
+  }
+}
+
+.relatedVideos__title {
+  margin: 0px 0px 40px 0px;
+}
+.videoCard {
+  display: flex;
+  align-items: center;
+  &__img {
+    border-radius: 4px;
+    height: 70px;
+    width: 120px;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  &__text {
+    margin-left: 16px;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @mixin add-ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-height: 22px; /* fallback */
+    max-height: 22px * 2; /* fallback */
+  }
+  &__title {
+    @include add-ellipsis();
+    margin: 2px 0px;
+    max-width: 183px; // Force on two lines
+  }
+
+  &__channel {
+    margin: 0px;
+    overflow: hidden;
+  }
+}
+
+/*=============================================
+  =           Desktop MQ                      =
+  =============================================*/
+@media (min-width: 1440px) {
+  .relatedVideos {
+    margin-left: 24px;
+
+    a {
+      margin-bottom: 38px;
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .videoCard {
+    &__text {
+      min-width: 183px;
+    }
+  }
+}
