@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SearchForm from './SearchForm'
+import SearchForm from "./SearchForm";
 // =============================================================================
 //                Header Section
 // =============================================================================
@@ -9,7 +9,7 @@ function Header(props) {
   return (
     <header>
       <div className="flexContainer">
-        <Link to="/" className="logo"></Link>
+        <Link to="/" className="logo" />
         <SearchForm />
       </div>
     </header>
