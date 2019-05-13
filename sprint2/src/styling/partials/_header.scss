@@ -129,10 +129,11 @@ header {
 
       #searchForm__searchButton{
         margin: 0px 16px 0px 0px;
-        max-width: 160px;
+        max-width: 120px;
       }
       .uploadContainer {
         margin-top: 0px;
+        min-width: 180px;
         max-width: 200px;
       }
     }

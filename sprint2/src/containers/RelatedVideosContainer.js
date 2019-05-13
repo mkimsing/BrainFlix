@@ -28,6 +28,27 @@ class RelatedVideosContainer extends Component {
       })
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.id === prevProps.id) {
+      return; // Prevent repeat calls as per documentation
+    }
+    this.setState({
+      error: {
+        caught: false,
+        response: ''
+      }
+    })
+  }
+
+  unsetError = () => {
+    this.setState({
+      error: {
+        caught: false,
+        response: ''
+      }
+    })
+  }
+
   render() {
     if (this.state.error.caught) {
       return <AxiosError error={this.state.error.response} unsetError={this.unsetError} />

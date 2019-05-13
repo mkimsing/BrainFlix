@@ -48,9 +48,7 @@ class UploadForm extends React.Component {
     if (this.state.toSearch === true) {
       let location = {
         pathname: '/search',
-        query: {
-          search: this.state.query
-        }
+        search: `filter=${this.state.query}`
       }
       return <Redirect to={location} />
     }

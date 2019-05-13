@@ -323,10 +323,11 @@ header {
   }
   .flexContainer #searchForm #searchForm__searchButton {
     margin: 0px 16px 0px 0px;
-    max-width: 160px;
+    max-width: 120px;
   }
   .flexContainer #searchForm .uploadContainer {
     margin-top: 0px;
+    min-width: 180px;
     max-width: 200px;
   }
 }
@@ -1334,6 +1335,17 @@ h1 {
   }
   .upload-container form textarea {
     height: 100%;
+  }
+}
+
+.searchResults {
+  margin: 10px 16px;
+}
+
+@media (min-width: 768px) {
+  .searchResults {
+    margin-left: 24px;
+    margin-right: 24px;
   }
 }
 

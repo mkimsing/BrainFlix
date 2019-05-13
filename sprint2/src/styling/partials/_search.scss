@@ -1,0 +1,11 @@
+.searchResults{
+  margin: 10px 16px;
+}
+
+@media (min-width: 768px){
+  .searchResults{
+
+    margin-left: 24px;
+    margin-right: 24px;
+  }
+}
