@@ -9,7 +9,7 @@ import avatars from "../utils/avatars"; //Import avatar array
 import apiInfo from "../utils/apiInfo";
 import axios from "axios";
 
-import AxiosError from "../components/Errors/AxiosError";
+import AxiosError from "../components/errors/AxiosError";
 
 //TODO rename this if needed (is different from file name)
 class MainVideoContainer extends Component {
@@ -24,7 +24,7 @@ class MainVideoContainer extends Component {
       }, //Need blank data to avoid undefined errors for now
       error: {
         caught: false,
-        response: ''
+        response: ""
       }
     };
     this.randomAvatars = this.randomizeArray(avatars); //TODO check if Issue with re-randomizing
@@ -73,14 +73,14 @@ class MainVideoContainer extends Component {
         });
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
         this.setState({
           error: {
             caught: true,
             response: error.response
           }
-        })
-      })
+        });
+      });
   };
 
   componentDidMount() {
@@ -90,18 +90,18 @@ class MainVideoContainer extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.match.params.id === prevProps.match.params.id) {
       return; // Prevent repeat calls
-    }
-    else {
+    } else {
       //TODO cancel these async calls when component unmounts (happens if error)
       this.fetchVideoData();
-      this.setState({
-        error: {
-          caught: false,
-          response: ''
-        }
-      },
+      this.setState(
+        {
+          error: {
+            caught: false,
+            response: ""
+          }
+        },
         window.scrollTo(0, 0) //Scroll to top after we update which video is showing
-      )
+      );
     }
   }
 
@@ -109,7 +109,7 @@ class MainVideoContainer extends Component {
     axios
       .post(
         `${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments${
-        apiInfo.API_KEY
+          apiInfo.API_KEY
         }`,
         { name: "Mohan Muruge", comment: commentText }
       )
@@ -127,14 +127,14 @@ class MainVideoContainer extends Component {
         });
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
         this.setState({
           error: {
             caught: true,
             response: error.response
           }
-        })
-      })
+        });
+      });
   };
 
   deleteComment = commentId => {
@@ -145,11 +145,11 @@ class MainVideoContainer extends Component {
     axios
       .delete(
         `${apiInfo.API_URL}/videos/${
-        this.state.mainVideoData.id
+          this.state.mainVideoData.id
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {
-        this.fetchVideoData();//As per requirements, re-query for new mainVideoData object
+        this.fetchVideoData(); //As per requirements, re-query for new mainVideoData object
       });
   };
 
@@ -161,10 +161,10 @@ class MainVideoContainer extends Component {
     this.setState({
       error: {
         caught: false,
-        response: ''
+        response: ""
       }
-    })
-  }
+    });
+  };
 
   render() {
     //Wait for content to be fetched
@@ -174,7 +174,12 @@ class MainVideoContainer extends Component {
 
     // Error handling
     if (this.state.error.caught) {
-      return <AxiosError error={this.state.error.response} unsetError={this.unsetError} />
+      return (
+        <AxiosError
+          error={this.state.error.response}
+          unsetError={this.unsetError}
+        />
+      );
     }
 
     let { video, duration, image, comments, id } = this.state.mainVideoData;
@@ -186,7 +191,7 @@ class MainVideoContainer extends Component {
           image={image}
         />
         <div className="mainFlexContainer">
-          <div className='mainContent'>
+          <div className="mainContent">
             <VideoMeta {...this.state.mainVideoData} />
             <CommentsContainer
               comments={comments.slice().reverse()}

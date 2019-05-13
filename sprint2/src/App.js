@@ -3,12 +3,12 @@ import Header from "./components/Header";
 import VideoPageContainer from "./containers/VideoPageContainer";
 
 import Upload from "./components/Upload";
-import ErrorBoundary from "./components/Errors/ErrorBoundary"
-import UnspecifiedRoute from "./components/Errors/UnspecifiedRoute"
-import Search from "./components/Search"
+import ErrorBoundary from "./components/errors/ErrorBoundary";
+import UnspecifiedRoute from "./components/errors/UnspecifiedRoute";
+import Search from "./components/Search";
 
 import { Switch, Route } from "react-router-dom";
-import "./styling/App.css";
+import "./styles/App.css";
 
 function App() {
   return (

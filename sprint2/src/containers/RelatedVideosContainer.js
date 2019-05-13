@@ -3,7 +3,7 @@ import RelatedVideo from "../components/RelatedVideo";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import apiInfo from "../utils/apiInfo";
-import AxiosError from "../components/Errors/AxiosError";
+import AxiosError from "../components/errors/AxiosError";
 class RelatedVideosContainer extends Component {
   state = {
     relatedVideos: [],
@@ -11,21 +11,22 @@ class RelatedVideosContainer extends Component {
   };
 
   componentDidMount() {
-    axios.get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY)
+    axios
+      .get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY)
       .then(response => {
         this.setState({
           relatedVideos: response.data
         });
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
         this.setState({
           error: {
             caught: true,
             response: error.response
           }
-        })
-      })
+        });
+      });
   }
 
   componentDidUpdate(prevProps) {
@@ -35,23 +36,28 @@ class RelatedVideosContainer extends Component {
     this.setState({
       error: {
         caught: false,
-        response: ''
+        response: ""
       }
-    })
+    });
   }
 
   unsetError = () => {
     this.setState({
       error: {
         caught: false,
-        response: ''
+        response: ""
       }
-    })
-  }
+    });
+  };
 
   render() {
     if (this.state.error.caught) {
-      return <AxiosError error={this.state.error.response} unsetError={this.unsetError} />
+      return (
+        <AxiosError
+          error={this.state.error.response}
+          unsetError={this.unsetError}
+        />
+      );
     }
     return (
       <>
