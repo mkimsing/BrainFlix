@@ -11,22 +11,24 @@ class Video extends React.Component {
     this.controlsBarElement = React.createRef();
     this.state = {
       videoDuration: this.formatDuration(0),
-      playBtnModifier: 'play--play'
-    }
+      playBtnModifier: "play--play"
+    };
   }
 
   componentDidMount() {
     this.setState({
       videoDuration: this.formatDuration(this.videoElement.current.currentTime)
-    })
+    });
 
     //Have interval tick every half second to update duration
     //TODO change this to only tick if video is playing, and stop when paused
     setInterval(() => {
       this.setState({
-        videoDuration: this.formatDuration(this.videoElement.current.currentTime)
-      })
-    }, 500)
+        videoDuration: this.formatDuration(
+          this.videoElement.current.currentTime
+        )
+      });
+    }, 500);
   }
 
   //TODO have this work when clicking the frame as well as button
@@ -35,34 +37,41 @@ class Video extends React.Component {
     if (video.paused) {
       video.play();
       this.setState({
-        playBtnModifier: 'play--pause'
-      })
-    }
-    else {
+        playBtnModifier: "play--pause"
+      });
+    } else {
       video.pause();
       this.setState({
-        playBtnModifier: 'play--play'
-      })
+        playBtnModifier: "play--play"
+      });
     }
-  }
+  };
 
   /**
    * Takes a number in seconds and formats in mm:ss
    * Note: will not work for times greater than 59:59
    */
-  formatDuration = (seconds) => {
+  formatDuration = seconds => {
     let str = new Date(1000 * seconds).toISOString().substr(15, 4);
     return str;
-  }
+  };
 
   render() {
     let { image, video, duration } = this.props;
     return (
       <div className="video">
         <div className="video__container">
-          <video className="video__frame" poster={image} src={video} ref={this.videoElement} />
+          <video
+            className="video__frame"
+            poster={image}
+            src={video}
+            ref={this.videoElement}
+          />
           <div className="video__controls">
-            <button className={`play ${this.state.playBtnModifier}`} onClick={this.togglePlay} />
+            <button
+              className={`play ${this.state.playBtnModifier}`}
+              onClick={this.togglePlay}
+            />
             <div className="scrubBar">
               <div className="scrubBar__timeline">
                 <div className="scrubBar__scrub" />

@@ -20,7 +20,7 @@ function App() {
         duration={sampleVideoData.duration}
         image={sampleVideoData.image}
       />
-      <div className='mainFlexContainer'>
+      <div className="mainFlexContainer">
         <div>
           <VideoMeta {...sampleVideoData} />
           <Comments comments={sampleVideoData.comments} />
