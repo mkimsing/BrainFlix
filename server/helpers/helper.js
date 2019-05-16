@@ -65,7 +65,7 @@ function populateData() {
         }
       );
       console.log("Finished writing files!");
-    }, 5000);
+    }, 4000);
   });
 }
 
@@ -75,7 +75,6 @@ function writeJSONFile(filename, content) {
       console.log(err);
     }
   });
-  console.log(`changes saved to file ${filename}....`);
 }
 
 function readJSONFile(filename) {
