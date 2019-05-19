@@ -56,7 +56,6 @@ const mainVideoController = {
         });
         helper.writeJSONFile(VideosList_File, videoList)
 
-
         return newVideo;
       } else {
         return ({
@@ -108,7 +107,35 @@ const mainVideoController = {
       };
       foundVideo.comments.push(newComment);
       helper.writeJSONFile(MainVideos_File, mainVideos)
-      return `Added new comment to video with ID: ${id}`;
+      return newComment;
+    }
+  },
+  deleteComment: (videoId, commentId) => {
+    let mainVideos = helper.readJSONFile(MainVideos_File);
+    if (!mainVideos.some(video => video.id === videoId)) {
+      return ({
+        errorCode: 404,
+        errorMsg: `Video with ID: ${videoId} not found`
+      })
+    }
+    else {
+      let foundVideo = mainVideos.find(video => {
+        return video.id === videoId;
+      });
+      let commentToDelete = foundVideo.comments.find(comment => {
+        return comment.id === commentId
+      })
+      if (!commentToDelete) {
+        return ({
+          errorCode: 404,
+          errorMsg: `Comment with ID: ${commentId} not found`
+        })
+      }
+      else {
+        foundVideo.comments.splice(foundVideo.comments.indexOf(commentToDelete), 1)
+        helper.writeJSONFile(MainVideos_File, mainVideos)
+        return commentToDelete;
+      }
     }
   }
 }

@@ -50,4 +50,14 @@ router.post("/:id/comments", (req, res) => {
   }
 });
 
+//Delete comment
+router.delete("/:videoId/comments/:commentId", (req, res) => {
+  let response = mainVideosController.deleteComment(req.params.videoId, req.params.commentId);
+  if (response.errorCode) {
+    res.status(response.errorCode).send(response.errorMsg)
+  } else {
+    res.status(200).send(response)
+  }
+})
+
 module.exports = router;
