@@ -3,7 +3,6 @@ import vidThumb from "../assets/Images/Upload-video-preview.jpg";
 import { Link } from "react-router-dom";
 
 function Upload(props) {
-  console.log(props)
   /**
     * Check if fields are empty/default value and call functions to apply/remove error styling
     */
@@ -19,7 +18,7 @@ function Upload(props) {
   let { publishVideo, submissionMsg, submissionMsgClass, handleSuccessMessage, handleErrorMessage } = props;
   let submitHandler = (event) => {
     event.preventDefault();
-
+    console.log(event)
     const titleField = event.target.videoTitle;
     const descriptionField = event.target.videoDescription;
     if (!isEmptySubmission(titleField) && !isEmptySubmission(descriptionField)) {

@@ -8,13 +8,12 @@ import AxiosError from "../components/errors/AxiosError";
 
 export default class UploadContainer extends Component {
   state = {
-    submissionMsg: "Comment text is required!",
+    submissionMsg: "Please enter a title and a description!",
     submissionMsgClass: "submissionMsg--hidden",
     error: {}
   }
 
-  publishVideo = (event) => {
-    event.preventDefault();
+  publishVideo = (title, description) => {
     console.log('Uploading!')
     axios
       .post(
@@ -22,16 +21,20 @@ export default class UploadContainer extends Component {
         apiInfo.API_KEY
         }`,
         {
-          title: event.target.videoTitle.value,
+          title: title,
           channel: "Mohan Muruge",
           image: vidThumb,
-          description: event.target.videoDescription.value,
+          description: description,
           video: 'https://project-2-api.herokuapp.com/stream',
           duration: '3:22'
         }
       )
       .then(response => {
-        // Set state for other components to update?
+        // Navigate user to their newly published video
+        let location = {
+          pathname: `/videos/${response.data.id}`,
+        }
+        this.props.history.push(location)
       })
       .catch(error => {
         console.log(error);
@@ -67,7 +70,7 @@ export default class UploadContainer extends Component {
     if (applyStyling) {
       newClass = ["submissionMsg--error"];
       this.setState({
-        submissionMsg: "Please enter a Title and a Description!"
+        submissionMsg: "Please enter a title and a description!"
       });
     } else {
       newClass = ["submissionMsg--hidden"];

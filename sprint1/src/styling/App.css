@@ -1,3 +1,9 @@
+/*=============================================
+=            Colors                          =
+=============================================*/
+/*=============================================
+=            Import font family            =
+=============================================*/
 @font-face {
   font-family: AvenirNext;
   src: url("../assets/fonts/Avenir-Regular.otf");
@@ -15,6 +21,9 @@
   font-weight: bold;
 }
 
+/*=============================================
+=    Baseline Comment Sizing/Styles           =
+=============================================*/
 body {
   font-family: AvenirNext;
 }
@@ -58,6 +67,9 @@ body h5 {
   }
 }
 
+/*=============================================
+=        Styling for Header Block            =
+=============================================*/
 header {
   margin: 0px 16px 16px 16px;
 }
@@ -156,6 +168,9 @@ header {
   min-width: 48px;
 }
 
+/*=============================================
+=            Tablet MQ            =
+=============================================*/
 @media (min-width: 768px) {
   header {
     margin: 16px 24px 16px 24px;
@@ -191,6 +206,9 @@ header {
   }
 }
 
+/*=============================================
+=            Desktop MQ           =
+=============================================*/
 @media (min-width: 1440px) {
   header {
     margin: 16px 180px;
@@ -200,6 +218,9 @@ header {
   }
 }
 
+/*=============================================
+=            Styling for Video Section        =
+=============================================*/
 .video {
   position: relative;
   background-color: black;
@@ -331,6 +352,9 @@ header {
   background-color: transparent;
 }
 
+/*=============================================
+=            Tablet MQ                     =
+=============================================*/
 @media (min-width: 768px) {
   .video__container {
     margin: 0px 24px;
@@ -359,6 +383,9 @@ header {
   }
 }
 
+/*=============================================
+=            Desktop MQ                     =
+=============================================*/
 @media (min-width: 1440px) {
   .video {
     height: 38vw;
@@ -388,6 +415,10 @@ header {
   }
 }
 
+/*============================================
+=            Styling for Video Description   =
+=            and Meta Data                   =
+==============================================*/
 .videoMeta {
   margin-bottom: 28px;
 }
@@ -488,6 +519,9 @@ header {
   color: #e1e1e1;
 }
 
+/*=============================================
+=            Tablet MQ                      =
+=============================================*/
 @media (min-width: 768px) {
   .videoMeta {
     margin-bottom: 64px;
@@ -521,6 +555,9 @@ header {
   }
 }
 
+/*=============================================
+=            Desktop MQ                     =
+=============================================*/
 @media (min-width: 1440px) {
   .videoMeta .description {
     width: 85%;
@@ -530,6 +567,9 @@ header {
   }
 }
 
+/*=============================================
+=    Styling for comment submission block     =
+=============================================*/
 .avatar {
   border-radius: 50%;
   -o-object-fit: cover;
@@ -624,31 +664,6 @@ header {
   background-color: #0065ad;
 }
 
-@media (min-width: 768px) {
-  .submission {
-    margin-top: 20px;
-  }
-  .submission__container {
-    margin-bottom: 24px;
-  }
-  .submission__container form {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  .submission__container textarea {
-    height: 45px;
-    width: 100%;
-  }
-  .submission__container button {
-    margin: 0px;
-    margin-left: 16px;
-    margin-right: 40px;
-    width: 230px;
-  }
-}
-
 .success-tip, .submissionMsg--success {
   display: block;
   background-color: #dff2bf;
@@ -680,6 +695,9 @@ header {
   left: 31px;
 }
 
+/*
+ *  Styling for comment submission msgs/tips (error and success)
+ */
 .submissionMsg--success {
   margin-top: 15px;
   margin-bottom: 5px;
@@ -727,6 +745,37 @@ header {
   display: none;
 }
 
+/*=============================================
+=            Tablet MQ            =
+=============================================*/
+@media (min-width: 768px) {
+  .submission {
+    margin-top: 20px;
+  }
+  .submission__container {
+    margin-bottom: 24px;
+  }
+  .submission__container form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .submission__container textarea {
+    height: 45px;
+    width: 100%;
+  }
+  .submission__container button {
+    margin: 0px;
+    margin-left: 16px;
+    margin-right: 40px;
+    width: 230px;
+  }
+}
+
+/*=============================================
+  =     Styling for displayed comments          =
+  =============================================*/
 .comment {
   margin: 16px 0px;
   display: -webkit-box;
@@ -800,6 +849,9 @@ header {
   }
 }
 
+/*=============================================
+=            Tablet MQ          =
+=============================================*/
 @media (min-width: 768px) {
   .comment {
     margin-top: 24px;
@@ -818,6 +870,9 @@ header {
   }
 }
 
+/*=============================================
+  =    Styling for related videos list           =
+  =============================================*/
 .relatedVideos {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -879,6 +934,9 @@ header {
   overflow: hidden;
 }
 
+/*=============================================
+  =           Desktop MQ                      =
+  =============================================*/
 @media (min-width: 1440px) {
   .relatedVideos {
     margin-left: 24px;

@@ -1424,6 +1424,7 @@ hr {
   .mainContent {
     border-right: solid 2px #e1e1e1;
     padding-bottom: 20px;
+    width: 100%;
   }
   .mainFlexContainer {
     margin: 0px 180px;

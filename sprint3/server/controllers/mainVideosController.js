@@ -50,7 +50,7 @@ const mainVideoController = {
         let videoList = helper.readJSONFile(VideosList_File)
         videoList.push({
           id: newVideo.id,
-          title: newVideo.id,
+          title: newVideo.title,
           channel: newVideo.channel,
           image: newVideo.image
         });

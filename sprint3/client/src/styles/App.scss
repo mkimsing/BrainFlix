@@ -36,7 +36,8 @@ hr {
 @media (min-width: 1440px) {
   .mainContent{
     border-right: solid 2px $MERCURY;
-      padding-bottom: 20px;
+    padding-bottom: 20px;
+    width: 100%; //Prevent column collapsing if short title/description
   }
   .mainFlexContainer {
     margin: 0px 180px;
