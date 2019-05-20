@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import apiInfo from "../utils/apiInfo";
 import AxiosError from "./errors/AxiosError";
 import axios from "axios";
 
-import AsyncSelect from 'react-select/lib/Async'
-export default class AutoCompleteSearch extends Component {
+import AsyncSelect from "react-select/lib/Async";
+class AutoCompleteSearch extends Component {
   state = {
     allVideos: [],
     error: {
@@ -17,20 +17,22 @@ export default class AutoCompleteSearch extends Component {
     return videos.filter(video => {
       return video.title.toLowerCase().includes(query.toLowerCase());
     });
-  }
+  };
 
-  createOptions = (inputValue) => {
-    new Promise((resolve, reject) => {
+  createOptions = inputValue => {
+    return new Promise((resolve, reject) => {
       axios
         .get(apiInfo.API_URL + "/videos" + apiInfo.API_KEY)
         .then(response => {
-          let options = this.filterVideos(response.data, inputValue).map(video => {
-            return { label: video.title, value: video.id }
-          });
-          resolve(options)
+          let options = this.filterVideos(response.data, inputValue).map(
+            video => {
+              return { label: video.title, value: video.id };
+            }
+          );
+          resolve(options);
         })
         .catch(error => {
-          reject(error)
+          reject(error);
           console.log(error);
           this.setState({
             error: {
@@ -39,25 +41,17 @@ export default class AutoCompleteSearch extends Component {
             }
           });
         });
-    })
-  }
-
-  promiseOptions = inputValue =>
-    new Promise(resolve => {
-      setTimeout(() => {
-        resolve([
-          { label: "Apple", value: 1 },
-          { label: "Facebook", value: 2 },
-          { label: "Netflix", value: 3 },
-          { label: "Tesla", value: 4 },
-          { label: "Amazon", value: 5 },
-          { label: "Alphabet", value: 6 },
-        ]);
-      }, 1000);
     });
+  };
+
+  handleSelectChange = selectedOption => {
+    let location = {
+      pathname: `/videos/${selectedOption.value}`
+    };
+    this.props.history.push(location);
+  };
 
   render() {
-    console.log(this.promiseOptions())
     if (this.state.error.caught) {
       return (
         <AxiosError
@@ -67,7 +61,14 @@ export default class AutoCompleteSearch extends Component {
       );
     }
     return (
-      <AsyncSelect cacheOptions defaultOptions loadOptions={this.createOptions} />
-    )
+      <AsyncSelect
+        cacheOptions
+        defaultOptions
+        loadOptions={this.createOptions}
+        onChange={this.handleSelectChange}
+      />
+    );
   }
 }
+
+export default AutoCompleteSearch;
