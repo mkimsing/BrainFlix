@@ -85,7 +85,12 @@ h1 {
     font-family: AvenirNext;
     background: $BLUE;
     height: $btnHeights;
-    &:hover {
+    &:hover:enabled{
+      background-color: $DARKBLUE;
+    }
+
+    &:disabled{
+      opacity: 0.4;
       background-color: $DARKBLUE;
     }
   }

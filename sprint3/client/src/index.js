@@ -5,9 +5,13 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import { LastLocationProvider } from 'react-router-last-location'
+
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <LastLocationProvider>
+      <App />
+    </LastLocationProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

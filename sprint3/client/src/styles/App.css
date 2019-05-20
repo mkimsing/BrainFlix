@@ -1304,7 +1304,12 @@ h1 {
   height: 48px;
 }
 
-.upload-container .publishBtn:hover {
+.upload-container .publishBtn:hover:enabled {
+  background-color: #0065ad;
+}
+
+.upload-container .publishBtn:disabled {
+  opacity: 0.4;
   background-color: #0065ad;
 }
 

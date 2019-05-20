@@ -109,7 +109,7 @@ class MainVideoContainer extends Component {
     axios
       .post(
         `${apiInfo.API_URL}/videos/${this.state.mainVideoData.id}/comments${
-          apiInfo.API_KEY
+        apiInfo.API_KEY
         }`,
         { name: "Mohan Muruge", comment: commentText }
       )
@@ -145,7 +145,7 @@ class MainVideoContainer extends Component {
     axios
       .delete(
         `${apiInfo.API_URL}/videos/${
-          this.state.mainVideoData.id
+        this.state.mainVideoData.id
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
       .then(response => {

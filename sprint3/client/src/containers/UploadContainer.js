@@ -13,8 +13,7 @@ export default class UploadContainer extends Component {
     error: {}
   }
 
-  publishVideo = (title, description) => {
-    console.log('Uploading!')
+  publishVideo = (title, description, publishBtn) => {
     axios
       .post(
         `${apiInfo.API_URL}/videos${
@@ -30,11 +29,15 @@ export default class UploadContainer extends Component {
         }
       )
       .then(response => {
-        // Navigate user to their newly published video
-        let location = {
-          pathname: `/videos/${response.data.id}`,
-        }
-        this.props.history.push(location)
+        // Navigate user to their newly published video after brief time
+        publishBtn.disabled = true;
+        setTimeout(() => {
+          let location = {
+            pathname: `/videos/${response.data.id}`,
+          }
+          publishBtn.disabled = false;
+          this.props.history.push(location)
+        }, 1700)
       })
       .catch(error => {
         console.log(error);
@@ -53,7 +56,7 @@ export default class UploadContainer extends Component {
     if (applyStyling) {
       newClass = ["submissionMsg--success"];
       this.setState({
-        submissionMsg: "Thanks for Uploading!"
+        submissionMsg: "Thanks for Uploading! Taking you to your video soon..."
       });
     } else {
       newClass = ["submissionMsg--hidden"];

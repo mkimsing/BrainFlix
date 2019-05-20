@@ -21,6 +21,10 @@ class VideoFrame extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalRef);
+  }
+
   //TODO have this work when clicking the frame as well as button
   togglePlay = () => {
     let video = this.videoElement.current;
@@ -53,7 +57,6 @@ class VideoFrame extends React.Component {
   }
 
   handleVolume = (event) => {
-    console.log(event.target.value)
     let video = this.videoElement.current;
     video.volume = event.target.value / 100
   }
