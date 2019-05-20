@@ -447,6 +447,7 @@ header {
 }
 
 .video__controls .buttons-right {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -487,6 +488,48 @@ header {
   background-color: transparent;
 }
 
+.video__controls .volume:hover ~ .volume-slider-wrapper, .video__controls .volume:focus ~ .volume-slider-wrapper, .video__controls .volume:active ~ .volume-slider-wrapper {
+  display: block;
+  position: absolute;
+  top: -95px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.55);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 4px;
+  padding: 5px;
+  height: 36px;
+}
+
+.video__controls .volume-slider-wrapper {
+  display: none;
+}
+
+.video__controls .volume-slider-wrapper:hover {
+  display: block;
+  position: absolute;
+  top: -95px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.55);
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 4px;
+  padding: 5px;
+  height: 36px;
+}
+
 /*=============================================
 =            Tablet MQ                     =
 =============================================*/
@@ -521,6 +564,19 @@ header {
   .video__controls .scrubBar, .video__controls .fullscreen, .video__controls .volume {
     background-size: 50%;
   }
+  .video__controls .volume:hover ~ .volume-slider-wrapper, .video__controls .volume:focus ~ .volume-slider-wrapper {
+    left: -10px;
+    height: 25px;
+    top: -90px;
+  }
+  .video__controls .volume-slider-wrapper {
+    display: none;
+  }
+  .video__controls .volume-slider-wrapper:hover {
+    left: -10px;
+    height: 25px;
+    top: -90px;
+  }
 }
 
 /*=============================================
@@ -552,6 +608,15 @@ header {
   }
   .video__controls .play {
     margin-left: 16px;
+  }
+  .video__controls .volume:hover ~ .volume-slider-wrapper, .video__controls .volume:focus ~ .volume-slider-wrapper {
+    left: -20px;
+  }
+  .video__controls .volume-slider-wrapper {
+    display: none;
+  }
+  .video__controls .volume-slider-wrapper:hover {
+    left: -20px;
   }
 }
 

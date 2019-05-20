@@ -80,6 +80,7 @@ $scrubHeight: 3%;
       }
     }
     .buttons-right {
+      position: relative; // To allow volume range slider to position absolute
       display: flex;
       justify-content: space-evenly;
       width: 95px;
@@ -110,9 +111,34 @@ $scrubHeight: 3%;
       background-color: transparent;
     }
 
+    @mixin volumeSliderWrapper() {
+        display:block;
+        position: absolute;
+        top: -95px;
+        left: 0px; // Needed to override media queries
+        background-color: rgba(black, 0.55);
+        transform: rotate(-90deg);
+        display:flex;
+        justify-content: center;
+        border-radius: 4px;
+        padding: 5px;
+        height: 36px;
+    }
+
     .volume {
       background-image: url("../assets/Icons/SVG/Icon-volume.svg");
       background-color: transparent;
+
+      &:hover~.volume-slider-wrapper, &:focus~.volume-slider-wrapper, &:active~.volume-slider-wrapper{
+        @include volumeSliderWrapper()
+      }
+    }
+
+    .volume-slider-wrapper{
+      display:none;
+      &:hover{
+        @include volumeSliderWrapper()
+      }
     }
   }
 }
@@ -156,6 +182,25 @@ $scrubHeight: 3%;
       .scrubBar, .fullscreen, .volume{
         background-size: 50%;
       }
+
+      @mixin volumeSliderWrapperTablet() {
+        left: -10px;
+        height: 25px;
+        top: -90px;
+      }
+
+      .volume {
+        &:hover~.volume-slider-wrapper, &:focus~.volume-slider-wrapper{
+          @include volumeSliderWrapperTablet();
+        }
+      }
+
+      .volume-slider-wrapper{
+        display:none;
+        &:hover{
+          @include volumeSliderWrapperTablet();
+        }
+      }
     }
   }
 } //Closes tablet media query
@@ -196,6 +241,23 @@ $desktop-video-margin: 248px; //rough edge margin (black bars) calculation for v
       }
       .play {
         margin-left: 16px;
+      }
+
+      @mixin volumeSliderWrapperDesktop() {
+        left: -20px
+      }
+
+      .volume {
+        &:hover~.volume-slider-wrapper, &:focus~.volume-slider-wrapper{
+          @include volumeSliderWrapperDesktop();
+        }
+      }
+
+      .volume-slider-wrapper{
+        display:none;
+        &:hover{
+          @include volumeSliderWrapperDesktop();
+        }
       }
     }
   }

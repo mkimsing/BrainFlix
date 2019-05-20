@@ -8,10 +8,9 @@ class VideoFrame extends React.Component {
   constructor(props) {
     super(props);
     this.videoElement = React.createRef();
-    this.controlsBarElement = React.createRef();
     this.state = {
       videoDuration: this.formatDuration(0),
-      playBtnModifier: "play--play"
+      playBtnModifier: "play--play",
     };
     this.intervalRef = "";
   }
@@ -48,6 +47,17 @@ class VideoFrame extends React.Component {
     }
   };
 
+  toggleFullScreen = () => {
+    let video = this.videoElement.current;
+    video.requestFullscreen()
+  }
+
+  handleVolume = (event) => {
+    console.log(event.target.value)
+    let video = this.videoElement.current;
+    video.volume = event.target.value / 100
+  }
+
   /**
    * Takes a number in seconds and formats in mm:ss
    * Note: will not work for times greater than 59:59
@@ -82,8 +92,11 @@ class VideoFrame extends React.Component {
               </div>
             </div>
             <div className="buttons-right">
-              <button className="fullscreen" />
+              <button className="fullscreen" onClick={this.toggleFullScreen} />
               <button className="volume" />
+              <div className="volume-slider-wrapper">
+                <input type='range' min='0' max='100' onChange={this.handleVolume} />
+              </div>
             </div>
           </div>
         </div>
