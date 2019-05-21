@@ -148,10 +148,32 @@ class MainVideoContainer extends Component {
         this.state.mainVideoData.id
         }/comments/${commentId}${apiInfo.API_KEY}`
       )
-      .then(response => {
+      .then(_response => {
         this.fetchVideoData(); //As per requirements, re-query for new mainVideoData object
       });
   };
+
+  likeComment = (commentId) => {
+    axios.put(
+      `${apiInfo.API_URL}/videos/${
+      this.state.mainVideoData.id
+      }/comments/${commentId}${apiInfo.API_KEY}`
+    )
+      .then(response => {
+        //Update state to include the new likes number for that comment
+        let comments = this.state.mainVideoData.comments
+        let commentToUpdate = comments.find(comment => {
+          return comment.id === response.data.id
+        })
+        commentToUpdate.likes = response.data.likes
+        this.setState({
+          mainVideoData: {
+            ...this.state.mainVideoData,
+            comments: comments
+          }
+        })
+      })
+  }
 
   isEmptyObj = obj => {
     return Object.keys(obj).length === 0;
@@ -197,6 +219,7 @@ class MainVideoContainer extends Component {
               comments={comments.slice().reverse()}
               submitComment={this.submitComment}
               deleteComment={this.deleteComment}
+              likeComment={this.likeComment}
             />
           </div>
           <RelatedVideosContainer mainId={id} />

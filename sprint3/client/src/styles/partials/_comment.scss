@@ -43,14 +43,50 @@
     }
   }
 
+  &__actionsContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .likesContainer {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    h5{
+      margin: 0px 5px;
+      font-size: 14px;
+      border-bottom: solid $BLUE 2px;
+      color: black;
+    }
+  }
+
+  &__like {
+    mask-image: url("../assets/Icons/SVG//Icon-thumbs-up.svg");
+    background-color: green;
+    color:green;
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+
+    border-radius: 0px;
+    border:5px solid;
+    width: 20px;
+    height: 20px;
+    // margin-right: auto;
+    &:hover {
+      color: red;
+      background-color: red;
+    }
+  }
+
   .deleteComment{
     border:none;
     border-radius: 4px;
     background-color: white;
     color: $BLUE;
     width: 50px;
-    margin-left:auto;
-    margin-top: 10px;
+    // margin-left:auto;
     &:hover{
       background-color: $DARKBLUE;
       color: white;

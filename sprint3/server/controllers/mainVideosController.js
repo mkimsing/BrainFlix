@@ -65,7 +65,7 @@ const mainVideoController = {
       }
     }
   },
-  incrementLikes: id => {
+  incrementVideoLikes: id => {
     let mainVideos = helper.readJSONFile(MainVideos_File)
     if (mainVideos.some(video => video.id === id)) {
       let foundVideo = mainVideos.find(video => {
@@ -108,6 +108,34 @@ const mainVideoController = {
       foundVideo.comments.push(newComment);
       helper.writeJSONFile(MainVideos_File, mainVideos)
       return newComment;
+    }
+  },
+  likeComment: (videoId, commentId) => {
+    let mainVideos = helper.readJSONFile(MainVideos_File);
+    if (!mainVideos.some(video => video.id === videoId)) {
+      return ({
+        errorCode: 404,
+        errorMsg: `Video with ID: ${videoId} not found`
+      })
+    }
+    else {
+      let foundVideo = mainVideos.find(video => {
+        return video.id === videoId;
+      });
+      let commentToLike = foundVideo.comments.find(comment => {
+        return comment.id === commentId
+      })
+      if (!commentToLike) {
+        return ({
+          errorCode: 404,
+          errorMsg: `Comment with ID: ${commentId} not found`
+        })
+      }
+      else {
+        commentToLike.likes++;
+        helper.writeJSONFile(MainVideos_File, mainVideos)
+        return commentToLike;
+      }
     }
   },
   deleteComment: (videoId, commentId) => {

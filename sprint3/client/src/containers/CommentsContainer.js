@@ -60,12 +60,15 @@ class Comments_Container extends Component {
           handleSuccessMessage={this.handleSuccessMessage}
         />
         {this.props.comments.map(comment => {
+          console.log(comment)
           return (
             <Comment
               comment={comment}
               deleteComment={this.props.deleteComment}
               id={comment.id}
               key={comment.id}
+              likes={comment.likes}
+              likeComment={this.props.likeComment}
             />
           );
         })}

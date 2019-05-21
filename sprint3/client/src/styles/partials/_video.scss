@@ -114,7 +114,7 @@ $scrubHeight: 3%;
     @mixin volumeSliderWrapper() {
         display:block;
         position: absolute;
-        top: -95px;
+        top: -94px;
         left: 0px; // Needed to override media queries
         background-color: rgba(black, 0.55);
         transform: rotate(-90deg);
@@ -186,7 +186,7 @@ $scrubHeight: 3%;
       @mixin volumeSliderWrapperTablet() {
         left: -10px;
         height: 25px;
-        top: -90px;
+        top: -89px;
       }
 
       .volume {

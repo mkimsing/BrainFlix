@@ -29,10 +29,10 @@ router.get("/:id", (req, res) => {
   }
 });
 
-//Increment likes in a comment
+//Increment likes in a video
 //Response message: `Incremented like counter for ${id} to ${numLikes}`
 router.put("/:id/likes", (req, res) => {
-  let response = mainVideosController.incrementLikes(req.params.id);
+  let response = mainVideosController.incrementVideoLikes(req.params.id);
   if (response.errorCode) {
     res.status(response.errorCode).send(response.errorMsg)
   } else {
@@ -53,6 +53,16 @@ router.post("/:id/comments", (req, res) => {
 //Delete comment
 router.delete("/:videoId/comments/:commentId", (req, res) => {
   let response = mainVideosController.deleteComment(req.params.videoId, req.params.commentId);
+  if (response.errorCode) {
+    res.status(response.errorCode).send(response.errorMsg)
+  } else {
+    res.status(200).send(response)
+  }
+})
+
+//Like comment
+router.put("/:videoId/comments/:commentId", (req, res) => {
+  let response = mainVideosController.likeComment(req.params.videoId, req.params.commentId);
   if (response.errorCode) {
     res.status(response.errorCode).send(response.errorMsg)
   } else {
