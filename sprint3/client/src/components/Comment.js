@@ -9,6 +9,9 @@ class Comment extends React.Component {
     }
   }
 
+  //Methods to handle the delete confirmation dialogue
+
+  //Toggle Dialogue
   deleteHandler = () => {
     if (this.state.deleteConfirmClass === 'cancelConfirmation--hide') {
       this.setState({
