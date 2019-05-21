@@ -219,13 +219,16 @@ header {
   width: 100%;
 }
 
+.flexContainer #searchForm .searchForm__input:active {
+  border-color: #0095ff;
+}
+
 .flexContainer #searchForm .searchForm__input__control {
   height: 48px;
   width: 100%;
   background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat #FAFAFA;
   background-size: 20px;
-  background-position: calc(3% + 5px) 50%;
-  text-indent: calc(20px + 8px + 3%);
+  background-position: 16px 50%;
   border: 1px #e1e1e1 solid;
   border-radius: 4px;
   -webkit-box-sizing: border-box;
@@ -233,6 +236,7 @@ header {
   font-family: AvenirNext;
   font-size: 14px;
   line-height: 18px;
+  text-indent: calc(20px + 12px + 3%);
 }
 
 .flexContainer #searchForm .searchForm__input__control:active {
@@ -245,6 +249,10 @@ header {
 
 .flexContainer #searchForm .searchForm__input__single-value {
   width: 100%;
+}
+
+.flexContainer #searchForm .searchForm__input__input {
+  text-indent: 0px;
 }
 
 .flexContainer #searchForm .searchFrom__input #searchForm__searchButton {
@@ -1411,9 +1419,6 @@ h1 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
     -ms-flex-preferred-size: 45%;
         flex-basis: 45%;
   }

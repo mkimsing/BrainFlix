@@ -45,10 +45,12 @@ class AutoCompleteSearch extends Component {
   };
 
   handleSelectChange = selectedOption => {
-    let location = {
-      pathname: `/videos/${selectedOption.value}`
-    };
-    this.props.history.push(location);
+    if (selectedOption) {
+      let location = {
+        pathname: `/videos/${selectedOption.value}`
+      };
+      this.props.history.push(location);
+    }
   };
 
   render() {
@@ -63,9 +65,12 @@ class AutoCompleteSearch extends Component {
     return (
       <AsyncSelect
         cacheOptions
-        defaultOptions
+        // defaultOptions
+        noOptionsMessage={() => { return `Enter a value to search` }}
+        isClearable
         loadOptions={this.createOptions}
         onChange={this.handleSelectChange}
+        placeholder={`Search`}
         className={`searchForm__input`}
         classNamePrefix={`searchForm__input`}
       />
