@@ -215,7 +215,11 @@ header {
       flex-wrap: wrap;
 }
 
-.flexContainer #searchForm__input {
+.flexContainer #searchForm .searchForm__input {
+  width: 100%;
+}
+
+.flexContainer #searchForm .searchForm__input__control {
   height: 48px;
   width: 100%;
   background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat #FAFAFA;
@@ -231,11 +235,19 @@ header {
   line-height: 18px;
 }
 
-.flexContainer #searchForm__input:active {
+.flexContainer #searchForm .searchForm__input__control:active {
   border-color: #0095ff;
 }
 
-.flexContainer #searchForm #searchForm__searchButton {
+.flexContainer #searchForm .searchForm__input__value__container {
+  width: 100%;
+}
+
+.flexContainer #searchForm .searchForm__input__single-value {
+  width: 100%;
+}
+
+.flexContainer #searchForm .searchFrom__input #searchForm__searchButton {
   margin-bottom: 8px;
   padding-top: 5px;
   width: 100%;
@@ -247,7 +259,7 @@ header {
   background-color: #0095ff;
 }
 
-.flexContainer #searchForm #searchForm__searchButton:hover {
+.flexContainer #searchForm .searchFrom__input #searchForm__searchButton:hover {
   background-color: #0065ad;
 }
 
@@ -325,7 +337,7 @@ header {
         flex-wrap: nowrap;
     width: 100%;
   }
-  .flexContainer #searchForm__input {
+  .flexContainer #searchForm .searchForm__input {
     margin-right: 24px;
   }
   .flexContainer #searchForm #searchForm__searchButton {

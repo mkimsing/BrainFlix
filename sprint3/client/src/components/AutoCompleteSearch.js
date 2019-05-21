@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import apiInfo from "../utils/apiInfo";
 import AxiosError from "./errors/AxiosError";
 import axios from "axios";
-
+import { withRouter } from "react-router-dom";
 import AsyncSelect from "react-select/lib/Async";
 class AutoCompleteSearch extends Component {
   state = {
@@ -66,9 +66,11 @@ class AutoCompleteSearch extends Component {
         defaultOptions
         loadOptions={this.createOptions}
         onChange={this.handleSelectChange}
+        className={`searchForm__input`}
+        classNamePrefix={`searchForm__input`}
       />
     );
   }
 }
 
-export default AutoCompleteSearch;
+export default withRouter(AutoCompleteSearch);

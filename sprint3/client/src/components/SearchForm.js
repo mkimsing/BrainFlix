@@ -1,22 +1,23 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
+import AutoCompleteSearch from "./AutoCompleteSearch";
 class SearchForm extends React.Component {
-
-  submitHandler = (event) => {
+  submitHandler = event => {
     event.preventDefault();
     let location = {
-      pathname: '/search',
+      pathname: "/search",
       search: `filter=${event.target.searchField.value}`
-    }
-    event.target.searchField.value = '';
-    this.props.history.push(location)
-  }
+    };
+    event.target.searchField.value = "";
+    this.props.history.push(location);
+  };
 
   render() {
     return (
       <form id="searchForm" onSubmit={this.submitHandler}>
-        <button id='searchForm__searchButton'> Search </button>
-        <input type="text" placeholder="Search" id="searchForm__input" name="searchField" />
+        {/* <button id='searchForm__searchButton'> Search </button> */}
+        {/* <input type="text" placeholder="Search" id="searchForm__input" name="searchField" /> */}
+        <AutoCompleteSearch />
         <div className="uploadContainer">
           <Link to="/upload">
             <button id="searchForm__uploadButton">UPLOAD</button>
@@ -28,4 +29,4 @@ class SearchForm extends React.Component {
   }
 }
 
-export default withRouter(SearchForm)
+export default withRouter(SearchForm);
