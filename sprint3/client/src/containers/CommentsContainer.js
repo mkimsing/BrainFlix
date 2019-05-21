@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Comment from "../components/Comment";
 import CommentSubmission from "../components/CommentSubmission";
-
+import { withRouter } from 'react-router-dom'
 import avatar_mohan from "../assets/Images/Mohan-muruge.jpg"; // Ensure we have avatar image
 
 class Comments_Container extends Component {
@@ -47,6 +47,13 @@ class Comments_Container extends Component {
     });
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.match.params.id !== prevProps.match.params.id) {
+      //If path/page has changed, remove error msg
+      this.handleErrorMessage(false)
+    }
+  }
+
   render() {
     return (
       <section>
@@ -76,4 +83,4 @@ class Comments_Container extends Component {
   }
 }
 
-export default Comments_Container;
+export default withRouter(Comments_Container);

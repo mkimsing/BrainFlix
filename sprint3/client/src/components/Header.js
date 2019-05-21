@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm";
-// =============================================================================
-//                Header Section
-// =============================================================================
-//TODO use link around logo
+
 function Header(props) {
   return (
     <header>

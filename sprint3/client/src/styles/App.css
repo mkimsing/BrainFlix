@@ -239,7 +239,7 @@ header {
   text-indent: calc(20px + 12px + 3%);
 }
 
-.flexContainer #searchForm .searchForm__input__control:active {
+.flexContainer #searchForm .searchForm__input__control:active, .flexContainer #searchForm .searchForm__input__control:focus {
   border-color: #0095ff;
 }
 
@@ -1128,6 +1128,52 @@ header {
   color: white;
 }
 
+.comment .cancelConfirmation--hide {
+  display: none;
+}
+
+.comment .cancelConfirmation--show {
+  display: block;
+  margin: 5px auto 0px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.comment .cancelConfirmation--show h5 {
+  margin: 0px 10px 0px 0px;
+  font-size: 14px;
+}
+
+.comment .cancelConfirmation--show button {
+  border: none;
+  border-radius: 4px;
+  background-color: white;
+  width: 80px;
+}
+
+.comment .cancelConfirmation--show .cancel {
+  margin-right: 5px;
+  color: #0095ff;
+}
+
+.comment .cancelConfirmation--show .cancel:hover {
+  background-color: #0065ad;
+  color: white;
+}
+
+.comment .cancelConfirmation--show .confirm {
+  color: #cc0033;
+}
+
+.comment .cancelConfirmation--show .confirm:hover {
+  background-color: red;
+  color: white;
+}
+
 @media (max-width: 370px) {
   .comment .comment__titleContainer {
     -webkit-box-orient: vertical;
@@ -1489,52 +1535,6 @@ h1 {
   }
   .upload-container form textarea {
     height: 100%;
-  }
-}
-
-.searchResults {
-  margin: 10px 16px;
-}
-
-.searchResults__videos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.searchResults__videos a, .searchResults__videos a * {
-  text-decoration: none;
-  color: black;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.searchResults__videos a {
-  margin-bottom: 24px;
-}
-
-.searchResults__videos a:last-child {
-  margin-bottom: 0px;
-}
-
-@media (min-width: 768px) {
-  .searchResults {
-    margin-left: 24px;
-    margin-right: 24px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .searchResults {
-    margin-left: 180px;
-    margin-right: 180px;
-  }
-  .searchResults__videos a {
-    margin-bottom: 44px;
   }
 }
 

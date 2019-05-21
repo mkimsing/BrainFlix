@@ -32,26 +32,6 @@ header {
     justify-content: center;
     flex-wrap: wrap;
 
-    // &__input {
-    //   height: $item-heights;
-    //   width: 100%;
-    //   background: url("../assets/Icons/SVG/Icon-search.svg") no-repeat
-    //     $ALABASTER;
-    //   background-size: $search-img-size;
-    //   background-position: calc(3% + 5px) 50%;
-    //   text-indent: calc(#{$search-img-size} + 8px + 3%);
-
-    //   border: 1px $MERCURY solid;
-    //   border-radius: 4px;
-    //   box-sizing: border-box;
-    //   font-family: AvenirNext;
-    //   font-size: 14px;
-    //   line-height: 18px;
-    //   &:active {
-    //     border-color: $BLUE;
-    //   }
-    // }
-
     .searchForm__input {
       //Select container
       width: 100%;
@@ -74,7 +54,7 @@ header {
         font-size: 14px;
         line-height: 18px;
         text-indent: calc(#{$search-img-size} + 12px + 3%);
-        &:active {
+        &:active, &:focus {
           border-color: $BLUE;
         }
       }

@@ -1,7 +1,5 @@
 import React from 'react'
-/**************************************
- * Submission Section
- **************************************/
+
 function CommentSubmission(props) {
 
   /**

@@ -4,6 +4,7 @@ import AxiosError from "./errors/AxiosError";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import AsyncSelect from "react-select/lib/Async";
+
 class AutoCompleteSearch extends Component {
   state = {
     allVideos: [],
@@ -19,6 +20,7 @@ class AutoCompleteSearch extends Component {
     });
   };
 
+  //Create options for autoselect
   createOptions = inputValue => {
     return new Promise((resolve, reject) => {
       axios
@@ -44,6 +46,7 @@ class AutoCompleteSearch extends Component {
     });
   };
 
+  //On selection, change path
   handleSelectChange = selectedOption => {
     if (selectedOption) {
       let location = {

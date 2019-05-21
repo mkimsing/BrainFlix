@@ -11,7 +11,7 @@ app.use(cors()); //Allow cross origin
 
 app.listen(PORT, () => {
   console.log(`Server now listening on port ${PORT}...`);
-  // require('./helpers/helper').populateData(); //Regenerate data from Brainstation API
+  // require('./helpers/helper').populateData(); //Used generate/regenerate data from Brainstation API
 });
 
 app.use("/videos", videosRouter);

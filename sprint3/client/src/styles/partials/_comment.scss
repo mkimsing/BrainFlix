@@ -86,10 +86,46 @@
     background-color: white;
     color: $BLUE;
     width: 50px;
-    // margin-left:auto;
     &:hover{
       background-color: $DARKBLUE;
       color: white;
+    }
+  }
+
+  .cancelConfirmation--hide{
+    display:none;
+  }
+
+  .cancelConfirmation--show{
+    display: block;
+    margin: 5px auto 0px auto;
+    display:flex;
+    align-items: center;
+    h5{
+      margin: 0px 10px 0px 0px;
+      font-size: 14px;
+    }
+    button{
+      border:none;
+      border-radius: 4px;
+      background-color: white;
+      width: 80px;
+    }
+
+    .cancel{
+      margin-right: 5px;
+      color: $BLUE;
+      &:hover{
+        background-color: $DARKBLUE;
+        color: white;
+      }
+    }
+    .confirm{
+      color: #cc0033;
+      &:hover{
+        background-color: red;
+        color: white;
+      }
     }
   }
   // Force date in comment onto new row when there isnt enough space (very small width)

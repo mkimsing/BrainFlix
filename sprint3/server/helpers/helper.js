@@ -33,7 +33,7 @@ function makeID(numDigits) {
   return id;
 }
 
-//Query the given API for data and create/reset JSON files
+//Query the Brainstation API for data and initially create or reset JSON files
 function populateData() {
   let mainVideosData = [];
   axios.get(`${API_URL}/videos${API_KEY}`).then(response => {

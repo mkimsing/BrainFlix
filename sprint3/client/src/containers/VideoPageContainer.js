@@ -138,10 +138,6 @@ class MainVideoContainer extends Component {
   };
 
   deleteComment = commentId => {
-    //TODO add better confirmation before deleting
-    if (!window.confirm("Are you sure you want to delete the comment?")) {
-      return;
-    }
     axios
       .delete(
         `${apiInfo.API_URL}/videos/${

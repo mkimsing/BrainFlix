@@ -5,7 +5,6 @@ import VideoPageContainer from "./containers/VideoPageContainer";
 import UploadContainer from "./containers/UploadContainer";
 import ErrorBoundary from "./components/errors/ErrorBoundary";
 import UnspecifiedRoute from "./components/errors/UnspecifiedRoute";
-import Search from "./components/Search";
 import AutoCompleteSearch from "./components/AutoCompleteSearch";
 import { Switch, Route } from "react-router-dom";
 import "./styles/App.css";
