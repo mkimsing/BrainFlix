@@ -29,14 +29,13 @@ router.get("/:id", (req, res) => {
   }
 });
 
-//Increment likes in a video
-//Response message: `Incremented like counter for ${id} to ${numLikes}`
+//Like a video
 router.put("/:id/likes", (req, res) => {
   let response = mainVideosController.incrementVideoLikes(req.params.id);
   if (response.errorCode) {
     res.status(response.errorCode).send(response.errorMsg)
   } else {
-    res.status(200).send(response)
+    res.status(200).json(response)
   }
 });
 

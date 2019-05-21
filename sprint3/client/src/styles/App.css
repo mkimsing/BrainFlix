@@ -738,6 +738,14 @@ header {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+  border: none;
+  border-bottom: 2px red solid;
+}
+
+.videoMeta .reactionMeta__likes .likesIcon:hover {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+  border: none;
 }
 
 .videoMeta hr {

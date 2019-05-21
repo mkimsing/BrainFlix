@@ -34,8 +34,8 @@ const mainVideoController = {
           channel: channel,
           image: image,
           description: description,
-          views: 0,
-          likes: 0,
+          views: '0',
+          likes: '0',
           duration: duration,
           video: video,
           timestamp: Date.now(),
@@ -74,7 +74,7 @@ const mainVideoController = {
       let numLikes = parseInt(foundVideo.likes.replace(/,/g, "")) + 1; // Remove commas and increment by 1
       foundVideo.likes = String(numLikes.toLocaleString("en-US")); //Add comma separators back
       helper.writeJSONFile(MainVideos_File, mainVideos)
-      return `Incremented like counter for ${id} to ${numLikes}`
+      return foundVideo;
     } else {
       return ({
         errorCode: 404,

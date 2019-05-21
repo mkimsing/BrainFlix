@@ -60,7 +60,6 @@ class Comments_Container extends Component {
           handleSuccessMessage={this.handleSuccessMessage}
         />
         {this.props.comments.map(comment => {
-          console.log(comment)
           return (
             <Comment
               comment={comment}

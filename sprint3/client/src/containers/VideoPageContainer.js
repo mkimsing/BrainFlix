@@ -175,6 +175,22 @@ class MainVideoContainer extends Component {
       })
   }
 
+  likeVideo = () => {
+    axios.put(
+      `${apiInfo.API_URL}/videos/${
+      this.state.mainVideoData.id
+      }/likes`
+    )
+      .then(response => {
+        this.setState({
+          mainVideoData: {
+            ...this.state.mainVideoData,
+            likes: response.data.likes
+          }
+        })
+      })
+  }
+
   isEmptyObj = obj => {
     return Object.keys(obj).length === 0;
   };
@@ -214,7 +230,9 @@ class MainVideoContainer extends Component {
         />
         <div className="mainFlexContainer">
           <div className="mainContent">
-            <VideoMeta {...this.state.mainVideoData} />
+            <VideoMeta
+              {...this.state.mainVideoData}
+              likeVideo={this.likeVideo} />
             <CommentsContainer
               comments={comments.slice().reverse()}
               submitComment={this.submitComment}
